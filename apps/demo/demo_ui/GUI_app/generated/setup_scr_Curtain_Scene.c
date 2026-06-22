@@ -451,6 +451,4 @@ void setup_scr_Curtain_Scene(lv_ui *ui)
     //Update current screen layout.
     lv_obj_update_layout(ui->Curtain_Scene);
 
-    //Init events for screen.
-    events_init_Curtain_Scene(ui);
 }

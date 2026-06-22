@@ -76,7 +76,6 @@ void init_scr_del_flag(lv_ui *ui)
 {
 
     ui->ui_home_screen_del = true;
-    ui->device_management_screen_del = true;
     ui->light_CT_screen_del = true;
     ui->LedStrip_del = true;
     ui->RGBLight_del = true;

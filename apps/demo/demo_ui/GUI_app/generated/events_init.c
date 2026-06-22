@@ -15,8 +15,7 @@
 #include "freemaster_client.h"
 #endif
 
-#include "Home.h"
-#include "device_management.h"
+#include "Home.h"
 
 
 #include "light_CT_screen.h"
@@ -42,73 +41,18 @@ static void ui_home_screen_event_handler (lv_event_t *e)
         home_on_screen_load();
         break;
     }
-    case LV_EVENT_GESTURE:
-    {
-        lv_dir_t dir = lv_indev_get_gesture_dir(lv_indev_get_act());
-        switch(dir) {
-        case LV_DIR_LEFT:
-        {
-            lv_indev_wait_release(lv_indev_get_act());
-            ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.ui_home_screen_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-            break;
-        }
-        default:
-            break;
-        }
-        break;
-    }
     default:
         break;
     }
 }
 
-void events_init_ui_home_screen (lv_ui *ui)
-{
-    lv_obj_add_event_cb(ui->ui_home_screen, ui_home_screen_event_handler, LV_EVENT_ALL, ui);
-}
-
-static void device_management_screen_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_SCREEN_LOADED:
-    {
-        dev_mgmt_on_load();
-        break;
-    }
-    case LV_EVENT_GESTURE:
-    {
-        lv_dir_t dir = lv_indev_get_gesture_dir(lv_indev_get_act());
-        switch(dir) {
-        case LV_DIR_LEFT:
-        {
-            lv_indev_wait_release(lv_indev_get_act());
-            ui_load_scr_animation(&guider_ui, &guider_ui.Light_Scene, guider_ui.Light_Scene_del, &guider_ui.device_management_screen_del, setup_scr_Light_Scene, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-            break;
-        }
-        case LV_DIR_RIGHT:
-        {
-            lv_indev_wait_release(lv_indev_get_act());
-            ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.device_management_screen_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-            break;
-        }
-        default:
-            break;
-        }
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_cont_1_event_handler (lv_event_t *e)
+static void ui_home_screen_btn_1_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.light_CT_screen, guider_ui.light_CT_screen_del, &guider_ui.device_management_screen_del, setup_scr_light_CT_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.LedStrip, guider_ui.LedStrip_del, &guider_ui.ui_home_screen_del, setup_scr_LedStrip, LV_SCR_LOAD_ANIM_NONE, 200, 200, true, true);
         break;
     }
     default:
@@ -116,7 +60,21 @@ static void device_management_screen_cont_1_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_Light_CT_on_off_1_img_event_handler (lv_event_t *e)
+static void ui_home_screen_cont_27_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.light_CT_screen, guider_ui.light_CT_screen_del, &guider_ui.ui_home_screen_del, setup_scr_light_CT_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void ui_home_screen_imgbtn_9_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -130,13 +88,13 @@ static void device_management_screen_Light_CT_on_off_1_img_event_handler (lv_eve
     }
 }
 
-static void device_management_screen_cont_2_event_handler (lv_event_t *e)
+static void ui_home_screen_cont_26_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.LedStrip, guider_ui.LedStrip_del, &guider_ui.device_management_screen_del, setup_scr_LedStrip, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.LedStrip, guider_ui.LedStrip_del, &guider_ui.ui_home_screen_del, setup_scr_LedStrip, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -144,27 +102,13 @@ static void device_management_screen_cont_2_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_sLEDStripOn_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.LedStrip, guider_ui.LedStrip_del, &guider_ui.device_management_screen_del, setup_scr_LedStrip, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sLSimgbtn_event_handler (lv_event_t *e)
+static void ui_home_screen_imgbtn_8_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_VALUE_CHANGED:
     {
-        dev_mgmt_led_on_toggle();
+        dev_mgmt_led_on_toggle(e);
         break;
     }
     default:
@@ -172,13 +116,13 @@ static void device_management_screen_sLSimgbtn_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_cont_3_event_handler (lv_event_t *e)
+static void ui_home_screen_cont_25_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.MagLight, guider_ui.MagLight_del, &guider_ui.device_management_screen_del, setup_scr_MagLight, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.MagLight, guider_ui.MagLight_del, &guider_ui.ui_home_screen_del, setup_scr_MagLight, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -186,21 +130,7 @@ static void device_management_screen_cont_3_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_sMagLightOff_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.MagLight, guider_ui.MagLight_del, &guider_ui.device_management_screen_del, setup_scr_MagLight, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sMagimgbtn_event_handler (lv_event_t *e)
+static void ui_home_screen_imgbtn_7_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -214,13 +144,13 @@ static void device_management_screen_sMagimgbtn_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_label_4_event_handler (lv_event_t *e)
+static void ui_home_screen_cont_24_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.MagLight, guider_ui.MagLight_del, &guider_ui.device_management_screen_del, setup_scr_MagLight, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.RGBLight, guider_ui.RGBLight_del, &guider_ui.ui_home_screen_del, setup_scr_RGBLight, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -228,49 +158,7 @@ static void device_management_screen_label_4_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_cont_4_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.RGBLight, guider_ui.RGBLight_del, &guider_ui.device_management_screen_del, setup_scr_RGBLight, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sRGBLightOn_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.RGBLight, guider_ui.RGBLight_del, &guider_ui.device_management_screen_del, setup_scr_RGBLight, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sRGBLightOff_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.RGBLight, guider_ui.RGBLight_del, &guider_ui.device_management_screen_del, setup_scr_RGBLight, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sRGBLightBtn_event_handler (lv_event_t *e)
+static void ui_home_screen_imgbtn_6_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -284,13 +172,13 @@ static void device_management_screen_sRGBLightBtn_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_label_5_event_handler (lv_event_t *e)
+static void ui_home_screen_cont_23_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.RGBLight, guider_ui.RGBLight_del, &guider_ui.device_management_screen_del, setup_scr_RGBLight, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.FabricCurtian, guider_ui.FabricCurtian_del, &guider_ui.ui_home_screen_del, setup_scr_FabricCurtian, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -298,63 +186,7 @@ static void device_management_screen_label_5_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_cont_5_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.FabricCurtian, guider_ui.FabricCurtian_del, &guider_ui.device_management_screen_del, setup_scr_FabricCurtian, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sFabricCurtianOn_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.FabricCurtian, guider_ui.FabricCurtian_del, &guider_ui.device_management_screen_del, setup_scr_FabricCurtian, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sFabricCurtianOff_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.FabricCurtian, guider_ui.FabricCurtian_del, &guider_ui.device_management_screen_del, setup_scr_FabricCurtian, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_label_6_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.FabricCurtian, guider_ui.FabricCurtian_del, &guider_ui.device_management_screen_del, setup_scr_FabricCurtian, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sFabricCurClose_event_handler (lv_event_t *e)
+static void ui_home_screen_img_51_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -368,7 +200,7 @@ static void device_management_screen_sFabricCurClose_event_handler (lv_event_t *
     }
 }
 
-static void device_management_screen_sFabricCurOpen_event_handler (lv_event_t *e)
+static void ui_home_screen_img_50_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -382,13 +214,13 @@ static void device_management_screen_sFabricCurOpen_event_handler (lv_event_t *e
     }
 }
 
-static void device_management_screen_cont_6_event_handler (lv_event_t *e)
+static void ui_home_screen_cont_22_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Sheers, guider_ui.Sheers_del, &guider_ui.device_management_screen_del, setup_scr_Sheers, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.Sheers, guider_ui.Sheers_del, &guider_ui.ui_home_screen_del, setup_scr_Sheers, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -396,49 +228,7 @@ static void device_management_screen_cont_6_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_sSheersOn_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Sheers, guider_ui.Sheers_del, &guider_ui.device_management_screen_del, setup_scr_Sheers, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sSheersOff_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Sheers, guider_ui.Sheers_del, &guider_ui.device_management_screen_del, setup_scr_Sheers, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_label_7_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Sheers, guider_ui.Sheers_del, &guider_ui.device_management_screen_del, setup_scr_Sheers, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sSheerOpen_event_handler (lv_event_t *e)
+static void ui_home_screen_img_47_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -452,7 +242,7 @@ static void device_management_screen_sSheerOpen_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_sSheerClose_event_handler (lv_event_t *e)
+static void ui_home_screen_img_46_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -466,13 +256,13 @@ static void device_management_screen_sSheerClose_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_cont_7_event_handler (lv_event_t *e)
+static void ui_home_screen_cont_21_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.RollBlind, guider_ui.RollBlind_del, &guider_ui.device_management_screen_del, setup_scr_RollBlind, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.RollBlind, guider_ui.RollBlind_del, &guider_ui.ui_home_screen_del, setup_scr_RollBlind, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -480,49 +270,7 @@ static void device_management_screen_cont_7_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_sRollBlindOn_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.RollBlind, guider_ui.RollBlind_del, &guider_ui.device_management_screen_del, setup_scr_RollBlind, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sRollBlindOff_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.RollBlind, guider_ui.RollBlind_del, &guider_ui.device_management_screen_del, setup_scr_RollBlind, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_label_8_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.RollBlind, guider_ui.RollBlind_del, &guider_ui.device_management_screen_del, setup_scr_RollBlind, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sRollBlindDown_event_handler (lv_event_t *e)
+static void ui_home_screen_img_43_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -536,7 +284,7 @@ static void device_management_screen_sRollBlindDown_event_handler (lv_event_t *e
     }
 }
 
-static void device_management_screen_sRollBlindUp_event_handler (lv_event_t *e)
+static void ui_home_screen_img_42_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -550,13 +298,13 @@ static void device_management_screen_sRollBlindUp_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_cont_8_event_handler (lv_event_t *e)
+static void ui_home_screen_cont_20_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Dream, guider_ui.Dream_del, &guider_ui.device_management_screen_del, setup_scr_Dream, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.Dream, guider_ui.Dream_del, &guider_ui.ui_home_screen_del, setup_scr_Dream, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -564,49 +312,7 @@ static void device_management_screen_cont_8_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_sDreamOn_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Dream, guider_ui.Dream_del, &guider_ui.device_management_screen_del, setup_scr_Dream, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sDreamOff_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Dream, guider_ui.Dream_del, &guider_ui.device_management_screen_del, setup_scr_Dream, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_label_10_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Dream, guider_ui.Dream_del, &guider_ui.device_management_screen_del, setup_scr_Dream, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sDreamClose_event_handler (lv_event_t *e)
+static void ui_home_screen_img_39_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -620,7 +326,7 @@ static void device_management_screen_sDreamClose_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_sDreamOpen_event_handler (lv_event_t *e)
+static void ui_home_screen_img_38_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -634,13 +340,13 @@ static void device_management_screen_sDreamOpen_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_cont_9_event_handler (lv_event_t *e)
+static void ui_home_screen_cont_19_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.AirCondition, guider_ui.AirCondition_del, &guider_ui.device_management_screen_del, setup_scr_AirCondition, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.AirCondition, guider_ui.AirCondition_del, &guider_ui.ui_home_screen_del, setup_scr_AirCondition, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -648,13 +354,13 @@ static void device_management_screen_cont_9_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_label_9_event_handler (lv_event_t *e)
+static void ui_home_screen_cont_18_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.AirCondition, guider_ui.AirCondition_del, &guider_ui.device_management_screen_del, setup_scr_AirCondition, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.Music, guider_ui.Music_del, &guider_ui.ui_home_screen_del, setup_scr_Music, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -662,63 +368,7 @@ static void device_management_screen_label_9_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_sTempText_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.AirCondition, guider_ui.AirCondition_del, &guider_ui.device_management_screen_del, setup_scr_AirCondition, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sOffText_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.AirCondition, guider_ui.AirCondition_del, &guider_ui.device_management_screen_del, setup_scr_AirCondition, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sAC_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.AirCondition, guider_ui.AirCondition_del, &guider_ui.device_management_screen_del, setup_scr_AirCondition, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_cont_10_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Music, guider_ui.Music_del, &guider_ui.device_management_screen_del, setup_scr_Music, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_imgbtn_9_event_handler (lv_event_t *e)
+static void ui_home_screen_imgbtn_4_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -732,13 +382,13 @@ static void device_management_screen_imgbtn_9_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_cont_11_event_handler (lv_event_t *e)
+static void ui_home_screen_cont_17_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.DryRack, guider_ui.DryRack_del, &guider_ui.device_management_screen_del, setup_scr_DryRack, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.DryRack, guider_ui.DryRack_del, &guider_ui.ui_home_screen_del, setup_scr_DryRack, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -746,49 +396,7 @@ static void device_management_screen_cont_11_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_sDryRackDown_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.DryRack, guider_ui.DryRack_del, &guider_ui.device_management_screen_del, setup_scr_DryRack, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sDryRackUp_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.DryRack, guider_ui.DryRack_del, &guider_ui.device_management_screen_del, setup_scr_DryRack, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_label_11_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.DryRack, guider_ui.DryRack_del, &guider_ui.device_management_screen_del, setup_scr_DryRack, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void device_management_screen_sDryRackDownBtn_event_handler (lv_event_t *e)
+static void ui_home_screen_img_31_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -802,7 +410,7 @@ static void device_management_screen_sDryRackDownBtn_event_handler (lv_event_t *
     }
 }
 
-static void device_management_screen_sDryRackUpBtn_event_handler (lv_event_t *e)
+static void ui_home_screen_img_30_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -816,13 +424,13 @@ static void device_management_screen_sDryRackUpBtn_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_cont_12_event_handler (lv_event_t *e)
+static void ui_home_screen_cont_16_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.FanAndLight, guider_ui.FanAndLight_del, &guider_ui.device_management_screen_del, setup_scr_FanAndLight, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.FanAndLight, guider_ui.FanAndLight_del, &guider_ui.ui_home_screen_del, setup_scr_FanAndLight, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -830,7 +438,7 @@ static void device_management_screen_cont_12_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_sSourceBtn_event_handler (lv_event_t *e)
+static void ui_home_screen_imgbtn_3_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -844,7 +452,7 @@ static void device_management_screen_sSourceBtn_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_sFanLightBtn_event_handler (lv_event_t *e)
+static void ui_home_screen_imgbtn_2_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -858,13 +466,13 @@ static void device_management_screen_sFanLightBtn_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_cont_13_event_handler (lv_event_t *e)
+static void ui_home_screen_cont_15_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Heater, guider_ui.Heater_del, &guider_ui.device_management_screen_del, setup_scr_Heater, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.Heater, guider_ui.Heater_del, &guider_ui.ui_home_screen_del, setup_scr_Heater, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -872,7 +480,7 @@ static void device_management_screen_cont_13_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_IdleBtn_event_handler (lv_event_t *e)
+static void ui_home_screen_img_27_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -886,7 +494,7 @@ static void device_management_screen_IdleBtn_event_handler (lv_event_t *e)
     }
 }
 
-static void device_management_screen_sHeaterLightBtn_event_handler (lv_event_t *e)
+static void ui_home_screen_imgbtn_1_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
@@ -900,66 +508,42 @@ static void device_management_screen_sHeaterLightBtn_event_handler (lv_event_t *
     }
 }
 
-void events_init_device_management_screen (lv_ui *ui)
+void events_init_ui_home_screen (lv_ui *ui)
 {
-    lv_obj_add_event_cb(ui->device_management_screen, device_management_screen_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_cont_1, device_management_screen_cont_1_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_Light_CT_on_off_1_img, device_management_screen_Light_CT_on_off_1_img_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_cont_2, device_management_screen_cont_2_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sLEDStripOn, device_management_screen_sLEDStripOn_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sLSimgbtn, device_management_screen_sLSimgbtn_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_cont_3, device_management_screen_cont_3_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sMagLightOff, device_management_screen_sMagLightOff_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sMagimgbtn, device_management_screen_sMagimgbtn_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_label_4, device_management_screen_label_4_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_cont_4, device_management_screen_cont_4_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sRGBLightOn, device_management_screen_sRGBLightOn_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sRGBLightOff, device_management_screen_sRGBLightOff_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sRGBLightBtn, device_management_screen_sRGBLightBtn_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_label_5, device_management_screen_label_5_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_cont_5, device_management_screen_cont_5_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sFabricCurtianOn, device_management_screen_sFabricCurtianOn_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sFabricCurtianOff, device_management_screen_sFabricCurtianOff_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_label_6, device_management_screen_label_6_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sFabricCurClose, device_management_screen_sFabricCurClose_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sFabricCurOpen, device_management_screen_sFabricCurOpen_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_cont_6, device_management_screen_cont_6_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sSheersOn, device_management_screen_sSheersOn_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sSheersOff, device_management_screen_sSheersOff_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_label_7, device_management_screen_label_7_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sSheerOpen, device_management_screen_sSheerOpen_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sSheerClose, device_management_screen_sSheerClose_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_cont_7, device_management_screen_cont_7_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sRollBlindOn, device_management_screen_sRollBlindOn_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sRollBlindOff, device_management_screen_sRollBlindOff_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_label_8, device_management_screen_label_8_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sRollBlindDown, device_management_screen_sRollBlindDown_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sRollBlindUp, device_management_screen_sRollBlindUp_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_cont_8, device_management_screen_cont_8_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sDreamOn, device_management_screen_sDreamOn_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sDreamOff, device_management_screen_sDreamOff_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_label_10, device_management_screen_label_10_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sDreamClose, device_management_screen_sDreamClose_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sDreamOpen, device_management_screen_sDreamOpen_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_cont_9, device_management_screen_cont_9_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_label_9, device_management_screen_label_9_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sTempText, device_management_screen_sTempText_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sOffText, device_management_screen_sOffText_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sAC, device_management_screen_sAC_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_cont_10, device_management_screen_cont_10_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_imgbtn_9, device_management_screen_imgbtn_9_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_cont_11, device_management_screen_cont_11_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sDryRackDown, device_management_screen_sDryRackDown_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sDryRackUp, device_management_screen_sDryRackUp_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_label_11, device_management_screen_label_11_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sDryRackDownBtn, device_management_screen_sDryRackDownBtn_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sDryRackUpBtn, device_management_screen_sDryRackUpBtn_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_cont_12, device_management_screen_cont_12_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sSourceBtn, device_management_screen_sSourceBtn_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sFanLightBtn, device_management_screen_sFanLightBtn_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_cont_13, device_management_screen_cont_13_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_IdleBtn, device_management_screen_IdleBtn_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->device_management_screen_sHeaterLightBtn, device_management_screen_sHeaterLightBtn_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen, ui_home_screen_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_btn_1, ui_home_screen_btn_1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_cont_27, ui_home_screen_cont_27_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_imgbtn_9, ui_home_screen_imgbtn_9_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_cont_26, ui_home_screen_cont_26_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_imgbtn_8, ui_home_screen_imgbtn_8_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_cont_25, ui_home_screen_cont_25_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_imgbtn_7, ui_home_screen_imgbtn_7_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_cont_24, ui_home_screen_cont_24_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_imgbtn_6, ui_home_screen_imgbtn_6_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_cont_23, ui_home_screen_cont_23_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_img_51, ui_home_screen_img_51_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_img_50, ui_home_screen_img_50_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_cont_22, ui_home_screen_cont_22_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_img_47, ui_home_screen_img_47_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_img_46, ui_home_screen_img_46_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_cont_21, ui_home_screen_cont_21_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_img_43, ui_home_screen_img_43_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_img_42, ui_home_screen_img_42_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_cont_20, ui_home_screen_cont_20_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_img_39, ui_home_screen_img_39_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_img_38, ui_home_screen_img_38_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_cont_19, ui_home_screen_cont_19_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_cont_18, ui_home_screen_cont_18_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_imgbtn_4, ui_home_screen_imgbtn_4_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_cont_17, ui_home_screen_cont_17_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_img_31, ui_home_screen_img_31_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_img_30, ui_home_screen_img_30_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_cont_16, ui_home_screen_cont_16_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_imgbtn_3, ui_home_screen_imgbtn_3_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_imgbtn_2, ui_home_screen_imgbtn_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_cont_15, ui_home_screen_cont_15_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_img_27, ui_home_screen_img_27_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->ui_home_screen_imgbtn_1, ui_home_screen_imgbtn_1_event_handler, LV_EVENT_ALL, ui);
 }
 
 static void light_CT_screen_event_handler (lv_event_t *e)
@@ -1015,7 +599,6 @@ static void light_CT_screen_btn_1_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.light_CT_screen_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1043,7 +626,7 @@ static void light_CT_screen_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.light_CT_screen_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.light_CT_screen_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1114,7 +697,6 @@ static void LedStrip_btn_1_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.LedStrip_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1142,7 +724,7 @@ static void LedStrip_btn_4_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.LedStrip_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.LedStrip_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1213,7 +795,6 @@ static void RGBLight_btn_1_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.RGBLight_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1241,7 +822,7 @@ static void RGBLight_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.RGBLight_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.RGBLight_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1312,7 +893,6 @@ static void MagLight_btn_1_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.MagLight_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1340,7 +920,7 @@ static void MagLight_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.MagLight_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.MagLight_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1381,7 +961,6 @@ static void FabricCurtian_btn_1_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.FabricCurtian_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1493,7 +1072,7 @@ static void FabricCurtian_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.FabricCurtian_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.FabricCurtian_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1538,7 +1117,6 @@ static void Sheers_btn_1_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.Sheers_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1650,7 +1228,7 @@ static void Sheers_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.Sheers_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.Sheers_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1765,7 +1343,6 @@ static void RollBlind_btn_1_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.RollBlind_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1779,7 +1356,7 @@ static void RollBlind_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.RollBlind_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.RollBlind_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1822,7 +1399,6 @@ static void Dream_btn_1_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.Dream_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1948,7 +1524,7 @@ static void Dream_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.Dream_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.Dream_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -1991,7 +1567,6 @@ static void AirCondition_btn_1_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.AirCondition_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -2131,7 +1706,7 @@ static void AirCondition_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.AirCondition_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.AirCondition_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -2175,7 +1750,6 @@ static void Music_btn_1_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.Music_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -2203,7 +1777,7 @@ static void Music_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.Music_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.Music_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -2312,7 +1886,6 @@ static void DryRack_btn_1_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.DryRack_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -2340,7 +1913,7 @@ static void DryRack_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.DryRack_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.DryRack_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -2493,7 +2066,6 @@ static void FanAndLight_btn_1_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.FanAndLight_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -2521,7 +2093,7 @@ static void FanAndLight_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.FanAndLight_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.FanAndLight_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -2565,7 +2137,6 @@ static void Heater_btn_1_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.Heater_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -2733,7 +2304,7 @@ static void Heater_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.Heater_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.Heater_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -2905,70 +2476,6 @@ static void NetSett_btn_1_event_handler (lv_event_t *e)
 void events_init_NetSett (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->NetSett_btn_1, NetSett_btn_1_event_handler, LV_EVENT_ALL, ui);
-}
-
-static void Light_Scene_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_GESTURE:
-    {
-        lv_dir_t dir = lv_indev_get_gesture_dir(lv_indev_get_act());
-        switch(dir) {
-        case LV_DIR_RIGHT:
-        {
-            lv_indev_wait_release(lv_indev_get_act());
-            ui_load_scr_animation(&guider_ui, &guider_ui.device_management_screen, guider_ui.device_management_screen_del, &guider_ui.Light_Scene_del, setup_scr_device_management_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-            break;
-        }
-        case LV_DIR_LEFT:
-        {
-            lv_indev_wait_release(lv_indev_get_act());
-            ui_load_scr_animation(&guider_ui, &guider_ui.Curtain_Scene, guider_ui.Curtain_Scene_del, &guider_ui.Light_Scene_del, setup_scr_Curtain_Scene, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-            break;
-        }
-        default:
-            break;
-        }
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-void events_init_Light_Scene (lv_ui *ui)
-{
-    lv_obj_add_event_cb(ui->Light_Scene, Light_Scene_event_handler, LV_EVENT_ALL, ui);
-}
-
-static void Curtain_Scene_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_GESTURE:
-    {
-        lv_dir_t dir = lv_indev_get_gesture_dir(lv_indev_get_act());
-        switch(dir) {
-        case LV_DIR_RIGHT:
-        {
-            lv_indev_wait_release(lv_indev_get_act());
-            ui_load_scr_animation(&guider_ui, &guider_ui.Light_Scene, guider_ui.Light_Scene_del, &guider_ui.Curtain_Scene_del, setup_scr_Light_Scene, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-            break;
-        }
-        default:
-            break;
-        }
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-void events_init_Curtain_Scene (lv_ui *ui)
-{
-    lv_obj_add_event_cb(ui->Curtain_Scene, Curtain_Scene_event_handler, LV_EVENT_ALL, ui);
 }
 
 static void Helper_btn_1_event_handler (lv_event_t *e)

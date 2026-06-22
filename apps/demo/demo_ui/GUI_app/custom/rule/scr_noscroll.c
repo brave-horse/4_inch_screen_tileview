@@ -35,7 +35,6 @@ static lv_obj_t *s_last_scr;
  * list/slider 自身的滚动不受影响。 */
 static lv_obj_t **const s_targets[] = {
     &guider_ui.ui_home_screen,
-    &guider_ui.device_management_screen,
     &guider_ui.setting_screen,
     &guider_ui.light_CT_screen,
 };
@@ -118,11 +117,13 @@ static void scr_noscroll_poll_cb(lv_timer_t *timer)
             obj_kill_scroll(act);
             for (c = 0; c < cnt; c++) {
                 lv_obj_t *child = lv_obj_get_child(act, c);
-                /* list / slider 这类靠自身拖动交互的控件: 既不关滚动, 也不挂 GESTURE_BUBBLE。
-                 * - list  : 直接建在屏上(setting_screen), 关了滚动就翻不动条目;
-                 * - slider: 横向拖动就是调节(亮度/色温), 一旦冒泡会被当成左右切屏手势吞掉。 */
+                /* list / slider / tileview 这类靠自身拖动交互的控件: 既不关滚动, 也不挂 GESTURE_BUBBLE。
+                 * - list    : 直接建在屏上(setting_screen), 关了滚动就翻不动条目;
+                 * - slider  : 横向拖动就是调节(亮度/色温), 一旦冒泡会被当成左右切屏手势吞掉;
+                 * - tileview: home 屏内嵌 4 tile 左右滑, 关滚动切不动。 */
                 if (lv_obj_check_type(child, &lv_list_class) ||
-                    lv_obj_check_type(child, &lv_slider_class)) {
+                    lv_obj_check_type(child, &lv_slider_class) ||
+                    lv_obj_check_type(child, &lv_tileview_class)) {
                     continue;
                 }
                 /* 其余(全屏大图 / 容器 / tabview / 按钮)挂 GESTURE_BUBBLE, 让切屏手势能冒泡到屏:

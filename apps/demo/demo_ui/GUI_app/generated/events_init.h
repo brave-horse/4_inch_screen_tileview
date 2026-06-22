@@ -19,7 +19,6 @@ extern "C" {
 void events_init(lv_ui *ui);
 
 void events_init_ui_home_screen(lv_ui *ui);
-void events_init_device_management_screen(lv_ui *ui);
 void events_init_light_CT_screen(lv_ui *ui);
 void events_init_LedStrip(lv_ui *ui);
 void events_init_RGBLight(lv_ui *ui);
@@ -40,8 +39,6 @@ void events_init_SensorSet(lv_ui *ui);
 void events_init_Reset(lv_ui *ui);
 void events_init_huifuchuchangshezhi(lv_ui *ui);
 void events_init_NetSett(lv_ui *ui);
-void events_init_Light_Scene(lv_ui *ui);
-void events_init_Curtain_Scene(lv_ui *ui);
 void events_init_Helper(lv_ui *ui);
 
 #ifdef __cplusplus

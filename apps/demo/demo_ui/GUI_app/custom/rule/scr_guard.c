@@ -25,7 +25,6 @@
  * 新增屏时在这里加一行 &guider_ui.screen_xxx 即可。 */
 static lv_obj_t **const s_slots[] = {
     &guider_ui.ui_home_screen,
-    &guider_ui.device_management_screen,
     &guider_ui.setting_screen,
     &guider_ui.light_CT_screen,
 };

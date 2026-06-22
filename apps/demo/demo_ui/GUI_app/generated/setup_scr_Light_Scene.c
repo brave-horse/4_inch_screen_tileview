@@ -452,6 +452,4 @@ void setup_scr_Light_Scene(lv_ui *ui)
     //Update current screen layout.
     lv_obj_update_layout(ui->Light_Scene);
 
-    //Init events for screen.
-    events_init_Light_Scene(ui);
 }
