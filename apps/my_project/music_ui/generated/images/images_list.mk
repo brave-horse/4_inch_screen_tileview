@@ -1,0 +1,1 @@
+GEN_CSRCS += _442_800x480.c _442_alpha_270x332.c _qing_alpha_70x64.c _drop_alpha_343x519.c

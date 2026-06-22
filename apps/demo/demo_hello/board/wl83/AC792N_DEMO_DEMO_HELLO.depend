@@ -1,0 +1,1350 @@
+# depslib dependency file v1.0
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\cpu\wl83\adc_api.c
+	"generic/typedef.h"
+	"asm/clock.h"
+	"asm/adc_api.h"
+	"system/timer.h"
+	"system/spinlock.h"
+	"asm/efuse.h"
+	"asm/gpio.h"
+	"asm/power_interface.h"
+	"os/os_api.h"
+	"debug.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\typedef.h
+	"asm/cpu.h"
+	"generic/errno-base.h"
+	"string.h"
+	"strings.h"
+	"system/malloc.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\cpu.h
+	"WL83.h"
+	"asm/irq.h"
+	"generic/printf.h"
+	"system/generic/log.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\wl83.h
+	"csfr.h"
+	"eva_sfr.h"
+	"wl83_nvdla.h"
+	"io_omap.h"
+	"io_imap.h"
+	"husb_sfr.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\csfr.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\eva_sfr.h
+	"mipi_sfr.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\mipi_sfr.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\wl83_nvdla.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\io_omap.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\io_imap.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\husb_sfr.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\irq.h
+	"asm/hwi.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\hwi.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\printf.h
+	<stdarg.h>
+	"generic/typedef.h"
+	"generic/dlog.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\dlog.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\log.h
+	"generic/typedef.h"
+	"generic/printf.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\errno-base.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\c++\include\string.h
+	<__config>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\c++\include\__config
+	<features.h>
+	<sys/endian.h>
+	<osreldate.h>
+	<sys/endian.h>
+	<winapifamily.h>
+	<sys/isa_defs.h>
+	<endian.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\strings.h
+	"_ansi.h"
+	<sys/reent.h>
+	<sys/types.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\_ansi.h
+	<newlib.h>
+	<sys/config.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\newlib.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\config.h
+	<machine/ieeefp.h>
+	<sys/features.h>
+	<cygwin/config.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\machine\ieeefp.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\features.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\reent.h
+	<_ansi.h>
+	<stddef.h>
+	<sys/_types.h>
+	<sys/types.h>
+	<sys/custom_file.h>
+	<assert.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\c++\include\stddef.h
+	<__config>
+	<__nullptr>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\c++\include\__nullptr
+	<__config>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\_types.h
+	<machine/_types.h>
+	<sys/lock.h>
+	<stddef.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\machine\_types.h
+	<machine/_default_types.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\machine\_default_types.h
+	<sys/features.h>
+	<limits.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\c++\include\limits.h
+	<__config>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\lock.h
+	<_ansi.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\types.h
+	<_ansi.h>
+	<sys/cdefs.h>
+	<machine/_types.h>
+	<sys/_types.h>
+	<sys/_stdint.h>
+	<stddef.h>
+	<machine/types.h>
+	<sys/features.h>
+	<sys/sched.h>
+	<sys/cpuset.h>
+	<cygwin/types.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\cdefs.h
+	<machine/_default_types.h>
+	<sys/features.h>
+	<stddef.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\_stdint.h
+	<machine/_default_types.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\machine\types.h
+	<machine/_types.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\sched.h
+	<sys/_timespec.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\_timespec.h
+	<machine/types.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\custom_file.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\assert.h
+	"_ansi.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\malloc.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\clock.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\adc_api.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\timer.h
+	"generic/typedef.h"
+	"generic/list.h"
+	"system/spinlock.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\list.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\spinlock.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\efuse.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\gpio.h
+	"asm/cpu.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\power_interface.h
+	"generic/typedef.h"
+	"power/p33/p33_sfr.h"
+	"power/p33/p33_access.h"
+	"power/p33/p33_api.h"
+	"power/p33/vdd/avdd_config.h"
+	"power/power_api.h"
+	"power/power_wakeup.h"
+	"power/power_reset.h"
+	"power/power_port.h"
+	"power/power_trim.h"
+	"power/power_app.h"
+	"power/power_manage.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\power\p33\p33_sfr.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\power\p33\p33_access.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\power\p33\p33_api.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\power\p33\vdd\avdd_config.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\power\power_api.h
+	"power_manage.h"
+	"pmu_flag.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\power\power_manage.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\power\pmu_flag.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\power\power_wakeup.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\power\power_reset.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\power\power_port.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\power\power_trim.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\power\power_app.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\os_api.h
+	"generic/typedef.h"
+	"os/os_cpu.h"
+	"os/os_error.h"
+	"os/os_type.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\os_cpu.h
+	"asm/cpu.h"
+	"generic/jiffies.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\jiffies.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\os_error.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\os_type.h
+	<os/ucos_ii.h>
+	"FreeRTOS/FreeRTOS.h"
+	"FreeRTOS/semphr.h"
+	"FreeRTOS/task.h"
+	"generic/list.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\ucos_ii.h
+	"generic/typedef.h"
+	"os/os_cpu.h"
+	"os/os_cfg.h"
+	"os/os_error.h"
+	"os/os_type.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\os_cfg.h
+	"os/os_cpu.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\freertos\freertos.h
+	"FreeRTOSConfig.h"
+	"projdefs.h"
+	"portable.h"
+	<reent.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\freertos\freertosconfig.h
+	"pi32v2/portmacro.h"
+	"pi32_lto/portmacro.h"
+	"q32s/portmacro.h"
+	"generic/printf.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\freertos\pi32v2\portmacro.h
+	"asm/cpu.h"
+	<stdint.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\c++\include\stdint.h
+	<__config>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\freertos\pi32_lto\portmacro.h
+	"asm/cpu.h"
+	<stdint.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\freertos\q32s\portmacro.h
+	"asm/cpu.h"
+	<stdint.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\freertos\projdefs.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\freertos\portable.h
+	"deprecated_definitions.h"
+	"portmacro.h"
+	"mpu_wrappers.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\freertos\deprecated_definitions.h
+	"..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h"
+	"..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h"
+	"../portable/GCC/ATMega323/portmacro.h"
+	"../portable/IAR/ATMega323/portmacro.h"
+	"../../Source/portable/MPLAB/PIC24_dsPIC/portmacro.h"
+	"../../Source/portable/MPLAB/PIC24_dsPIC/portmacro.h"
+	"../../Source/portable/MPLAB/PIC18F/portmacro.h"
+	"../../Source/portable/MPLAB/PIC32MX/portmacro.h"
+	"libFreeRTOS/Include/portmacro.h"
+	"../../Source/portable/SDCC/Cygnal/portmacro.h"
+	"../../Source/portable/GCC/ARM7_LPC2000/portmacro.h"
+	"portmacro.h"
+	"../../Source/portable/GCC/ARM7_LPC23xx/portmacro.h"
+	"..\..\Source\portable\IAR\MSP430\portmacro.h"
+	"../../Source/portable/GCC/MSP430F449/portmacro.h"
+	"../../Source/portable/Rowley/MSP430F449/portmacro.h"
+	"..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h"
+	"../../Source/portable/GCC/ARM7_AT91SAM7S/portmacro.h"
+	"..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h"
+	"..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h"
+	"..\..\Source\portable\IAR\LPC2000\portmacro.h"
+	"..\..\Source\portable\IAR\STR71x\portmacro.h"
+	"..\..\Source\portable\IAR\STR75x\portmacro.h"
+	"..\..\Source\portable\GCC\STR75x\portmacro.h"
+	"..\..\Source\portable\IAR\STR91x\portmacro.h"
+	"../../Source/portable/GCC/H8S2329/portmacro.h"
+	"../../Source/portable/GCC/ARM7_AT91FR40008/portmacro.h"
+	"../../Source/portable/RVDS/ARM_CM3/portmacro.h"
+	"../../Source/portable/GCC/ARM_CM3/portmacro.h"
+	"../../Source/portable/GCC/ARM_CM3/portmacro.h"
+	"../../Source/portable/IAR/ARM_CM3/portmacro.h"
+	"../../Source/portable/IAR/ARM_CM3/portmacro.h"
+	"../../Source/portable/CodeWarrior/HCS12/portmacro.h"
+	"../../Source/portable/GCC/MicroBlaze/portmacro.h"
+	"..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h"
+	"../../Source/portable/GCC/HCS12/portmacro.h"
+	"../../Source/portable/GCC/MCF5235/portmacro.h"
+	"../../../Source/portable/GCC/ColdFire_V2/portmacro.h"
+	"../../Source/portable/CodeWarrior/ColdFire_V2/portmacro.h"
+	"../../Source/portable/GCC/PPC405_Xilinx/portmacro.h"
+	"../../Source/portable/GCC/PPC440_Xilinx/portmacro.h"
+	"..\..\Source\portable\Softune\MB96340\portmacro.h"
+	"frconfig.h"
+	"..\portable\BCC\16BitDOS\PC\prtmacro.h"
+	"frconfig.h"
+	"..\portable\BCC\16BitDOS\flsh186\prtmacro.h"
+	"portmacro.h"
+	"portmacro.h"
+	"portmacro.h"
+	"portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/78K0R/portmacro.h"
+	"../../Source/portable/IAR/78K0R/portmacro.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\freertos\mpu_wrappers.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\reent.h
+	<sys/reent.h>
+	<sys/_types.h>
+	<machine/types.h>
+	<stddef.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\freertos\semphr.h
+	"queue.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\freertos\queue.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\freertos\task.h
+	"list.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\os\freertos\list.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\debug.h
+	"asm/cpu.h"
+	"generic/typedef.h"
+	"generic/dlog.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\cpu\wl83\debug.c
+	"asm/debug.h"
+	"asm/cache.h"
+	"asm/wdt.h"
+	"app_config.h"
+	"debug.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\debug.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\cache.h
+	"generic/typedef.h"
+	"asm/icache.h"
+	"asm/dcache.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\icache.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\dcache.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\wdt.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\demo\demo_hello\include\app_config.h
+	"board_config.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\demo\demo_hello\board\wl83\board_config.h
+	"chip_cfg.h"
+	"board_demo.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\demo\demo_hello\board\wl83\chip_cfg.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\demo\demo_hello\board\wl83\board_demo.h
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\cpu\wl83\debug_exception.c
+	"asm/debug.h"
+	"asm/cache.h"
+	"app_config.h"
+	"fs/fs.h"
+	"init.h"
+	"debug.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\utils\fs\fs.h
+	"generic/typedef.h"
+	"generic/list.h"
+	"generic/atomic.h"
+	"system/task.h"
+	"system/malloc.h"
+	"system/sys_time.h"
+	"stdarg.h"
+	"fs_file_name.h"
+	"sdfile.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\atomic.h
+	"cpu.h"
+	"irq.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\cpu.h
+	<asm/cpu.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\irq.h
+	"asm/irq.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\task.h
+	"os/os_api.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\sys_time.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\utils\fs\fs_file_name.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\utils\fs\sdfile.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\init.h
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\cpu\wl83\setup.c
+	"app_config.h"
+	"asm/includes.h"
+	"system/includes.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\includes.h
+	"audio.h"
+	"adc_api.h"
+	"cache.h"
+	"cpu.h"
+	"dma.h"
+	"debug.h"
+	"gpio.h"
+	"hwi.h"
+	"iic.h"
+	"irq.h"
+	"sdmmc.h"
+	"uart.h"
+	"imc.h"
+	"rtc.h"
+	"clock.h"
+	"crc16.h"
+	"spi.h"
+	"can.h"
+	"gpcnt.h"
+	"ledc.h"
+	"dpi.h"
+	"pap.h"
+	"power_interface.h"
+	"pwm.h"
+	"wdt.h"
+	"sfc_norflash_api.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\audio.h
+	"generic/typedef.h"
+	"asm/ladc.h"
+	"asm/dac.h"
+	"asm/alnk.h"
+	"asm/plnk.h"
+	"asm/src.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\ladc.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\dac.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\alnk.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\plnk.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\src.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\dma.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\iic.h
+	"generic/typedef.h"
+	"asm/gpio.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\sdmmc.h
+	"device/device.h"
+	"sdio/sdmmc.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\device.h
+	"generic/typedef.h"
+	"generic/list.h"
+	"generic/atomic.h"
+	"device/ioctl_cmds.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\ioctl_cmds.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\sdio\sdmmc.h
+	"generic/typedef.h"
+	"generic/ioctl.h"
+	"generic/list.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\ioctl.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\uart.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\imc.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\rtc.h
+	"generic/typedef.h"
+	"generic/ioctl.h"
+	"system/sys_time.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\crc16.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\spi.h
+	"generic/typedef.h"
+	"generic/ioctl.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\can.h
+	"generic/typedef.h"
+	"generic/ioctl.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\gpcnt.h
+	"generic/typedef.h"
+	"generic/ioctl.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\ledc.h
+	"typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\dpi.h
+	"generic/typedef.h"
+	"asm/lcd_common.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\lcd_common.h
+	"typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\pap.h
+	"generic/typedef.h"
+	"generic/ioctl.h"
+	"os/os_api.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\pwm.h
+	"generic/typedef.h"
+	"generic/ioctl.h"
+	"device/device.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\sfc_norflash_api.h
+	"generic/typedef.h"
+	"device/device.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\includes.h
+	"generic/includes.h"
+	"init.h"
+	"spinlock.h"
+	"task.h"
+	"timer.h"
+	"sys_time.h"
+	"wait.h"
+	"malloc.h"
+	"app_core.h"
+	"bank_switch.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\includes.h
+	"errno-base.h"
+	"typedef.h"
+	"ascii.h"
+	"atomic.h"
+	"ioctl.h"
+	"cpu.h"
+	"irq.h"
+	"jiffies.h"
+	"list.h"
+	"printf.h"
+	"version.h"
+	"lbuf.h"
+	"lbuf_lite.h"
+	"circular_buf.h"
+	"debug_lite.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\ascii.h
+	"typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\version.h
+	"typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\lbuf.h
+	"typedef.h"
+	"list.h"
+	"system/spinlock.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\lbuf_lite.h
+	"typedef.h"
+	"list.h"
+	"system/spinlock.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\circular_buf.h
+	"typedef.h"
+	"system/spinlock.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\generic\debug_lite.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\wait.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\app_core.h
+	"generic/typedef.h"
+	"generic/list.h"
+	"utils/event/event.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\utils\event\event.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\bank_switch.h
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\version.z.s
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\version.z.s
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\update\version.z.s
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\utils\version.z.s
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\lib\utils\version.z.s
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\c++\cpp_run_init.c
+	"typedef.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\c++\cxx_runtime.cpp
+	<stdarg.h>
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\config\log_config\lib_driver_config.c
+	"generic/typedef.h"
+	"app_config.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\config\log_config\lib_power_config.c
+	"app_config.h"
+	"generic/typedef.h"
+	"gpio.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\gpio.h
+	"asm/gpio.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\config\log_config\lib_system_config.c
+	"generic/typedef.h"
+	"app_config.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\config\log_config\lib_update_config.c
+	"app_config.h"
+	"update_loader_download.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\update\update_loader_download.h
+	"typedef.h"
+	"error_code.h"
+	"system/task.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\update\error_code.h
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\config\user_cfg.c
+	"app_config.h"
+	"fs/fs.h"
+	"system/includes.h"
+	"syscfg/syscfg_id.h"
+	"asm/crc16.h"
+	"asm/sfc_norflash_api.h"
+	"server/audio_dev.h"
+	"wifi/wifi_connect.h"
+	"product_main.h"
+	"debug.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\utils\syscfg\syscfg_id.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\server\audio_dev.h
+	"generic/list.h"
+	"typedef.h"
+	"device/device.h"
+	"generic/circular_buf.h"
+	"os/os_api.h"
+	"generic/ioctl.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\debug\debug.c
+	"app_config.h"
+	"typedef.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\debug\debug_user.c
+	"app_config.h"
+	"typedef.h"
+	"syscfg/syscfg_id.h"
+	"os/os_api.h"
+	"spinlock.h"
+	"wifi/wifi_connect.h"
+	"device/device.h"
+	"http/http_cli.h"
+	"json_c/json_object.h"
+	"system/includes.h"
+	"os/os_api.h"
+	"storage_device.h"
+	"system/init.h"
+	"fs/fs.h"
+	"os/os_api.h"
+	"system/init.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\adc\adc_test.c
+	"generic/typedef.h"
+	"asm/adc_api.h"
+	"device/gpio.h"
+	"system/includes.h"
+	"app_config.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\can\can_test.c
+	"app_config.h"
+	"system/includes.h"
+	"device/device.h"
+	"asm/can.h"
+	"asm/gpio.h"
+	"asm/crc16.h"
+	"irq.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\dma_copy\dma_copy_test.c
+	"app_config.h"
+	"system/includes.h"
+	"os/os_api.h"
+	"asm/dma.h"
+	"asm/clock.h"
+	"asm/irq.h"
+	"system/timer.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\flash\flash_api\flash_api_test.c
+	"app_config.h"
+	"system/includes.h"
+	"fs/fs.h"
+	"asm/sfc_norflash_api.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\flash\flash_api\flash_test.c
+	"device/device.h"
+	"asm/crc16.h"
+	"asm/sfc_norflash_api.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\flash\flash_opt\flash_opt_test.c
+	"app_config.h"
+	"system/includes.h"
+	"fs/fs.h"
+	"asm/sfc_norflash_api.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\flash\flash_register\flash_register_test.c
+	"app_config.h"
+	"system/includes.h"
+	"asm/sfc_norflash_api.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\flash\flash_syscfg\flash_syscfg_test.c
+	"app_config.h"
+	"system/includes.h"
+	"syscfg/syscfg_id.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\flash\flash_user\flash_user_test.c
+	"app_config.h"
+	"system/includes.h"
+	"fs/fs.h"
+	"asm/sfc_norflash_api.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\gpcnt\gpcnt_test.c
+	"system/includes.h"
+	"app_config.h"
+	"asm/gpcnt.h"
+	"asm/gpio.h"
+	"device/device.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\gpcrc\gpcrc_test.c
+	"app_config.h"
+	"system/includes.h"
+	"asm/gpcrc.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\gpcrc.h
+	"generic/typedef.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\gpio\gpio_test.c
+	"asm/gpio.h"
+	"system/includes.h"
+	"app_config.h"
+	"asm/exti.h"
+	"device/gpio.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\exti.h
+	"generic/typedef.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\iic\iic_test.c
+	"app_config.h"
+	"system/includes.h"
+	"device/device.h"
+	"device/iic.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\iic.h
+	"generic/typedef.h"
+	"device/device.h"
+	"generic/ioctl.h"
+	"os/os_api.h"
+	"asm/iic.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\ledc\ledc_test.c
+	"app_config.h"
+	"device/device.h"
+	"system/includes.h"
+	"generic/includes.h"
+	"gpio.h"
+	"asm/ledc.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\pwm\pwm_test.c
+	"app_config.h"
+	"system/includes.h"
+	"asm/pwm.h"
+	"asm/gpio.h"
+	"device/device.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\rtc\rtc_test.c
+	"app_config.h"
+	"system/includes.h"
+	"device/device.h"
+	"asm/rtc.h"
+	"asm/adc_api.h"
+	<time.h>
+	<sys/time.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\time.h
+	"_ansi.h"
+	<sys/reent.h>
+	<stddef.h>
+	<machine/time.h>
+	<sys/types.h>
+	<sys/timespec.h>
+	<sys/features.h>
+	<cygwin/time.h>
+	<signal.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\machine\time.h
+	<sys/_timespec.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\timespec.h
+	<sys/cdefs.h>
+	<sys/_timespec.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\signal.h
+	"_ansi.h"
+	<sys/signal.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\signal.h
+	"_ansi.h"
+	<sys/cdefs.h>
+	<sys/features.h>
+	<sys/types.h>
+	<sys/_timespec.h>
+	<cygwin/signal.h>
+	<sys/ucontext.h>
+	<signal.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\time.h
+	<_ansi.h>
+	<sys/cdefs.h>
+	<sys/_timeval.h>
+	<sys/types.h>
+	<sys/timespec.h>
+	<sys/select.h>
+	<time.h>
+	<sys/cdefs.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\_timeval.h
+	<machine/types.h>
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\spi\spi_master\spi_master_test.c
+	"app_config.h"
+	"system/includes.h"
+	"device/device.h"
+	"asm/spi.h"
+	"device/gpio.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\spi\spi_simulate_exp_uart\spi_simulate_exp_uart_test.c
+	"app_config.h"
+	"system/includes.h"
+	"device/device.h"
+	"asm/spi.h"
+	"device/gpio.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\spi\spi_slave\spi_slave_test.c
+	"app_config.h"
+	"system/includes.h"
+	"device/device.h"
+	"asm/spi.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\timer\timer_capture_test.c
+	"app_config.h"
+	"system/includes.h"
+	"gpio.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\timer\timer_test1.c
+	"app_config.h"
+	"system/includes.h"
+	"device/device.h"
+	"asm/clock.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\uart\uart_device_test.c
+	"system/includes.h"
+	"app_config.h"
+	"uart.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\uart.h
+	"generic/typedef.h"
+	"device/device.h"
+	"generic/ioctl.h"
+	"os/os_api.h"
+	"asm/uart.h"
+	"asm/gpio.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\peripheral\wdt\wdt_test.c
+	"app_config.h"
+	"system/includes.h"
+	"asm/wdt.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\third_party\benchmark\coremark\core_list_join.c
+	"coremark.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\third_party\benchmark\coremark\coremark.h
+	"core_portme.h"
+	<stdio.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\third_party\benchmark\coremark\posix\core_portme.h
+	"core_portme_posix_overrides.h"
+	"asm/cpu.h"
+	<windows.h>
+	<time.h>
+	<stdint.h>
+	<pthread.h>
+	<unistd.h>
+	<errno.h>
+	<sys/wait.h>
+	<sys/shm.h>
+	<string.h>
+	<sys/types.h>
+	<sys/socket.h>
+	<netinet/in.h>
+	<arpa/inet.h>
+	<sys/wait.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	<errno.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\third_party\benchmark\coremark\posix\core_portme_posix_overrides.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\c++\simple_pthread\pthread.h
+	"simple_pthread_comm.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\c++\simple_pthread\simple_pthread_comm.h
+	<stdint.h>
+	<time.h>
+	"FreeRTOS/FreeRTOS.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\unistd.h
+	<sys/unistd.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\unistd.h
+	<_ansi.h>
+	<sys/cdefs.h>
+	<sys/types.h>
+	<sys/_types.h>
+	<stddef.h>
+	<getopt.h>
+	<sys/features.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\getopt.h
+	<_ansi.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\c++\include\errno.h
+	<__config>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\newlib\include\sys\wait.h
+	<sys/types.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\c++\include\stdio.h
+	<__config>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\c++\include\stdlib.h
+	<__config>
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\third_party\benchmark\coremark\core_main.c
+	"coremark.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\third_party\benchmark\coremark\core_matrix.c
+	"coremark.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\third_party\benchmark\coremark\core_state.c
+	"coremark.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\third_party\benchmark\coremark\core_util.c
+	"coremark.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\third_party\benchmark\coremark\posix\core_portme.c
+	<stdio.h>
+	<stdlib.h>
+	"coremark.h"
+	<valgrind/callgrind.h>
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\third_party\benchmark\dhrystone\dhry21a.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dhry.h"
+	"perf_counter/perf_counter.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\third_party\benchmark\dhrystone\dhry.h
+	<stdio.h>
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\system\perf_counter\perf_counter.h
+	"typedef.h"
+	<stdint.h>
+	<stddef.h>
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\third_party\benchmark\dhrystone\dhry21b.c
+	<stdlib.h>
+	<string.h>
+	"dhry.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\example\third_party\benchmark\main.c
+	"app_config.h"
+	"system/includes.h"
+	"asm/wdt.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\iic\iic.c
+	"device/iic.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\iic\iic_api.c
+	"device/iic.h"
+	"debug.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\iic\software_iic.c
+	"system/init.h"
+	"device/device.h"
+	"device/iic.h"
+	"device/gpio.h"
+	"asm/cpu.h"
+	"asm/gpio.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\key\adkey.c
+	"key/key_driver.h"
+	"key/adkey.h"
+	"device/gpio.h"
+	"asm/adc_api.h"
+	"app_config.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\key\key_driver.h
+	"generic/typedef.h"
+	"event/key_event.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\utils\event\key_event.h
+	"event/event.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\key\adkey.h
+	"generic/typedef.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\key\adkey_rtcvdd.c
+	"key/key_driver.h"
+	"key/adkey.h"
+	"device/gpio.h"
+	"os/os_api.h"
+	"app_config.h"
+	"asm/adc_api.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\key\ctmu_touch_key.c
+	"key/key_driver.h"
+	"key/ctmu_key.h"
+	"app_config.h"
+	"asm/ctmu.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\key\ctmu_key.h
+	"generic/typedef.h"
+	"touch_key.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\key\touch_key.h
+	"generic/typedef.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\key\iokey.c
+	"key/key_driver.h"
+	"key/iokey.h"
+	"device/gpio.h"
+	"app_config.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\key\iokey.h
+	"generic/typedef.h"
+	"device/device.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\key\irkey.c
+	"key/key_driver.h"
+	"key/irkey.h"
+	"device/gpio.h"
+	"asm/irflt.h"
+	"app_config.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\key\irkey.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\irflt.h
+	"generic/typedef.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\key\key_driver.c
+	"event/key_event.h"
+	"system/init.h"
+	"system/timer.h"
+	"key/key_driver.h"
+	"key/iokey.h"
+	"key/adkey.h"
+	"key/slidekey.h"
+	"key/irkey.h"
+	"key/touch_key.h"
+	"key/rdec_key.h"
+	"key/ctmu_key.h"
+	"key/tent600_key.h"
+	"app_config.h"
+	"asm/power_interface.h"
+	"debug.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\key\slidekey.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\key\rdec_key.h
+	"generic/typedef.h"
+	"asm/rdec.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\rdec.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\key\tent600_key.h
+	"generic/typedef.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\key\matrix_keyboard.c
+	"key/key_driver.h"
+	"device/gpio.h"
+	"system/timer.h"
+	"app_config.h"
+	"key/matrix_keyboard.h"
+	"asm/power_interface.h"
+	"asm/power/p33.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\key\rdec_key.c
+	"key/key_driver.h"
+	"key/rdec_key.h"
+	"device/gpio.h"
+	"app_config.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\key\slidekey.c
+	"key/key_driver.h"
+	"key/slidekey.h"
+	"device/gpio.h"
+	"app_config.h"
+	"asm/adc_api.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\key\tent600_key.c
+	"key/key_driver.h"
+	"key/tent600_key.h"
+	"key/adkey.h"
+	"device/gpio.h"
+	"app_config.h"
+	"asm/adc_api.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\key\touch_key.c
+	"key/touch_key.h"
+	"key/key_driver.h"
+	"asm/plcnt.h"
+	"app_config.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\cpu\wl83\asm\plcnt.h
+	"generic/typedef.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\key\uart_key.c
+	"key/key_driver.h"
+	"asm/uart.h"
+	"app_config.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\system\init.c
+	"app_config.h"
+	"asm/includes.h"
+	"system/init.h"
+	"system/task.h"
+	"app_core.h"
+	"irq.h"
+	"version.h"
+	"jiffies.h"
+	"system/timer.h"
+	"perf_counter.h"
+	"generic/dlog.h"
+	<unistd.h>
+	"mem_leak_test.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\system\mem_leak_test.h
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\system\init_expand.c
+	<stdio.h>
+	"app_config.h"
+	"asm/includes.h"
+	"system/init.h"
+	"system/task.h"
+	"app_core.h"
+	"irq.h"
+	"version.h"
+	"jiffies.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\system\mem_mmu.c
+	"app_config.h"
+	"generic/typedef.h"
+	"system/malloc.h"
+	"system/init.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\system\perf_counter\example\main.c
+	<stdint.h>
+	"perf_counter.h"
+	<time.h>
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\system\perf_counter\perf_counter.c
+	<stdint.h>
+	<stdbool.h>
+	<string.h>
+	<assert.h>
+	"app_config.h"
+	"system/includes.h"
+	"asm/clock.h"
+	"spinlock.h"
+	"perf_counter.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\c++\include\stdbool.h
+	<__config>
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\system\version.c
+	"system/includes.h"
+	"generic/log.h"
+	"app_config.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\common\update\update.c
+	"update.h"
+	"update_loader_download.h"
+	"asm/crc16.h"
+	"asm/wdt.h"
+	"os/os_api.h"
+	"app_config.h"
+	"cpu.h"
+	"syscfg_id.h"
+	"btcontroller_modules.h"
+	"system/includes.h"
+	"uart_update.h"
+	"ota_impl.h"
+	"btstack/avctp_user.h"
+	"asm/power_interface.h"
+	"system/debug.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\update\update.h
+	"sd_upgrade_impl.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\update\sd_upgrade_impl.h
+	"error_code.h"
+	"typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\btctrler\btcontroller_modules.h
+	"hci_transport.h"
+	"btcontroller_mode.h"
+	"ble/hci_ll.h"
+	"classic/hci_lmp.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\btctrler\hci_transport.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\btctrler\btcontroller_mode.h
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\btctrler\ble\hci_ll.h
+	<stdint.h>
+	<stdlib.h>
+	<stdarg.h>
+	"typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\btctrler\classic\hci_lmp.h
+	"generic/typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\update\uart_update.h
+	"typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\update\ota_impl.h
+	"error_code.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\btstack\avctp_user.h
+	"typedef.h"
+	"btstack_typedef.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\btstack\btstack_typedef.h
+	"typedef.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\demo\demo_hello\app_main.c
+	"app_config.h"
+	"system/includes.h"
+	"event/key_event.h"
+	"asm/power_interface.h"
+
+1777542084 source:d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\apps\demo\demo_hello\board\wl83\board.c
+	"app_config.h"
+	"system/includes.h"
+	"device/includes.h"
+	"device/uart.h"
+	"device/iic.h"
+	"asm/includes.h"
+
+1777542084 d:\5.devtool\jili-sdk\fw-ac792_sdk-release-ac792n_sdk_v3\sdk\include_lib\driver\device\includes.h
+	"device.h"
+	"ioctl_cmds.h"
+	"key/key_driver.h"
+	"key/adkey.h"
+	"key/iokey.h"
+	"key/irkey.h"
+	"key/slidekey.h"
+	"key/touch_key.h"
+	"key/ctmu_key.h"
+	"key/rdec_key.h"
+	"key/tent600_key.h"
+

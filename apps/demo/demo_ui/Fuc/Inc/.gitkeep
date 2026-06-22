@@ -1,0 +1,2 @@
+# 占位文件: 保留 Fuc/Inc 目录结构(git 不跟踪空目录)。
+# 原 HWDataAccess.h 已暂移到 GUI_app/custom/include/ 以兼容 GUI-Guider 模拟器构建。
