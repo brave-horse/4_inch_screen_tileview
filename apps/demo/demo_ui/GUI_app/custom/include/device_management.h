@@ -22,7 +22,7 @@ void dev_mgmt_on_load(void);
 
 /* 各灯开关(VALUE_CHANGED)事件里调用: 读 CHECKED → 写中间层 → 刷指示器 */
 void dev_mgmt_ct_on_toggle(void);
-void dev_mgmt_led_on_toggle(void);
+void dev_mgmt_led_on_toggle(void *e);   /* GUI-Guider 里灯带回调填了带 e, 收个忽略的参数兼容 */
 void dev_mgmt_mag_on_toggle(void);
 void dev_mgmt_rgb_on_toggle(void);
 

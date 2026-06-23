@@ -199,15 +199,23 @@ static void set_hit_area_bl(lv_obj_t *obj)
 /* ═══════════ 首页 + 设备页合并加载 ═══════════ */
 void home_on_screen_load(void)
 {
-    /* 清各 tile 自身滚动, 让横滑手势直达 tileview 切页(防 tile_0 大按键区吞手势)。
-     * 纵向看设备卡片由 tabview 的 tab page 自己滚, 不受影响。 */
+    /* tileview 整页切换修复(根因): lv_obj_set_tile 每次切 tile 用 tile->dir 重设 scroll_dir。
+     * GUI-Guider 给首尾设单向(tile_0=RIGHT/tile_3=LEFT), 切回后 scroll_dir 变单向→退化自由滚动。
+     * 直接把每个 tile->dir 改成 HOR, set_tile 永远取双向, 任意 tile 都能整页切;
+     * 关 ELASTIC 让首尾边界硬停不回弹。LVGL v8 内部 tile 结构 {lv_obj_t obj; lv_dir_t dir}。 */
     {
+        struct tv_tile { lv_obj_t obj; lv_dir_t dir; };   //tv tileview
+        lv_obj_t *tv = guider_ui.ui_home_screen_tileview_1;
         lv_obj_t *tiles[] = { guider_ui.ui_home_screen_tileview_1_tile_0,
                               guider_ui.ui_home_screen_tileview_1_tile_1,
                               guider_ui.ui_home_screen_tileview_1_tile_2,
                               guider_ui.ui_home_screen_tileview_1_tile_3 };
         for (uint8_t i = 0; i < 4; i++)
-            if (lv_obj_is_valid(tiles[i])) lv_obj_clear_flag(tiles[i], LV_OBJ_FLAG_SCROLLABLE);
+            if (lv_obj_is_valid(tiles[i])) ((struct tv_tile *)tiles[i])->dir = LV_DIR_HOR;
+        if (lv_obj_is_valid(tv)) {
+            lv_obj_clear_flag(tv, LV_OBJ_FLAG_SCROLL_ELASTIC);
+            lv_obj_set_scroll_dir(tv, LV_DIR_HOR);
+        }
     }
 
     /* ── 首页: 清大图 CLICKABLE ── */
@@ -335,7 +343,7 @@ static void slot_toggle(uint8_t idx)
 }
 
 void dev_mgmt_ct_on_toggle(void)     { slot_toggle(DEV_SLOT_CT_LIGHT); }
-void dev_mgmt_led_on_toggle(void)    { slot_toggle(DEV_SLOT_LEDSTRIP); }
+void dev_mgmt_led_on_toggle(void *e) { (void)e; slot_toggle(DEV_SLOT_LEDSTRIP); }  /* e 忽略, 兼容 GUI-Guider 带参回调 */
 void dev_mgmt_mag_on_toggle(void)    { slot_toggle(DEV_SLOT_MAGLIGHT); }
 void dev_mgmt_rgb_on_toggle(void)    { slot_toggle(DEV_SLOT_RGBLIGHT); }
 

@@ -1,6 +1,9 @@
 #ifndef HOME_H
 #define HOME_H
 
+/* dev_mgmt_* 声明: events_init.c 只 include Home.h, 经此间接拿到声明, 消 implicit 警告 */
+#include "device_management.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif

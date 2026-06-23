@@ -99,6 +99,7 @@ void init_scr_del_flag(lv_ui *ui)
     ui->Light_Scene_del = true;
     ui->Curtain_Scene_del = true;
     ui->Helper_del = true;
+    ui->LeftScene_del = true;
 }
 
 void setup_ui(lv_ui *ui)
