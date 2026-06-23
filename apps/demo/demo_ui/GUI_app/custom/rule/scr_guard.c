@@ -5,6 +5,8 @@
 #include "lvgl.h"
 #include "scr_guard.h"
 #include "gui_guider.h"
+#include "LVGL_Memory.h"
+#include "Home.h"   /* home_preload_scene: purge 后预解码场景页大图 */
 
 /*********************
  *      DEFINES
@@ -95,4 +97,13 @@ static void scr_guard_poll_cb(lv_timer_t *timer)
 
     lv_obj_add_event_cb(act, scr_guard_del_cb, LV_EVENT_DELETE, NULL);
     s_guarded = act;
+
+    /* 跨屏切换: 清掉上一屏的解码图释放系统堆(tileview 切 tile 不改 act, 不触发这里) */
+    lvgl_mem_purge_cache();
+    lvgl_mem_report("after scr switch");
+
+    /* 切到主屏: 必须在 purge 之后再预解码场景页大图, 否则刚解的图被上面 purge 清掉 */
+    if (act == guider_ui.ui_home_screen) {
+        home_preload_scene();
+    }
 }

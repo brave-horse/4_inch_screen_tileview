@@ -133,7 +133,7 @@ void setup_scr_Reset(lv_ui *ui)
     //Write codes Reset_btn_2
     ui->Reset_btn_2 = lv_btn_create(ui->Reset);
     ui->Reset_btn_2_label = lv_label_create(ui->Reset_btn_2);
-    lv_label_set_text(ui->Reset_btn_2_label, "Button");
+    lv_label_set_text(ui->Reset_btn_2_label, "取消");
     lv_label_set_long_mode(ui->Reset_btn_2_label, LV_LABEL_LONG_WRAP);
     lv_obj_align(ui->Reset_btn_2_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->Reset_btn_2, 0, LV_STATE_DEFAULT);
@@ -156,7 +156,7 @@ void setup_scr_Reset(lv_ui *ui)
     //Write codes Reset_btn_3
     ui->Reset_btn_3 = lv_btn_create(ui->Reset);
     ui->Reset_btn_3_label = lv_label_create(ui->Reset_btn_3);
-    lv_label_set_text(ui->Reset_btn_3_label, "Button");
+    lv_label_set_text(ui->Reset_btn_3_label, "重启\n");
     lv_label_set_long_mode(ui->Reset_btn_3_label, LV_LABEL_LONG_WRAP);
     lv_obj_align(ui->Reset_btn_3_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->Reset_btn_3, 0, LV_STATE_DEFAULT);

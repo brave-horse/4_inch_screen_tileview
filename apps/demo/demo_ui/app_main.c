@@ -80,7 +80,7 @@ void app_main(void)
     }
 
     /* 2. 开机动画: 在LVGL之前同步播放(自解码+fb_draw直显) */
-  /*   play_animation_start(); */
+   /*  play_animation_start(); */
 
     /* 3. 初始化硬件中间层(必须在 task / lvgl 之前) */
     HW_Init();

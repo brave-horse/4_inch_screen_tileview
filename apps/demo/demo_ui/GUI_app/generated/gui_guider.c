@@ -95,7 +95,8 @@ void init_scr_del_flag(lv_ui *ui)
     ui->SensorSet_del = true;
     ui->Reset_del = true;
     ui->huifuchuchangshezhi_del = true;
-    ui->NetSett_del = true;
+    ui->RelativeProduct_del = true;
+    ui->NetSetting_del = true;
     ui->Helper_del = true;
 }
 

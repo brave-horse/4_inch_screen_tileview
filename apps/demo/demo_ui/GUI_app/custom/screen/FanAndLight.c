@@ -132,7 +132,7 @@ void fanlight_on_screen_load(void)
                           guider_ui.FanAndLight_Fan_off,    guider_ui.FanAndLight_Fan_on,
                           guider_ui.FanAndLight_FanSpeed1,  guider_ui.FanAndLight_FanSpeed2,
                           guider_ui.FanAndLight_FanSpeed3,  guider_ui.FanAndLight_FanSpeed4 };
-        for (uint8_t i = 0; i < 10; i++)
+        for (uint8_t i = 0; i < 9; i++)
             lv_obj_set_style_img_opa(b[i], 128, LV_PART_MAIN | LV_STATE_PRESSED);
     }
 }

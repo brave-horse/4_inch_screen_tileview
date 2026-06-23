@@ -196,6 +196,18 @@ static void set_hit_area_bl(lv_obj_t *obj)
     lv_obj_add_event_cb(obj, hit_test_bl, LV_EVENT_HIT_TEST, NULL);
 }
 
+/* 同步解码 obj 子树里所有 lv_img 进缓存(命中则秒过)。进 home 时把场景页大图
+ * 一次性解进 DDR, 之后滑过去缓存命中不卡。代价: 进 home 这一刻多顿几百 ms。 */
+static void decode_subtree_imgs(lv_obj_t *obj)
+{
+    if (lv_obj_check_type(obj, &lv_img_class)) {
+        const void *src = lv_img_get_src(obj);
+        if (src) _lv_img_cache_open(src, lv_color_white(), 0);
+    }
+    uint32_t cnt = lv_obj_get_child_cnt(obj);
+    for (uint32_t i = 0; i < cnt; i++) decode_subtree_imgs(lv_obj_get_child(obj, i));
+}
+
 /* ═══════════ 首页 + 设备页合并加载 ═══════════ */
 void home_on_screen_load(void)
 {
@@ -209,8 +221,10 @@ void home_on_screen_load(void)
         lv_obj_t *tiles[] = { guider_ui.ui_home_screen_tileview_1_tile_0,
                               guider_ui.ui_home_screen_tileview_1_tile_1,
                               guider_ui.ui_home_screen_tileview_1_tile_2,
-                              guider_ui.ui_home_screen_tileview_1_tile_3 };
-        for (uint8_t i = 0; i < 4; i++)
+                              guider_ui.ui_home_screen_tileview_1_tile_3,
+                              guider_ui.ui_home_screen_tileview_1_tile_4
+                               };   /* 第5个tile(场景页), 别漏 */
+        for (uint8_t i = 0; i < 5; i++)
             if (lv_obj_is_valid(tiles[i])) ((struct tv_tile *)tiles[i])->dir = LV_DIR_HOR;
         if (lv_obj_is_valid(tv)) {
             lv_obj_clear_flag(tv, LV_OBJ_FLAG_SCROLL_ELASTIC);
@@ -329,6 +343,15 @@ void home_on_screen_load(void)
 
     /* 浴霸 */
     heater_apply();
+}
+
+/* 预解码场景页(tile_4)全部图进缓存。由 scr_guard 在 purge_cache 之后调用。
+ * 注: 内存不足时此预解码仍会 nodata(实测), 治本是把场景图编进固件(C数组,不走cache)。
+ *     编固件做完后, 本函数 + decode_subtree_imgs + scr_guard 的调用都应一并撤掉。 */
+void home_preload_scene(void)
+{
+    if (lv_obj_is_valid(guider_ui.ui_home_screen_tileview_1_tile_4))
+        decode_subtree_imgs(guider_ui.ui_home_screen_tileview_1_tile_4);
 }
 
 /* ═══════════ 对外接口(供 events_init 调用) ═══════════ */

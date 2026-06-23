@@ -89,14 +89,14 @@ void setup_scr_SwitchSet(lv_ui *ui)
     //Write codes SwitchSet_cont_2
     ui->SwitchSet_cont_2 = lv_obj_create(ui->SwitchSet);
     lv_obj_set_pos(ui->SwitchSet_cont_2, -1, 516);
-    lv_obj_set_size(ui->SwitchSet_cont_2, 720, 215);
+    lv_obj_set_size(ui->SwitchSet_cont_2, 720, 201);
     lv_obj_set_scrollbar_mode(ui->SwitchSet_cont_2, LV_SCROLLBAR_MODE_OFF);
 
     //Write style for SwitchSet_cont_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_border_width(ui->SwitchSet_cont_2, 2, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_border_opa(ui->SwitchSet_cont_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_color(ui->SwitchSet_cont_2, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_side(ui->SwitchSet_cont_2, LV_BORDER_SIDE_FULL, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_color(ui->SwitchSet_cont_2, lv_color_hex(0x151313), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_side(ui->SwitchSet_cont_2, LV_BORDER_SIDE_BOTTOM, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->SwitchSet_cont_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui->SwitchSet_cont_2, 133, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_color(ui->SwitchSet_cont_2, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -115,8 +115,8 @@ void setup_scr_SwitchSet(lv_ui *ui)
     lv_obj_align(ui->SwitchSet_btn_5_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->SwitchSet_btn_5, 0, LV_STATE_DEFAULT);
     lv_obj_set_width(ui->SwitchSet_btn_5_label, LV_PCT(100));
-    lv_obj_set_pos(ui->SwitchSet_btn_5, 563, 27);
-    lv_obj_set_size(ui->SwitchSet_btn_5, 100, 50);
+    lv_obj_set_pos(ui->SwitchSet_btn_5, 490, 25);
+    lv_obj_set_size(ui->SwitchSet_btn_5, 180, 50);
 
     //Write style for SwitchSet_btn_5, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_bg_opa(ui->SwitchSet_btn_5, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -138,8 +138,8 @@ void setup_scr_SwitchSet(lv_ui *ui)
     lv_obj_align(ui->SwitchSet_btn_4_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->SwitchSet_btn_4, 0, LV_STATE_DEFAULT);
     lv_obj_set_width(ui->SwitchSet_btn_4_label, LV_PCT(100));
-    lv_obj_set_pos(ui->SwitchSet_btn_4, 563, 122);
-    lv_obj_set_size(ui->SwitchSet_btn_4, 100, 50);
+    lv_obj_set_pos(ui->SwitchSet_btn_4, 490, 121);
+    lv_obj_set_size(ui->SwitchSet_btn_4, 180, 50);
 
     //Write style for SwitchSet_btn_4, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_bg_opa(ui->SwitchSet_btn_4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -157,7 +157,7 @@ void setup_scr_SwitchSet(lv_ui *ui)
     ui->SwitchSet_label_2 = lv_label_create(ui->SwitchSet_cont_2);
     lv_label_set_text(ui->SwitchSet_label_2, "按键3  互控");
     lv_label_set_long_mode(ui->SwitchSet_label_2, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->SwitchSet_label_2, 0, 18);
+    lv_obj_set_pos(ui->SwitchSet_label_2, 14, 86);
     lv_obj_set_size(ui->SwitchSet_label_2, 170, 40);
 
     //Write style for SwitchSet_label_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -178,15 +178,15 @@ void setup_scr_SwitchSet(lv_ui *ui)
 
     //Write codes SwitchSet_cont_1
     ui->SwitchSet_cont_1 = lv_obj_create(ui->SwitchSet);
-    lv_obj_set_pos(ui->SwitchSet_cont_1, -2, 87);
+    lv_obj_set_pos(ui->SwitchSet_cont_1, -1, 85);
     lv_obj_set_size(ui->SwitchSet_cont_1, 720, 215);
     lv_obj_set_scrollbar_mode(ui->SwitchSet_cont_1, LV_SCROLLBAR_MODE_OFF);
 
     //Write style for SwitchSet_cont_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_border_width(ui->SwitchSet_cont_1, 2, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_border_opa(ui->SwitchSet_cont_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_color(ui->SwitchSet_cont_1, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_side(ui->SwitchSet_cont_1, LV_BORDER_SIDE_FULL, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_color(ui->SwitchSet_cont_1, lv_color_hex(0x151313), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_side(ui->SwitchSet_cont_1, LV_BORDER_SIDE_BOTTOM, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->SwitchSet_cont_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui->SwitchSet_cont_1, 133, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_color(ui->SwitchSet_cont_1, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -205,8 +205,8 @@ void setup_scr_SwitchSet(lv_ui *ui)
     lv_obj_align(ui->SwitchSet_btn_2_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->SwitchSet_btn_2, 0, LV_STATE_DEFAULT);
     lv_obj_set_width(ui->SwitchSet_btn_2_label, LV_PCT(100));
-    lv_obj_set_pos(ui->SwitchSet_btn_2, 563, 27);
-    lv_obj_set_size(ui->SwitchSet_btn_2, 100, 50);
+    lv_obj_set_pos(ui->SwitchSet_btn_2, 490, 26);
+    lv_obj_set_size(ui->SwitchSet_btn_2, 180, 50);
 
     //Write style for SwitchSet_btn_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_bg_opa(ui->SwitchSet_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -228,8 +228,8 @@ void setup_scr_SwitchSet(lv_ui *ui)
     lv_obj_align(ui->SwitchSet_btn_3_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->SwitchSet_btn_3, 0, LV_STATE_DEFAULT);
     lv_obj_set_width(ui->SwitchSet_btn_3_label, LV_PCT(100));
-    lv_obj_set_pos(ui->SwitchSet_btn_3, 563, 122);
-    lv_obj_set_size(ui->SwitchSet_btn_3, 100, 50);
+    lv_obj_set_pos(ui->SwitchSet_btn_3, 490, 122);
+    lv_obj_set_size(ui->SwitchSet_btn_3, 180, 50);
 
     //Write style for SwitchSet_btn_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_bg_opa(ui->SwitchSet_btn_3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -247,7 +247,7 @@ void setup_scr_SwitchSet(lv_ui *ui)
     ui->SwitchSet_label_1 = lv_label_create(ui->SwitchSet_cont_1);
     lv_label_set_text(ui->SwitchSet_label_1, "按键1  互控");
     lv_label_set_long_mode(ui->SwitchSet_label_1, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->SwitchSet_label_1, 0, 19);
+    lv_obj_set_pos(ui->SwitchSet_label_1, 12, 79);
     lv_obj_set_size(ui->SwitchSet_label_1, 170, 40);
 
     //Write style for SwitchSet_label_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -275,8 +275,8 @@ void setup_scr_SwitchSet(lv_ui *ui)
     //Write style for SwitchSet_cont_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_border_width(ui->SwitchSet_cont_3, 2, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_border_opa(ui->SwitchSet_cont_3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_color(ui->SwitchSet_cont_3, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_side(ui->SwitchSet_cont_3, LV_BORDER_SIDE_FULL, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_color(ui->SwitchSet_cont_3, lv_color_hex(0x151313), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_side(ui->SwitchSet_cont_3, LV_BORDER_SIDE_BOTTOM, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->SwitchSet_cont_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui->SwitchSet_cont_3, 133, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_color(ui->SwitchSet_cont_3, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -295,8 +295,8 @@ void setup_scr_SwitchSet(lv_ui *ui)
     lv_obj_align(ui->SwitchSet_btn_7_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->SwitchSet_btn_7, 0, LV_STATE_DEFAULT);
     lv_obj_set_width(ui->SwitchSet_btn_7_label, LV_PCT(100));
-    lv_obj_set_pos(ui->SwitchSet_btn_7, 563, 27);
-    lv_obj_set_size(ui->SwitchSet_btn_7, 100, 50);
+    lv_obj_set_pos(ui->SwitchSet_btn_7, 490, 26);
+    lv_obj_set_size(ui->SwitchSet_btn_7, 180, 50);
 
     //Write style for SwitchSet_btn_7, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_bg_opa(ui->SwitchSet_btn_7, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -318,8 +318,8 @@ void setup_scr_SwitchSet(lv_ui *ui)
     lv_obj_align(ui->SwitchSet_btn_6_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->SwitchSet_btn_6, 0, LV_STATE_DEFAULT);
     lv_obj_set_width(ui->SwitchSet_btn_6_label, LV_PCT(100));
-    lv_obj_set_pos(ui->SwitchSet_btn_6, 563, 121);
-    lv_obj_set_size(ui->SwitchSet_btn_6, 100, 50);
+    lv_obj_set_pos(ui->SwitchSet_btn_6, 490, 117);
+    lv_obj_set_size(ui->SwitchSet_btn_6, 180, 50);
 
     //Write style for SwitchSet_btn_6, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_bg_opa(ui->SwitchSet_btn_6, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -337,7 +337,7 @@ void setup_scr_SwitchSet(lv_ui *ui)
     ui->SwitchSet_label_3 = lv_label_create(ui->SwitchSet_cont_3);
     lv_label_set_text(ui->SwitchSet_label_3, "按键2  互控");
     lv_label_set_long_mode(ui->SwitchSet_label_3, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->SwitchSet_label_3, 0, 19);
+    lv_obj_set_pos(ui->SwitchSet_label_3, 10, 84);
     lv_obj_set_size(ui->SwitchSet_label_3, 170, 40);
 
     //Write style for SwitchSet_label_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.

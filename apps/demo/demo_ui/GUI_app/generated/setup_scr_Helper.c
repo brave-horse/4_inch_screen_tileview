@@ -136,7 +136,7 @@ void setup_scr_Helper(lv_ui *ui)
     lv_obj_align(ui->Helper_btn_1_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->Helper_btn_1, 0, LV_STATE_DEFAULT);
     lv_obj_set_width(ui->Helper_btn_1_label, LV_PCT(100));
-    lv_obj_set_pos(ui->Helper_btn_1, -7, -9);
+    lv_obj_set_pos(ui->Helper_btn_1, -5, -11);
     lv_obj_set_size(ui->Helper_btn_1, 263, 107);
 
     //Write style for Helper_btn_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.

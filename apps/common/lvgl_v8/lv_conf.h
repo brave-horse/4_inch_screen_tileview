@@ -80,7 +80,8 @@
  *=========================*/
 
 /*1: use custom malloc/free, 0: use the built-in `lv_mem_alloc()` and `lv_mem_free()`*/
-#define LV_MEM_CUSTOM 0
+/* A方案: 改 1 走杰理系统堆(16MB), 弃用 3MB 静态池, 解决大图解码分不到连续内存 */
+#define LV_MEM_CUSTOM 1
 #if LV_MEM_CUSTOM == 0
 /*Size of the memory available for `lv_mem_alloc()` in bytes (>= 2kB)*/
 #define LV_MEM_SIZE (3*1024 * 1024U)          /*[bytes]*/
@@ -94,7 +95,7 @@
 #endif
 
 #else       /*LV_MEM_CUSTOM*/
-#define LV_MEM_CUSTOM_INCLUDE <stdlib.h>   /*Header for the dynamic memory function*/
+#define LV_MEM_CUSTOM_INCLUDE "system/malloc.h"   /* 杰理系统堆 malloc/free/realloc */
 #define LV_MEM_CUSTOM_ALLOC   malloc
 #define LV_MEM_CUSTOM_FREE    free
 #define LV_MEM_CUSTOM_REALLOC realloc
@@ -113,10 +114,10 @@
  *====================*/
 
 /*Default display refresh period. LVG will redraw changed areas with this period time*/
-#define LV_DISP_DEF_REFR_PERIOD 15       /*[ms]*/ //刷屏定时器已解耦, 但是动画定时器会使用,因此根据屏幕TE帧率稍作调整
+#define LV_DISP_DEF_REFR_PERIOD 25       /*[ms]*/ //刷屏定时器已解耦, 但是动画定时器会使用,因此根据屏幕TE帧率稍作调整
 
 /*Input device read period in milliseconds*/
-#define LV_INDEV_DEF_READ_PERIOD 20    /*[ms]*/  //触摸定时器已解耦
+#define LV_INDEV_DEF_READ_PERIOD 50    /*[ms]*/  //触摸定时器已解耦
 
 /*Use a custom tick source that tells the elapsed time in milliseconds.
  *It removes the need to manually update the tick with `lv_tick_inc()`)*/
@@ -182,7 +183,7 @@
  *With complex image decoders (e.g. PNG or JPG) caching can save the continuous open/decode of images.
  *However the opened images might consume additional RAM.
  *0: to disable caching*/
-#define LV_IMG_CACHE_DEF_SIZE 64
+#define LV_IMG_CACHE_DEF_SIZE 80
 
 /*Number of stops allowed per gradient. Increase this to allow more stops.
  *This adds (sizeof(lv_color_t) + 1) bytes per additional stop*/

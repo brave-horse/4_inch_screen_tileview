@@ -46,20 +46,6 @@ static void ui_home_screen_event_handler (lv_event_t *e)
     }
 }
 
-static void ui_home_screen_btn_1_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.LedStrip, guider_ui.LedStrip_del, &guider_ui.ui_home_screen_del, setup_scr_LedStrip, LV_SCR_LOAD_ANIM_NONE, 200, 200, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
 static void ui_home_screen_cont_27_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
@@ -511,7 +497,6 @@ static void ui_home_screen_imgbtn_1_event_handler (lv_event_t *e)
 void events_init_ui_home_screen (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->ui_home_screen, ui_home_screen_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->ui_home_screen_btn_1, ui_home_screen_btn_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->ui_home_screen_cont_27, ui_home_screen_cont_27_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->ui_home_screen_imgbtn_9, ui_home_screen_imgbtn_9_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->ui_home_screen_cont_26, ui_home_screen_cont_26_event_handler, LV_EVENT_ALL, ui);
@@ -2330,6 +2315,104 @@ void events_init_Heater (lv_ui *ui)
     lv_obj_add_event_cb(ui->Heater_btn_2, Heater_btn_2_event_handler, LV_EVENT_ALL, ui);
 }
 
+static void setting_screen_list_1_item0_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.NetSetting, guider_ui.NetSetting_del, &guider_ui.setting_screen_del, setup_scr_NetSetting, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void setting_screen_list_1_item1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.PlaySet, guider_ui.PlaySet_del, &guider_ui.setting_screen_del, setup_scr_PlaySet, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void setting_screen_list_1_item2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.SwitchSet, guider_ui.SwitchSet_del, &guider_ui.setting_screen_del, setup_scr_SwitchSet, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void setting_screen_list_1_item3_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.SensorSet, guider_ui.SensorSet_del, &guider_ui.setting_screen_del, setup_scr_SensorSet, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void setting_screen_list_1_item4_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.Reset, guider_ui.Reset_del, &guider_ui.setting_screen_del, setup_scr_Reset, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void setting_screen_list_1_item5_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.huifuchuchangshezhi, guider_ui.huifuchuchangshezhi_del, &guider_ui.setting_screen_del, setup_scr_huifuchuchangshezhi, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void setting_screen_list_1_item6_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.RelativeProduct, guider_ui.RelativeProduct_del, &guider_ui.setting_screen_del, setup_scr_RelativeProduct, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 static void setting_screen_btn_1_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
@@ -2360,6 +2443,13 @@ static void setting_screen_btn_2_event_handler (lv_event_t *e)
 
 void events_init_setting_screen (lv_ui *ui)
 {
+    lv_obj_add_event_cb(ui->setting_screen_list_1_item0, setting_screen_list_1_item0_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->setting_screen_list_1_item1, setting_screen_list_1_item1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->setting_screen_list_1_item2, setting_screen_list_1_item2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->setting_screen_list_1_item3, setting_screen_list_1_item3_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->setting_screen_list_1_item4, setting_screen_list_1_item4_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->setting_screen_list_1_item5, setting_screen_list_1_item5_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->setting_screen_list_1_item6, setting_screen_list_1_item6_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->setting_screen_btn_1, setting_screen_btn_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->setting_screen_btn_2, setting_screen_btn_2_event_handler, LV_EVENT_ALL, ui);
 }
@@ -2459,13 +2549,13 @@ void events_init_huifuchuchangshezhi (lv_ui *ui)
     lv_obj_add_event_cb(ui->huifuchuchangshezhi_btn_4, huifuchuchangshezhi_btn_4_event_handler, LV_EVENT_ALL, ui);
 }
 
-static void NetSett_btn_1_event_handler (lv_event_t *e)
+static void NetSetting_btn_1_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.setting_screen, guider_ui.setting_screen_del, &guider_ui.NetSett_del, setup_scr_setting_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        ui_load_scr_animation(&guider_ui, &guider_ui.setting_screen, guider_ui.setting_screen_del, &guider_ui.NetSetting_del, setup_scr_setting_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
         break;
     }
     default:
@@ -2473,9 +2563,9 @@ static void NetSett_btn_1_event_handler (lv_event_t *e)
     }
 }
 
-void events_init_NetSett (lv_ui *ui)
+void events_init_NetSetting (lv_ui *ui)
 {
-    lv_obj_add_event_cb(ui->NetSett_btn_1, NetSett_btn_1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->NetSetting_btn_1, NetSetting_btn_1_event_handler, LV_EVENT_ALL, ui);
 }
 
 static void Helper_btn_1_event_handler (lv_event_t *e)

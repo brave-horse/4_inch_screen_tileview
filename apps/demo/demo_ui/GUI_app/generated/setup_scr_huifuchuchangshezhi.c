@@ -111,8 +111,8 @@ void setup_scr_huifuchuchangshezhi(lv_ui *ui)
     ui->huifuchuchangshezhi_label_1 = lv_label_create(ui->huifuchuchangshezhi);
     lv_label_set_text(ui->huifuchuchangshezhi_label_1, "清除所有数据,请谨慎确认!");
     lv_label_set_long_mode(ui->huifuchuchangshezhi_label_1, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->huifuchuchangshezhi_label_1, 159, 297);
-    lv_obj_set_size(ui->huifuchuchangshezhi_label_1, 338, 58);
+    lv_obj_set_pos(ui->huifuchuchangshezhi_label_1, 176, 297);
+    lv_obj_set_size(ui->huifuchuchangshezhi_label_1, 368, 58);
 
     //Write style for huifuchuchangshezhi_label_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_border_width(ui->huifuchuchangshezhi_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -184,7 +184,7 @@ void setup_scr_huifuchuchangshezhi(lv_ui *ui)
     lv_obj_align(ui->huifuchuchangshezhi_btn_4_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->huifuchuchangshezhi_btn_4, 0, LV_STATE_DEFAULT);
     lv_obj_set_width(ui->huifuchuchangshezhi_btn_4_label, LV_PCT(100));
-    lv_obj_set_pos(ui->huifuchuchangshezhi_btn_4, -7, -12);
+    lv_obj_set_pos(ui->huifuchuchangshezhi_btn_4, -5, -11);
     lv_obj_set_size(ui->huifuchuchangshezhi_btn_4, 261, 107);
 
     //Write style for huifuchuchangshezhi_btn_4, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
