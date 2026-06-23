@@ -297,7 +297,7 @@ void setup_scr_FabricCurtian(lv_ui *ui)
 
     //Write codes FabricCurtian_cont_3
     ui->FabricCurtian_cont_3 = lv_obj_create(ui->FabricCurtian);
-    lv_obj_set_pos(ui->FabricCurtian_cont_3, 593, 175);
+    lv_obj_set_pos(ui->FabricCurtian_cont_3, 599, 161);
     lv_obj_set_size(ui->FabricCurtian_cont_3, 300, 324);
     lv_obj_set_scrollbar_mode(ui->FabricCurtian_cont_3, LV_SCROLLBAR_MODE_OFF);
 

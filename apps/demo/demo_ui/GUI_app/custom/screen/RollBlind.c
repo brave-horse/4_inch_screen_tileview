@@ -69,6 +69,15 @@ void roll_blind_on_screen_load(void)
     roll_apply(s_pct);
     if (cur_pct != tgt_pct)
         roll_anim_to_ms(tgt_pct, curtain_motion_remaining_ms(CURTAIN_IDX_ROLLBLIND));
+
+    /* 按钮按下反馈: 50% 透明 */
+    {
+        lv_obj_t *b[] = { guider_ui.RollBlind_FabCurtianOpen,
+                          guider_ui.RollBlind_FabCurtianPause,
+                          guider_ui.RollBlind_FabCurtianClose };
+        for (uint8_t i = 0; i < 3; i++)
+            lv_obj_set_style_img_opa(b[i], 128, LV_PART_MAIN | LV_STATE_PRESSED);
+    }
 }
 
 void roll_blind_on_open(void)

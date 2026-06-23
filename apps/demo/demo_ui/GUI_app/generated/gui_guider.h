@@ -645,52 +645,15 @@ typedef struct
 	lv_obj_t *NetSett_img_1;
 	lv_obj_t *NetSett_btn_1;
 	lv_obj_t *NetSett_btn_1_label;
-	lv_obj_t *Light_Scene;
-	bool Light_Scene_del;
-	lv_obj_t *Light_Scene_tabview_1;
-	lv_obj_t *Light_Scene_tabview_1_tab_1;
-	lv_obj_t *Light_Scene_cont_6;
-	lv_obj_t *Light_Scene_label_6;
-	lv_obj_t *Light_Scene_img_6;
-	lv_obj_t *Light_Scene_cont_5;
-	lv_obj_t *Light_Scene_label_9;
-	lv_obj_t *Light_Scene_img_5;
-	lv_obj_t *Light_Scene_cont_4;
-	lv_obj_t *Light_Scene_label_4;
-	lv_obj_t *Light_Scene_img_4;
-	lv_obj_t *Light_Scene_cont_3;
-	lv_obj_t *Light_Scene_label_3;
-	lv_obj_t *Light_Scene_img_3;
-	lv_obj_t *Light_Scene_cont_2;
-	lv_obj_t *Light_Scene_label_8;
-	lv_obj_t *Light_Scene_img_2;
-	lv_obj_t *Light_Scene_cont_1;
-	lv_obj_t *Light_Scene_label_7;
-	lv_obj_t *Light_Scene_img_1;
-	lv_obj_t *Light_Scene_label_10;
-	lv_obj_t *Curtain_Scene;
-	bool Curtain_Scene_del;
-	lv_obj_t *Curtain_Scene_tabview_1;
-	lv_obj_t *Curtain_Scene_tabview_1_tab_1;
-	lv_obj_t *Curtain_Scene_cont_12;
-	lv_obj_t *Curtain_Scene_label_16;
-	lv_obj_t *Curtain_Scene_img_12;
-	lv_obj_t *Curtain_Scene_cont_11;
-	lv_obj_t *Curtain_Scene_label_15;
-	lv_obj_t *Curtain_Scene_img_11;
-	lv_obj_t *Curtain_Scene_cont_10;
-	lv_obj_t *Curtain_Scene_label_14;
-	lv_obj_t *Curtain_Scene_img_10;
-	lv_obj_t *Curtain_Scene_cont_9;
-	lv_obj_t *Curtain_Scene_label_13;
-	lv_obj_t *Curtain_Scene_img_9;
-	lv_obj_t *Curtain_Scene_cont_8;
-	lv_obj_t *Curtain_Scene_label_12;
-	lv_obj_t *Curtain_Scene_img_8;
-	lv_obj_t *Curtain_Scene_cont_7;
-	lv_obj_t *Curtain_Scene_label_11;
-	lv_obj_t *Curtain_Scene_img_7;
-	lv_obj_t *Curtain_Scene_label_10;
+	lv_obj_t *NetSett_label_1;
+	lv_obj_t *NetSett_img_2;
+	lv_obj_t *NetSett_img_3;
+	lv_obj_t *NetSett_btn_2;
+	lv_obj_t *NetSett_btn_2_label;
+	lv_obj_t *NetSett_img_4;
+	lv_obj_t *NetSett_btn_3;
+	lv_obj_t *NetSett_btn_3_label;
+	lv_obj_t *NetSett_label_2;
 	lv_obj_t *Helper;
 	bool Helper_del;
 	lv_obj_t *Helper_tabview_1;
@@ -700,28 +663,6 @@ typedef struct
 	lv_obj_t *Helper_btn_1;
 	lv_obj_t *Helper_btn_1_label;
 	lv_obj_t *Helper_img_2;
-	lv_obj_t *LeftScene;
-	bool LeftScene_del;
-	lv_obj_t *LeftScene_tabview_1;
-	lv_obj_t *LeftScene_tabview_1_tab_1;
-	lv_obj_t *LeftScene_cont_18;
-	lv_obj_t *LeftScene_label_22;
-	lv_obj_t *LeftScene_img_18;
-	lv_obj_t *LeftScene_cont_17;
-	lv_obj_t *LeftScene_label_21;
-	lv_obj_t *LeftScene_img_17;
-	lv_obj_t *LeftScene_cont_15;
-	lv_obj_t *LeftScene_label_19;
-	lv_obj_t *LeftScene_img_15;
-	lv_obj_t *LeftScene_cont_16;
-	lv_obj_t *LeftScene_label_20;
-	lv_obj_t *LeftScene_img_16;
-	lv_obj_t *LeftScene_cont_14;
-	lv_obj_t *LeftScene_label_18;
-	lv_obj_t *LeftScene_img_14;
-	lv_obj_t *LeftScene_cont_13;
-	lv_obj_t *LeftScene_label_17;
-	lv_obj_t *LeftScene_img_13;
 }lv_ui;
 
 typedef void (*ui_setup_scr_t)(lv_ui * ui);
@@ -766,10 +707,7 @@ void setup_scr_SensorSet(lv_ui *ui);
 void setup_scr_Reset(lv_ui *ui);
 void setup_scr_huifuchuchangshezhi(lv_ui *ui);
 void setup_scr_NetSett(lv_ui *ui);
-void setup_scr_Light_Scene(lv_ui *ui);
-void setup_scr_Curtain_Scene(lv_ui *ui);
 void setup_scr_Helper(lv_ui *ui);
-void setup_scr_LeftScene(lv_ui *ui);
 LV_IMG_DECLARE(_sSetting_alpha_46x46);
 LV_IMG_DECLARE(_sHome_alpha_46x46);
 LV_IMG_DECLARE(_sManual_alpha_46x46);
@@ -830,25 +768,10 @@ LV_IMG_DECLARE(_spageback_alpha_14x24);
 LV_IMG_DECLARE(_spageback_alpha_14x24);
 LV_IMG_DECLARE(_spageback_alpha_14x24);
 LV_IMG_DECLARE(_spageback_alpha_14x24);
-LV_IMG_DECLARE(_LightScene4_alpha_48x48);
-LV_IMG_DECLARE(_LightScene3_alpha_48x48);
-LV_IMG_DECLARE(_LightScene1_alpha_48x48);
-LV_IMG_DECLARE(_LightScene2_alpha_48x48);
-LV_IMG_DECLARE(_onoff_off_alpha_48x48);
-LV_IMG_DECLARE(_onoff_on_alpha_48x48);
-LV_IMG_DECLARE(_CuratianS4_alpha_59x31);
-LV_IMG_DECLARE(_CuratianS3_alpha_59x31);
-LV_IMG_DECLARE(_CuratianS1_alpha_59x31);
-LV_IMG_DECLARE(_CuratianS2_alpha_59x31);
-LV_IMG_DECLARE(_CurAllClose_alpha_53x31);
-LV_IMG_DECLARE(_CurAllOpen_alpha_53x31);
+LV_IMG_DECLARE(_Sstartbind_alpha_136x145);
+LV_IMG_DECLARE(_Sbind_alpha_71x71);
+LV_IMG_DECLARE(_SQRCode_alpha_300x300);
 LV_IMG_DECLARE(_spageback_alpha_14x24);
-LV_IMG_DECLARE(_CuratianS4_alpha_59x31);
-LV_IMG_DECLARE(_CuratianS3_alpha_59x31);
-LV_IMG_DECLARE(_CuratianS2_alpha_59x31);
-LV_IMG_DECLARE(_CuratianS1_alpha_59x31);
-LV_IMG_DECLARE(_CurAllClose_alpha_53x31);
-LV_IMG_DECLARE(_CurAllOpen_alpha_53x31);
 
 LV_FONT_DECLARE(lv_font_montserratMedium_16)
 LV_FONT_DECLARE(lv_font_MiSansNormal_30)
@@ -858,6 +781,7 @@ LV_FONT_DECLARE(lv_font_ZiTiQuanWeiJunHeiW22_30)
 LV_FONT_DECLARE(lv_font_ZiTiQuanWeiJunHeiW22_20)
 LV_FONT_DECLARE(lv_font_ZiTiQuanWeiJunHeiW22_24)
 LV_FONT_DECLARE(lv_font_MiSansNormal_12)
+LV_FONT_DECLARE(lv_font_montserratMedium_30)
 
 
 #ifdef __cplusplus

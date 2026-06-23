@@ -125,8 +125,16 @@ void fanlight_on_screen_load(void)
     apply_fan_speed();
     apply_ui_refresh();
 
-    /* 按下反馈 */
-    lv_obj_set_style_img_opa(guider_ui.FanAndLight_imgbtn_1, 100, LV_PART_MAIN | LV_STATE_PRESSED);
+    /* 按钮按下反馈: 50% 透明 */
+    {
+        lv_obj_t *b[] = { guider_ui.FanAndLight_imgbtn_1,
+                          guider_ui.FanAndLight_fLight_off, guider_ui.FanAndLight_fLight_on,
+                          guider_ui.FanAndLight_Fan_off,    guider_ui.FanAndLight_Fan_on,
+                          guider_ui.FanAndLight_FanSpeed1,  guider_ui.FanAndLight_FanSpeed2,
+                          guider_ui.FanAndLight_FanSpeed3,  guider_ui.FanAndLight_FanSpeed4 };
+        for (uint8_t i = 0; i < 10; i++)
+            lv_obj_set_style_img_opa(b[i], 128, LV_PART_MAIN | LV_STATE_PRESSED);
+    }
 }
 
 void fanlight_on_power_toggle(lv_event_t *event)

@@ -93,6 +93,17 @@ void aircon_on_screen_load(void)
     show_only(speed, 4, s_speed);
     aircon_apply_wind();
     aircon_refresh();
+
+    /* 按钮按下反馈: 50% 透明 */
+    {
+        lv_obj_t *b[] = { guider_ui.AirCondition_AcCool,   guider_ui.AirCondition_ACHot,
+                          guider_ui.AirCondition_ACFan,    guider_ui.AirCondition_ACDry,
+                          guider_ui.AirCondition_ACSpeed1, guider_ui.AirCondition_ACSpeed2,
+                          guider_ui.AirCondition_ACSpeed3, guider_ui.AirCondition_ACSpeedAuto,
+                          guider_ui.AirCondition_ACBtn };
+        for (uint8_t i = 0; i < 9; i++)
+            lv_obj_set_style_img_opa(b[i], 128, LV_PART_MAIN | LV_STATE_PRESSED);
+    }
 }
 
 /* 电源键: 逻辑同色温灯开关, 关时整屏变暗 + 风速图透明 */

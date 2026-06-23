@@ -87,6 +87,15 @@ void dream_on_screen_load(void)
     if (cur_pct != tgt_pct)
         dream_anim_to_ms(tgt_pct * TRAVEL_PX / 100, curtain_motion_remaining_ms(CURTAIN_IDX_DREAM));
     dream_post_angle(s_angle_slider * ANGLE_MAX / SLIDER_MAX);
+
+    /* 按钮按下反馈: 50% 透明 */
+    {
+        lv_obj_t *b[] = { guider_ui.Dream_FabCurtianOpen,
+                          guider_ui.Dream_FabCurtianPause,
+                          guider_ui.Dream_FabCurtianClose };
+        for (uint8_t i = 0; i < 3; i++)
+            lv_obj_set_style_img_opa(b[i], 128, LV_PART_MAIN | LV_STATE_PRESSED);
+    }
 }
 
 void dream_on_open(void)

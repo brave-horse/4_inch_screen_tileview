@@ -36,7 +36,7 @@ void setup_scr_NetSett(lv_ui *ui)
 
     //Write style for NetSett_tabview_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_bg_opa(ui->NetSett_tabview_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_color(ui->NetSett_tabview_1, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->NetSett_tabview_1, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_grad_dir(ui->NetSett_tabview_1, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_color(ui->NetSett_tabview_1, lv_color_hex(0x4d4d4d), LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui->NetSett_tabview_1, &lv_font_ZiTiQuanWeiJunHeiW22_12, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -142,6 +142,143 @@ void setup_scr_NetSett(lv_ui *ui)
     lv_obj_set_style_text_font(ui->NetSett_btn_1, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->NetSett_btn_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->NetSett_btn_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes NetSett_label_1
+    ui->NetSett_label_1 = lv_label_create(ui->NetSett);
+    lv_label_set_text(ui->NetSett_label_1, "设备已经绑定米家App");
+    lv_label_set_long_mode(ui->NetSett_label_1, LV_LABEL_LONG_WRAP);
+    lv_obj_set_pos(ui->NetSett_label_1, 193, 152);
+    lv_obj_set_size(ui->NetSett_label_1, 334, 32);
+
+    //Write style for NetSett_label_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->NetSett_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->NetSett_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->NetSett_label_1, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->NetSett_label_1, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->NetSett_label_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui->NetSett_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui->NetSett_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->NetSett_label_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->NetSett_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->NetSett_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->NetSett_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->NetSett_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->NetSett_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->NetSett_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes NetSett_img_2
+    ui->NetSett_img_2 = lv_img_create(ui->NetSett);
+    lv_obj_add_flag(ui->NetSett_img_2, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->NetSett_img_2, &_Sstartbind_alpha_136x145);
+    lv_img_set_pivot(ui->NetSett_img_2, 50,50);
+    lv_img_set_angle(ui->NetSett_img_2, 0);
+    lv_obj_set_pos(ui->NetSett_img_2, -349, 254);
+    lv_obj_set_size(ui->NetSett_img_2, 136, 145);
+
+    //Write style for NetSett_img_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->NetSett_img_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->NetSett_img_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->NetSett_img_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->NetSett_img_2, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes NetSett_img_3
+    ui->NetSett_img_3 = lv_img_create(ui->NetSett);
+    lv_obj_add_flag(ui->NetSett_img_3, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->NetSett_img_3, &_Sbind_alpha_71x71);
+    lv_img_set_pivot(ui->NetSett_img_3, 50,50);
+    lv_img_set_angle(ui->NetSett_img_3, 0);
+    lv_obj_set_pos(ui->NetSett_img_3, 307, 296);
+    lv_obj_set_size(ui->NetSett_img_3, 71, 71);
+
+    //Write style for NetSett_img_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->NetSett_img_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->NetSett_img_3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->NetSett_img_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->NetSett_img_3, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes NetSett_btn_2
+    ui->NetSett_btn_2 = lv_btn_create(ui->NetSett);
+    ui->NetSett_btn_2_label = lv_label_create(ui->NetSett_btn_2);
+    lv_label_set_text(ui->NetSett_btn_2_label, "解除设备");
+    lv_label_set_long_mode(ui->NetSett_btn_2_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->NetSett_btn_2_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->NetSett_btn_2, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->NetSett_btn_2_label, LV_PCT(100));
+    lv_obj_set_pos(ui->NetSett_btn_2, 207, 578);
+    lv_obj_set_size(ui->NetSett_btn_2, 306, 50);
+
+    //Write style for NetSett_btn_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->NetSett_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->NetSett_btn_2, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_grad_dir(ui->NetSett_btn_2, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->NetSett_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->NetSett_btn_2, 14, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->NetSett_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->NetSett_btn_2, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->NetSett_btn_2, &lv_font_montserratMedium_30, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->NetSett_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->NetSett_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes NetSett_img_4
+    ui->NetSett_img_4 = lv_img_create(ui->NetSett);
+    lv_obj_add_flag(ui->NetSett_img_4, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->NetSett_img_4, &_SQRCode_alpha_300x300);
+    lv_img_set_pivot(ui->NetSett_img_4, 50,50);
+    lv_img_set_angle(ui->NetSett_img_4, 0);
+    lv_obj_set_pos(ui->NetSett_img_4, -755, 152);
+    lv_obj_set_size(ui->NetSett_img_4, 300, 300);
+
+    //Write style for NetSett_img_4, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->NetSett_img_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->NetSett_img_4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->NetSett_img_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->NetSett_img_4, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes NetSett_btn_3
+    ui->NetSett_btn_3 = lv_btn_create(ui->NetSett);
+    ui->NetSett_btn_3_label = lv_label_create(ui->NetSett_btn_3);
+    lv_label_set_text(ui->NetSett_btn_3_label, "开始绑定");
+    lv_label_set_long_mode(ui->NetSett_btn_3_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->NetSett_btn_3_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->NetSett_btn_3, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->NetSett_btn_3_label, LV_PCT(100));
+    lv_obj_set_pos(ui->NetSett_btn_3, -458, 602);
+    lv_obj_set_size(ui->NetSett_btn_3, 306, 50);
+
+    //Write style for NetSett_btn_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->NetSett_btn_3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->NetSett_btn_3, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_grad_dir(ui->NetSett_btn_3, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->NetSett_btn_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->NetSett_btn_3, 14, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->NetSett_btn_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->NetSett_btn_3, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->NetSett_btn_3, &lv_font_montserratMedium_30, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->NetSett_btn_3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->NetSett_btn_3, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes NetSett_label_2
+    ui->NetSett_label_2 = lv_label_create(ui->NetSett);
+    lv_label_set_text(ui->NetSett_label_2, "设备未绑定米家");
+    lv_label_set_long_mode(ui->NetSett_label_2, LV_LABEL_LONG_WRAP);
+    lv_obj_set_pos(ui->NetSett_label_2, -447, 52);
+    lv_obj_set_size(ui->NetSett_label_2, 334, 32);
+
+    //Write style for NetSett_label_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->NetSett_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->NetSett_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->NetSett_label_2, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->NetSett_label_2, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->NetSett_label_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui->NetSett_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui->NetSett_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->NetSett_label_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->NetSett_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->NetSett_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->NetSett_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->NetSett_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->NetSett_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->NetSett_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of NetSett.
 

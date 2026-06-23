@@ -93,6 +93,16 @@ void dryrack_on_screen_load(void)
     dryrack_apply_light();
     if (cur_pct != tgt_pct)
         anim_to_ms(pct_to_d(tgt_pct), curtain_motion_remaining_ms(MOTION_IDX_DRYRACK));
+
+    /* 按钮按下反馈: 50% 透明 */
+    {
+        lv_obj_t *b[] = { guider_ui.DryRack_FabCurtianOpen,
+                          guider_ui.DryRack_FabCurtianPause,
+                          guider_ui.DryRack_FabCurtianClose,
+                          guider_ui.DryRack_imgbtn_1 };
+        for (uint8_t i = 0; i < 4; i++)
+            lv_obj_set_style_img_opa(b[i], 128, LV_PART_MAIN | LV_STATE_PRESSED);
+    }
 }
 
 /* 灯按钮: 开→img_2 显示, 关→img_2 透明度 0 */

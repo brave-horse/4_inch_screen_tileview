@@ -52,8 +52,14 @@ void music_on_screen_load(void)
     else           lv_obj_clear_state(guider_ui.Music_play, LV_STATE_CHECKED);
     apply_play_state();
 
-    /* 按下反馈 */
-    lv_obj_set_style_img_opa(guider_ui.Music_play, 100, LV_PART_MAIN | LV_STATE_PRESSED);
+    /* 按下反馈: 50% 透明 */
+    {
+        lv_obj_t *b[] = { guider_ui.Music_prev,  guider_ui.Music_play,
+                          guider_ui.Music_next,  guider_ui.Music_volume_dec,
+                          guider_ui.Music_volume_add };
+        for (uint8_t i = 0; i < 5; i++)
+            lv_obj_set_style_img_opa(b[i], 128, LV_PART_MAIN | LV_STATE_PRESSED);
+    }
 }
 
 void music_on_play_toggle(lv_event_t *event)

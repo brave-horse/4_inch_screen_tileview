@@ -70,6 +70,20 @@ void heater_on_screen_load(void)
     lv_obj_clear_flag(guider_ui.Heater, LV_OBJ_FLAG_SCROLLABLE);
     heater_apply();
     btn_color();
+
+    /* 按钮按下反馈: 50% 透明, 每个按钮+配图各一组 */
+    {
+        lv_obj_t *b[] = {
+            guider_ui.Heater_HeatHighBtn,  guider_ui.Heater_HeatHighImg,
+            guider_ui.Heater_HeatLowBtn,   guider_ui.Heater_HeatLowImg,
+            guider_ui.Heater_VentilateBtn, guider_ui.Heater_VentilateImg,
+            guider_ui.Heater_WindBtn,      guider_ui.Heater_WindImg,
+            guider_ui.Heater_LightBtn,     guider_ui.Heater_LightOnImg,
+            guider_ui.Heater_IdleBtn,      guider_ui.Heater_IdleImg,
+        };
+        for (uint8_t i = 0; i < 12; i++)
+            lv_obj_set_style_img_opa(b[i], 128, LV_PART_MAIN | LV_STATE_PRESSED);
+    }
 }
 
 /* 照明: 独立开关, 不影响模式 */

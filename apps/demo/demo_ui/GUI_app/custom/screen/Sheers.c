@@ -75,6 +75,15 @@ void sheers_on_screen_load(void)
     sheers_apply(s_offset);
     if (cur_pct != tgt_pct)
         sheers_anim_to_ms(tgt_pct * TRAVEL_PX / 100, curtain_motion_remaining_ms(CURTAIN_IDX_SHEERS));
+
+    /* 按钮按下反馈: 50% 透明 */
+    {
+        lv_obj_t *b[] = { guider_ui.Sheers_FabCurtianOpen,
+                          guider_ui.Sheers_FabCurtianPause,
+                          guider_ui.Sheers_FabCurtianClose };
+        for (uint8_t i = 0; i < 3; i++)
+            lv_obj_set_style_img_opa(b[i], 128, LV_PART_MAIN | LV_STATE_PRESSED);
+    }
 }
 
 void sheers_on_open(void)

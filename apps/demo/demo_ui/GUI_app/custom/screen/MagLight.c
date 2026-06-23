@@ -75,7 +75,7 @@ void mag_light_on_screen_load(void)
     /* 按下反馈: 降透明度(松手自动还原) */
     lv_obj_t *btns[] = { guider_ui.MagLight_on_off_2_img, guider_ui.MagLight_imgbtn_1 };
     for (uint8_t i = 0; i < 2; i++) {
-        lv_obj_set_style_img_opa(btns[i], 100, LV_PART_MAIN | LV_STATE_PRESSED);
+        lv_obj_set_style_img_opa(btns[i], 128, LV_PART_MAIN | LV_STATE_PRESSED);   /* 按下 50% 透明 */
         lv_obj_set_ext_click_area(btns[i], 30);   /* 热区各+30px,图片不变 */
     }
 }

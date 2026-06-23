@@ -334,7 +334,7 @@ void setup_scr_AirCondition(lv_ui *ui)
 #endif
     lv_img_set_pivot(ui->AirCondition_ACDry, 50,50);
     lv_img_set_angle(ui->AirCondition_ACDry, 0);
-    lv_obj_set_pos(ui->AirCondition_ACDry, 50, 539);
+    lv_obj_set_pos(ui->AirCondition_ACDry, 50, 538);
     lv_obj_set_size(ui->AirCondition_ACDry, 109, 109);
 
     //Write style for AirCondition_ACDry, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
