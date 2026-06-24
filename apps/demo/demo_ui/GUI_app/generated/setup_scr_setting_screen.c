@@ -231,7 +231,7 @@ void setup_scr_setting_screen(lv_ui *ui)
     lv_img_set_src(ui->setting_screen_img_2, &_spageback_alpha_14x24);
     lv_img_set_pivot(ui->setting_screen_img_2, 0,0);
     lv_img_set_angle(ui->setting_screen_img_2, 1800);
-    lv_obj_set_pos(ui->setting_screen_img_2, 667, 142);
+    lv_obj_set_pos(ui->setting_screen_img_2, 667, 160);
     lv_obj_set_size(ui->setting_screen_img_2, 14, 24);
 
     //Write style for setting_screen_img_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -246,7 +246,7 @@ void setup_scr_setting_screen(lv_ui *ui)
     lv_img_set_src(ui->setting_screen_img_3, &_spageback_alpha_14x24);
     lv_img_set_pivot(ui->setting_screen_img_3, 0,0);
     lv_img_set_angle(ui->setting_screen_img_3, 1800);
-    lv_obj_set_pos(ui->setting_screen_img_3, 670, 322);
+    lv_obj_set_pos(ui->setting_screen_img_3, 670, 340);
     lv_obj_set_size(ui->setting_screen_img_3, 14, 24);
 
     //Write style for setting_screen_img_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -261,7 +261,7 @@ void setup_scr_setting_screen(lv_ui *ui)
     lv_img_set_src(ui->setting_screen_img_4, &_spageback_alpha_14x24);
     lv_img_set_pivot(ui->setting_screen_img_4, 0,0);
     lv_img_set_angle(ui->setting_screen_img_4, 1800);
-    lv_obj_set_pos(ui->setting_screen_img_4, 670, 412);
+    lv_obj_set_pos(ui->setting_screen_img_4, 670, 430);
     lv_obj_set_size(ui->setting_screen_img_4, 14, 24);
 
     //Write style for setting_screen_img_4, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -276,7 +276,7 @@ void setup_scr_setting_screen(lv_ui *ui)
     lv_img_set_src(ui->setting_screen_img_5, &_spageback_alpha_14x24);
     lv_img_set_pivot(ui->setting_screen_img_5, 0,0);
     lv_img_set_angle(ui->setting_screen_img_5, 1800);
-    lv_obj_set_pos(ui->setting_screen_img_5, 670, 232);
+    lv_obj_set_pos(ui->setting_screen_img_5, 670, 250);
     lv_obj_set_size(ui->setting_screen_img_5, 14, 24);
 
     //Write style for setting_screen_img_5, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -291,7 +291,7 @@ void setup_scr_setting_screen(lv_ui *ui)
     lv_img_set_src(ui->setting_screen_img_6, &_spageback_alpha_14x24);
     lv_img_set_pivot(ui->setting_screen_img_6, 0,0);
     lv_img_set_angle(ui->setting_screen_img_6, 1800);
-    lv_obj_set_pos(ui->setting_screen_img_6, 667, 592);
+    lv_obj_set_pos(ui->setting_screen_img_6, 667, 610);
     lv_obj_set_size(ui->setting_screen_img_6, 14, 24);
 
     //Write style for setting_screen_img_6, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -306,7 +306,7 @@ void setup_scr_setting_screen(lv_ui *ui)
     lv_img_set_src(ui->setting_screen_img_7, &_spageback_alpha_14x24);
     lv_img_set_pivot(ui->setting_screen_img_7, 0,0);
     lv_img_set_angle(ui->setting_screen_img_7, 1800);
-    lv_obj_set_pos(ui->setting_screen_img_7, 667, 502);
+    lv_obj_set_pos(ui->setting_screen_img_7, 667, 520);
     lv_obj_set_size(ui->setting_screen_img_7, 14, 24);
 
     //Write style for setting_screen_img_7, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -321,7 +321,7 @@ void setup_scr_setting_screen(lv_ui *ui)
     lv_img_set_src(ui->setting_screen_img_8, &_spageback_alpha_14x24);
     lv_img_set_pivot(ui->setting_screen_img_8, 0,0);
     lv_img_set_angle(ui->setting_screen_img_8, 1800);
-    lv_obj_set_pos(ui->setting_screen_img_8, 667, 682);
+    lv_obj_set_pos(ui->setting_screen_img_8, 667, 700);
     lv_obj_set_size(ui->setting_screen_img_8, 14, 24);
 
     //Write style for setting_screen_img_8, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.

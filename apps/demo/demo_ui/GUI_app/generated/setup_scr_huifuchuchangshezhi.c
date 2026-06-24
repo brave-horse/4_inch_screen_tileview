@@ -133,7 +133,7 @@ void setup_scr_huifuchuchangshezhi(lv_ui *ui)
     //Write codes huifuchuchangshezhi_btn_2
     ui->huifuchuchangshezhi_btn_2 = lv_btn_create(ui->huifuchuchangshezhi);
     ui->huifuchuchangshezhi_btn_2_label = lv_label_create(ui->huifuchuchangshezhi_btn_2);
-    lv_label_set_text(ui->huifuchuchangshezhi_btn_2_label, "Button");
+    lv_label_set_text(ui->huifuchuchangshezhi_btn_2_label, "取消");
     lv_label_set_long_mode(ui->huifuchuchangshezhi_btn_2_label, LV_LABEL_LONG_WRAP);
     lv_obj_align(ui->huifuchuchangshezhi_btn_2_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->huifuchuchangshezhi_btn_2, 0, LV_STATE_DEFAULT);
@@ -143,7 +143,7 @@ void setup_scr_huifuchuchangshezhi(lv_ui *ui)
 
     //Write style for huifuchuchangshezhi_btn_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_bg_opa(ui->huifuchuchangshezhi_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_color(ui->huifuchuchangshezhi_btn_2, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->huifuchuchangshezhi_btn_2, lv_color_hex(0x232425), LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_grad_dir(ui->huifuchuchangshezhi_btn_2, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_border_width(ui->huifuchuchangshezhi_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->huifuchuchangshezhi_btn_2, 15, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -156,7 +156,7 @@ void setup_scr_huifuchuchangshezhi(lv_ui *ui)
     //Write codes huifuchuchangshezhi_btn_3
     ui->huifuchuchangshezhi_btn_3 = lv_btn_create(ui->huifuchuchangshezhi);
     ui->huifuchuchangshezhi_btn_3_label = lv_label_create(ui->huifuchuchangshezhi_btn_3);
-    lv_label_set_text(ui->huifuchuchangshezhi_btn_3_label, "Button");
+    lv_label_set_text(ui->huifuchuchangshezhi_btn_3_label, "重置");
     lv_label_set_long_mode(ui->huifuchuchangshezhi_btn_3_label, LV_LABEL_LONG_WRAP);
     lv_obj_align(ui->huifuchuchangshezhi_btn_3_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->huifuchuchangshezhi_btn_3, 0, LV_STATE_DEFAULT);
@@ -166,7 +166,7 @@ void setup_scr_huifuchuchangshezhi(lv_ui *ui)
 
     //Write style for huifuchuchangshezhi_btn_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_bg_opa(ui->huifuchuchangshezhi_btn_3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_color(ui->huifuchuchangshezhi_btn_3, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->huifuchuchangshezhi_btn_3, lv_color_hex(0xc1031e), LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_grad_dir(ui->huifuchuchangshezhi_btn_3, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_border_width(ui->huifuchuchangshezhi_btn_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->huifuchuchangshezhi_btn_3, 15, LV_PART_MAIN|LV_STATE_DEFAULT);

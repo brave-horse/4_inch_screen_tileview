@@ -6,6 +6,14 @@
 #include "FanAndLight.h"
 #include "device_management.h"
 
+/* 状态图显示/隐藏: 用 HIDDEN flag(不渲染)替代 opa(透明仍走渲染管线), 减小设备页渲染压力 */
+static inline void img_show(lv_obj_t *obj, bool show)
+{
+    if (!obj) return;
+    if (show) lv_obj_clear_flag(obj, LV_OBJ_FLAG_HIDDEN);
+    else      lv_obj_add_flag(obj, LV_OBJ_FLAG_HIDDEN);
+}
+
 /* ── 灯开关槽位 ── */
 typedef struct {
     lv_obj_t *sw;
@@ -44,8 +52,8 @@ static void slot_refresh(DevSlot *slot)
     bool on = slot->is_on();
     if (on) lv_obj_add_state(slot->sw, LV_STATE_CHECKED);
     else    lv_obj_clear_state(slot->sw, LV_STATE_CHECKED);
-    if (slot->on)  lv_obj_set_style_img_opa(slot->on,  on ? LV_OPA_COVER : LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
-    if (slot->off) lv_obj_set_style_img_opa(slot->off, on ? LV_OPA_TRANSP : LV_OPA_COVER, LV_PART_MAIN | LV_STATE_DEFAULT);
+    img_show(slot->on,  on);    /* on 图: 开则显示, 关则 HIDDEN */
+    img_show(slot->off, !on);   /* off 图: 关则显示 */
 }
 
 /* ── 窗帘行 ── */
@@ -61,8 +69,8 @@ static void curtain_refresh(CurtainRow *row)
 {
     if (!row->on) return;
     bool open = curtain_motion_target(row->idx) > 0;
-    lv_obj_set_style_img_opa(row->on,  open ? LV_OPA_COVER : LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(row->off, open ? LV_OPA_TRANSP : LV_OPA_COVER, LV_PART_MAIN | LV_STATE_DEFAULT);
+    img_show(row->on,  open);
+    img_show(row->off, !open);
 }
 
 static lv_obj_t *s_dr_down_img;
@@ -71,8 +79,8 @@ static void dryrack_img_refresh(void)
 {
     if (!s_dr_down_img) return;
     bool down = curtain_motion_target(MOTION_IDX_DRYRACK) > 0;
-    lv_obj_set_style_img_opa(s_dr_down_img, down ? LV_OPA_COVER : LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(s_dr_up_img,   down ? LV_OPA_TRANSP : LV_OPA_COVER, LV_PART_MAIN | LV_STATE_DEFAULT);
+    img_show(s_dr_down_img, down);
+    img_show(s_dr_up_img,   !down);
 }
 
 /* ── 音乐 ── */
@@ -120,8 +128,8 @@ static void fanlight_apply(void)
     bool power = HWInterface.FanAndLight.power;
     bool light = power && HWInterface.FanAndLight.light_on;
     bool fan   = power && HWInterface.FanAndLight.fan_on;
-    lv_obj_set_style_img_opa(guider_ui.ui_home_screen_img_29, light ? LV_OPA_COVER : LV_OPA_TRANSP, LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(guider_ui.ui_home_screen_img_28, light ? LV_OPA_TRANSP : LV_OPA_COVER, LV_PART_MAIN | LV_STATE_DEFAULT);
+    img_show(guider_ui.ui_home_screen_img_29, light);    /* 灯亮+扇 */
+    img_show(guider_ui.ui_home_screen_img_28, !light);   /* 灯灭+扇 */
     if (light) lv_obj_add_state  (guider_ui.ui_home_screen_imgbtn_2, LV_STATE_CHECKED);
     else       lv_obj_clear_state(guider_ui.ui_home_screen_imgbtn_2, LV_STATE_CHECKED);
     if (fan)   lv_obj_add_state  (guider_ui.ui_home_screen_imgbtn_3, LV_STATE_CHECKED);
@@ -144,16 +152,20 @@ static void heater_apply(void)
         guider_ui.ui_home_screen_img_22,   /* 4 吹风 sFanMode */
         guider_ui.ui_home_screen_img_20,   /* 5 待机 sIdleMode */
     };
-    lv_obj_move_foreground(guider_ui.ui_home_screen_img_21);   /* 设备底 sDev */
-    lv_obj_move_foreground(guider_ui.ui_home_screen_img_20);   /* 待机模式 */
+    lv_obj_move_foreground(guider_ui.ui_home_screen_img_21);   /* 设备底 sDev: 提到 z 基准 */
     int8_t mode = HWInterface.Heater.mode;
-    if (mode >= 1 && mode <= 5) lv_obj_move_foreground(modeimg[mode]);
+    /* 模式图互斥: 当前模式显示+置顶, 其余 HIDDEN(不渲染, 减压力) */
+    for (uint8_t m = 1; m <= 5; m++) {
+        if (m == mode) { img_show(modeimg[m], true); lv_obj_move_foreground(modeimg[m]); }
+        else           img_show(modeimg[m], false);
+    }
+    /* 灯光 sHlight */
     if (HWInterface.Heater.light) {
-        lv_obj_clear_flag(guider_ui.ui_home_screen_img_26, LV_OBJ_FLAG_HIDDEN);   /* 灯光 sHlight */
+        img_show(guider_ui.ui_home_screen_img_26, true);
         lv_obj_move_foreground(guider_ui.ui_home_screen_img_26);
         lv_obj_add_state(guider_ui.ui_home_screen_imgbtn_1, LV_STATE_CHECKED);
     } else {
-        lv_obj_add_flag(guider_ui.ui_home_screen_img_26, LV_OBJ_FLAG_HIDDEN);
+        img_show(guider_ui.ui_home_screen_img_26, false);
         lv_obj_clear_state(guider_ui.ui_home_screen_imgbtn_1, LV_STATE_CHECKED);
     }
 }
@@ -239,17 +251,19 @@ void home_on_screen_load(void)
     SAFE_CLEAR(ui_home_screen_img_6, LV_OBJ_FLAG_CLICKABLE);
     SAFE_CLEAR(ui_home_screen_MainSetImg, LV_OBJ_FLAG_CLICKABLE);
 
-    /* tile_3 的 btn_1/2/7: CHECKABLE 点击 toggle。把橙红从 GUI-Guider 的 PRESSED(按下临时)
-     * 搬到 CHECKED(toggle 保持)态, 实现"点一下变红并保持, 再点回透明"。默认态透明。 */
+    /* tile_3 的 btn_1/2/7: CHECKABLE 点击 toggle 透明↔红。
+     * CHECKED(toggle保持)+PRESSED(按下瞬间)都设纯红, 覆盖 GUI-Guider 原橙红, 颜色统一;
+     * 默认态透明(GUI-Guider 设 bg opa 0)。 */
     lv_obj_t *btns[] = { guider_ui.ui_home_screen_btn_1,
                          guider_ui.ui_home_screen_btn_2,
                          guider_ui.ui_home_screen_btn_7 };
     for (uint8_t i = 0; i < 3; i++) {
         if (!lv_obj_is_valid(btns[i])) continue;
-        lv_obj_add_flag(btns[i], LV_OBJ_FLAG_CHECKABLE);   /* 保险: 确保可 toggle */
-        lv_obj_set_style_bg_color(btns[i], lv_color_hex(0xff6500), LV_PART_MAIN | LV_STATE_CHECKED);
+        lv_obj_add_flag(btns[i], LV_OBJ_FLAG_CHECKABLE);
+        lv_obj_set_style_bg_color(btns[i], lv_color_hex(0xff0000), LV_PART_MAIN | LV_STATE_CHECKED);
         lv_obj_set_style_bg_opa(btns[i], LV_OPA_COVER, LV_PART_MAIN | LV_STATE_CHECKED);
         lv_obj_set_style_radius(btns[i], 5, LV_PART_MAIN | LV_STATE_CHECKED);
+        lv_obj_set_style_bg_color(btns[i], lv_color_hex(0xff0000), LV_PART_MAIN | LV_STATE_PRESSED);
     }
 
     /* ── 设备页: 绑定控件 + 刷状态 ── */
@@ -329,10 +343,8 @@ void home_on_screen_load(void)
     dryrack_img_refresh();
 
     /* 晾衣机照明: 只显示, 跟随子界面 HWInterface.DryRack.light */
-    lv_obj_set_style_img_opa(guider_ui.ui_home_screen_img_19,   /* sDryRackL */
-                             HWInterface.DryRack.light ? LV_OPA_COVER : LV_OPA_TRANSP,
-                             LV_PART_MAIN | LV_STATE_DEFAULT);
-    lv_obj_move_foreground(guider_ui.ui_home_screen_img_19);
+    img_show(guider_ui.ui_home_screen_img_19, HWInterface.DryRack.light);   /* sDryRackL */
+    if (HWInterface.DryRack.light) lv_obj_move_foreground(guider_ui.ui_home_screen_img_19);
 
     /* 音乐 */
     lv_img_set_pivot(guider_ui.ui_home_screen_img_35, 25, 25);   /* 唱片碟 51x51 */

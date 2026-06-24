@@ -110,6 +110,17 @@ typedef struct
 
 typedef struct
 {
+    uint8_t standby_delay;    /* 延时进待机 idx 0-6: 15秒/30秒/1分/2分/5分/10分/永久 */
+    uint8_t standby_display;  /* 待机显示  idx 0-6: 熄屏/屏保/场景/开关/设备/灯光/窗帘 */
+    uint8_t proximity;        /* 接近亮屏  idx 0-3: 关闭/近/中/远 */
+
+    void (*SetStandbyDelay)(uint8_t idx);
+    void (*SetStandbyDisplay)(uint8_t idx);
+    void (*SetProximity)(uint8_t idx);
+} HW_Display_InterfaceTypeDef;
+
+typedef struct
+{
     HW_LightCT_InterfaceTypeDef     LightCT;
     HW_LEDStrip_InterfaceTypeDef    LEDStrip;
     HW_LEDStrip_InterfaceTypeDef    MagLight;   /* 复用 LEDStrip 结构, 只用 switch_status */
@@ -120,6 +131,7 @@ typedef struct
     HW_DryRack_InterfaceTypeDef     DryRack;
     HW_Heater_InterfaceTypeDef      Heater;
     HW_AirCondition_InterfaceTypeDef AirCondition;
+    HW_Display_InterfaceTypeDef      Display;
 } HW_InterfaceTypeDef;
 
 extern HW_InterfaceTypeDef HWInterface;

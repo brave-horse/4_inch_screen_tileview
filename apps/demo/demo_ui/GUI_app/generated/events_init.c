@@ -31,6 +31,12 @@
 #include "DryRack.h"
 #include "FanAndLight.h"
 #include "Heater.h"
+#include "Setting.h"
+
+#include "NetSetting.h"
+
+#include "PlaySet.h"
+
 
 static void ui_home_screen_event_handler (lv_event_t *e)
 {
@@ -2315,6 +2321,20 @@ void events_init_Heater (lv_ui *ui)
     lv_obj_add_event_cb(ui->Heater_btn_2, Heater_btn_2_event_handler, LV_EVENT_ALL, ui);
 }
 
+static void setting_screen_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_SCREEN_LOADED:
+    {
+        setting_on_screen_load();
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 static void setting_screen_list_1_item0_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
@@ -2443,6 +2463,7 @@ static void setting_screen_btn_2_event_handler (lv_event_t *e)
 
 void events_init_setting_screen (lv_ui *ui)
 {
+    lv_obj_add_event_cb(ui->setting_screen, setting_screen_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->setting_screen_list_1_item0, setting_screen_list_1_item0_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->setting_screen_list_1_item1, setting_screen_list_1_item1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->setting_screen_list_1_item2, setting_screen_list_1_item2_event_handler, LV_EVENT_ALL, ui);
@@ -2452,6 +2473,67 @@ void events_init_setting_screen (lv_ui *ui)
     lv_obj_add_event_cb(ui->setting_screen_list_1_item6, setting_screen_list_1_item6_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->setting_screen_btn_1, setting_screen_btn_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->setting_screen_btn_2, setting_screen_btn_2_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void NetSetting_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_SCREEN_LOADED:
+    {
+        netsetting_on_screen_load();
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void NetSetting_btn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.setting_screen, guider_ui.setting_screen_del, &guider_ui.NetSetting_del, setup_scr_setting_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_NetSetting (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->NetSetting, NetSetting_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->NetSetting_btn_1, NetSetting_btn_1_event_handler, LV_EVENT_ALL, ui);
+}
+
+static void PlaySet_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_SCREEN_LOADED:
+    {
+        playset_on_screen_load();
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void PlaySet_List_item0_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        break;
+    }
+    default:
+        break;
+    }
 }
 
 static void PlaySet_btn_2_event_handler (lv_event_t *e)
@@ -2470,6 +2552,8 @@ static void PlaySet_btn_2_event_handler (lv_event_t *e)
 
 void events_init_PlaySet (lv_ui *ui)
 {
+    lv_obj_add_event_cb(ui->PlaySet, PlaySet_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->PlaySet_List_item0, PlaySet_List_item0_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->PlaySet_btn_2, PlaySet_btn_2_event_handler, LV_EVENT_ALL, ui);
 }
 
@@ -2566,25 +2650,6 @@ static void RelativeProduct_btn_4_event_handler (lv_event_t *e)
 void events_init_RelativeProduct (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->RelativeProduct_btn_4, RelativeProduct_btn_4_event_handler, LV_EVENT_ALL, ui);
-}
-
-static void NetSetting_btn_1_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.setting_screen, guider_ui.setting_screen_del, &guider_ui.NetSetting_del, setup_scr_setting_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-void events_init_NetSetting (lv_ui *ui)
-{
-    lv_obj_add_event_cb(ui->NetSetting_btn_1, NetSetting_btn_1_event_handler, LV_EVENT_ALL, ui);
 }
 
 static void Helper_btn_1_event_handler (lv_event_t *e)

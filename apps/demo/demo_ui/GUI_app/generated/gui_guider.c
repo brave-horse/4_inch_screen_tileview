@@ -90,13 +90,13 @@ void init_scr_del_flag(lv_ui *ui)
     ui->FanAndLight_del = true;
     ui->Heater_del = true;
     ui->setting_screen_del = true;
+    ui->NetSetting_del = true;
     ui->PlaySet_del = true;
     ui->SwitchSet_del = true;
     ui->SensorSet_del = true;
     ui->Reset_del = true;
     ui->huifuchuchangshezhi_del = true;
     ui->RelativeProduct_del = true;
-    ui->NetSetting_del = true;
     ui->Helper_del = true;
 }
 

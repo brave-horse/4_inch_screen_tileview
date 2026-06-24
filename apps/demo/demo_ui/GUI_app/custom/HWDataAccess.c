@@ -143,6 +143,11 @@ static void impl_FanAndLight_Apply(void)
 
 /* ═══════════ 全局实例 ═══════════ */
 
+/* 显示设置: 只存 idx, 预留硬件/云端下发钩子 */
+static void impl_Display_SetStandbyDelay(uint8_t idx)   { HWInterface.Display.standby_delay   = idx; }
+static void impl_Display_SetStandbyDisplay(uint8_t idx) { HWInterface.Display.standby_display = idx; }
+static void impl_Display_SetProximity(uint8_t idx)      { HWInterface.Display.proximity       = idx; }
+
 HW_InterfaceTypeDef HWInterface = {
     .LightCT = {
         .switch_status = false,
@@ -190,6 +195,14 @@ HW_InterfaceTypeDef HWInterface = {
     .Heater = {
         .light = false,
         .mode  = -1,   /* 默认无模式 */
+    },
+    .Display = {
+        .standby_delay     = 0,   /* 默认 15秒 */
+        .standby_display   = 0,   /* 默认 熄屏 */
+        .proximity         = 0,   /* 默认 关闭 */
+        .SetStandbyDelay   = impl_Display_SetStandbyDelay,
+        .SetStandbyDisplay = impl_Display_SetStandbyDisplay,
+        .SetProximity      = impl_Display_SetProximity,
     },
 };/*  */
 

@@ -474,7 +474,7 @@ void setup_scr_Heater(lv_ui *ui)
     lv_img_set_pivot(ui->Heater_HeatHighImg, 50,50);
     lv_img_set_angle(ui->Heater_HeatHighImg, 0);
     lv_obj_set_pos(ui->Heater_HeatHighImg, 88, 476);
-    lv_obj_set_size(ui->Heater_HeatHighImg, 60, 67);
+    lv_obj_set_size(ui->Heater_HeatHighImg, 50, 67);
 
     //Write style for Heater_HeatHighImg, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_img_recolor_opa(ui->Heater_HeatHighImg, 0, LV_PART_MAIN|LV_STATE_DEFAULT);

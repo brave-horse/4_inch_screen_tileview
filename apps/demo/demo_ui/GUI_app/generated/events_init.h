@@ -33,13 +33,13 @@ void events_init_DryRack(lv_ui *ui);
 void events_init_FanAndLight(lv_ui *ui);
 void events_init_Heater(lv_ui *ui);
 void events_init_setting_screen(lv_ui *ui);
+void events_init_NetSetting(lv_ui *ui);
 void events_init_PlaySet(lv_ui *ui);
 void events_init_SwitchSet(lv_ui *ui);
 void events_init_SensorSet(lv_ui *ui);
 void events_init_Reset(lv_ui *ui);
 void events_init_huifuchuchangshezhi(lv_ui *ui);
 void events_init_RelativeProduct(lv_ui *ui);
-void events_init_NetSetting(lv_ui *ui);
 void events_init_Helper(lv_ui *ui);
 
 #ifdef __cplusplus
