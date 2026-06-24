@@ -32,6 +32,19 @@
 #define EN_SCR_NOSCROLL  1   /* 主屏禁滚 */
 
 #if PERF_LOG_EN && !defined(LV_USE_GUIDER_SIMULATOR)
+/* 待机CPU排查: 逐个任务名查占用,找出谁在空转。定位完可整段删回原样。 */
+static const char *const perf_task_names[] = {
+    "video_engine_server", //视频/显示引擎(待机大头嫌疑)
+    "fb_combine_task0",    //帧缓冲合成
+    "lvgl_v8_main_task",   //LVGL主任务(渲染+事件)
+    "tp_task",             //触摸面板任务
+    "app_core",            //系统事件核心
+    "sys_event",           //系统事件
+    "systimer",            //系统硬定时器
+    "sys_timer",           //软定时器
+    "The_onlytask",        //色温灯任务(已加延时)
+};
+
 static void perf_mon_cb(lv_timer_t *timer)
 {
     int core_usage[CPU_CORE_NUM] = {0};
@@ -43,6 +56,19 @@ static void perf_mon_cb(lv_timer_t *timer)
     printf("[perf] cpu_avg=%d%% c0=%d%% c1=%d%% heap=%d min_heap=%d\n",
            total_usage / CPU_CORE_NUM, core_usage[0], core_usage[CPU_CORE_NUM - 1],
            get_malloc_remain_heap_size(), (int)xPortGetMinimumEverFreeHeapSize());
+
+    static int dumped_once = 0;   //dumped_once: 首次tick打印完整任务表,抓漏网任务
+    if (!dumped_once) {
+        dumped_once = 1;
+        os_dump_user_tcb_info();
+    }
+
+    int task_count = sizeof(perf_task_names) / sizeof(perf_task_names[0]);
+    for (int idx = 0; idx < task_count; idx++) {
+        int task_core[CPU_CORE_NUM] = {0};
+        int used = os_cpu_usage(perf_task_names[idx], task_core);   //used: 该任务CPU占用%
+        printf("[perf]   %-18s = %d%%\n", perf_task_names[idx], used);
+    }
 }
 #endif
 
@@ -50,6 +76,12 @@ void custom_init(lv_ui *ui)
 {
     printf("[custom] init: guard=%d noscroll=%d perf=%d\n",
            EN_SCR_GUARD, EN_SCR_NOSCROLL, PERF_LOG_EN);
+
+#ifndef LV_USE_GUIDER_SIMULATOR
+    /* 挂起空转占满一个核的 ADAS 视觉引擎(video_engine.a 的 initcall 自启,本UI工程用不到)。
+       要恢复就 os_task_resume("video_engine_server")。根治改用 Makefile 去掉 video_engine.a。 */
+    os_task_suspend("video_engine_server");
+#endif
 
 #if EN_SCR_GUARD
     scr_guard_init();

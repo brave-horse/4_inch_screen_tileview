@@ -6,16 +6,6 @@
 #include "FanAndLight.h"
 #include "device_management.h"
 
-/* ── 首页按钮按下/松开反馈 ── */
-static void btn_pressed_cb(lv_event_t *e)
-{
-    lv_obj_set_style_bg_opa(lv_event_get_target(e), 128, LV_PART_MAIN | LV_STATE_DEFAULT);
-}
-static void btn_released_cb(lv_event_t *e)
-{
-    lv_obj_set_style_bg_opa(lv_event_get_target(e), 255, LV_PART_MAIN | LV_STATE_DEFAULT);
-}
-
 /* ── 灯开关槽位 ── */
 typedef struct {
     lv_obj_t *sw;
@@ -211,10 +201,15 @@ static void decode_subtree_imgs(lv_obj_t *obj)
 /* ═══════════ 首页 + 设备页合并加载 ═══════════ */
 void home_on_screen_load(void)
 {
-    /* tileview 整页切换修复(根因): lv_obj_set_tile 每次切 tile 用 tile->dir 重设 scroll_dir。
-     * GUI-Guider 给首尾设单向(tile_0=RIGHT/tile_3=LEFT), 切回后 scroll_dir 变单向→退化自由滚动。
-     * 直接把每个 tile->dir 改成 HOR, set_tile 永远取双向, 任意 tile 都能整页切;
-     * 关 ELASTIC 让首尾边界硬停不回弹。LVGL v8 内部 tile 结构 {lv_obj_t obj; lv_dir_t dir}。 */
+    /* tileview 布局(共7个tile col0~6): tile_3 当主页面(进 home 默认停这),
+     * tile_0/1 预留空白禁止滑入(为后续主页左边屏幕留位), tile_2~6 全部可滑。
+     * 逐 tile 设 dir 控制可滑方向(set_tile 会用 tile->dir 重设 scroll_dir):
+     *   tile_0/1 = NONE  不可达(留白)
+     *   tile_2   = RIGHT 左边界, 只能往右, 滑不到 tile_1/0
+     *   tile_3   = HOR   主页面
+     *   tile_4/5 = HOR   中间页, 双向可滑
+     *   tile_6   = LEFT  右边界
+     * 关 ELASTIC 让边界硬停。LVGL v8 内部 tile 结构 {lv_obj_t obj; lv_dir_t dir}。 */
     {
         struct tv_tile { lv_obj_t obj; lv_dir_t dir; };   //tv tileview
         lv_obj_t *tv = guider_ui.ui_home_screen_tileview_1;
@@ -222,13 +217,16 @@ void home_on_screen_load(void)
                               guider_ui.ui_home_screen_tileview_1_tile_1,
                               guider_ui.ui_home_screen_tileview_1_tile_2,
                               guider_ui.ui_home_screen_tileview_1_tile_3,
-                              guider_ui.ui_home_screen_tileview_1_tile_4
-                               };   /* 第5个tile(场景页), 别漏 */
-        for (uint8_t i = 0; i < 5; i++)
-            if (lv_obj_is_valid(tiles[i])) ((struct tv_tile *)tiles[i])->dir = LV_DIR_HOR;
+                              guider_ui.ui_home_screen_tileview_1_tile_4,
+                              guider_ui.ui_home_screen_tileview_1_tile_5,
+                              guider_ui.ui_home_screen_tileview_1_tile_6 };
+        lv_dir_t dirs[] = { LV_DIR_NONE, LV_DIR_NONE, LV_DIR_RIGHT, LV_DIR_HOR,
+                            LV_DIR_HOR, LV_DIR_HOR, LV_DIR_LEFT };
+        for (uint8_t i = 0; i < 7; i++)
+            if (lv_obj_is_valid(tiles[i])) ((struct tv_tile *)tiles[i])->dir = dirs[i];
         if (lv_obj_is_valid(tv)) {
             lv_obj_clear_flag(tv, LV_OBJ_FLAG_SCROLL_ELASTIC);
-            lv_obj_set_scroll_dir(tv, LV_DIR_HOR);
+            lv_obj_set_tile_id(tv, 3, 0, LV_ANIM_OFF);   /* 进 home 默认定位主页面 tile_3 */
         }
     }
 
@@ -241,13 +239,17 @@ void home_on_screen_load(void)
     SAFE_CLEAR(ui_home_screen_img_6, LV_OBJ_FLAG_CLICKABLE);
     SAFE_CLEAR(ui_home_screen_MainSetImg, LV_OBJ_FLAG_CLICKABLE);
 
+    /* tile_3 的 btn_1/2/7: CHECKABLE 点击 toggle。把橙红从 GUI-Guider 的 PRESSED(按下临时)
+     * 搬到 CHECKED(toggle 保持)态, 实现"点一下变红并保持, 再点回透明"。默认态透明。 */
     lv_obj_t *btns[] = { guider_ui.ui_home_screen_btn_1,
                          guider_ui.ui_home_screen_btn_2,
                          guider_ui.ui_home_screen_btn_7 };
     for (uint8_t i = 0; i < 3; i++) {
         if (!lv_obj_is_valid(btns[i])) continue;
-        lv_obj_add_event_cb(btns[i], btn_pressed_cb,  LV_EVENT_PRESSED,  NULL);
-        lv_obj_add_event_cb(btns[i], btn_released_cb, LV_EVENT_RELEASED, NULL);
+        lv_obj_add_flag(btns[i], LV_OBJ_FLAG_CHECKABLE);   /* 保险: 确保可 toggle */
+        lv_obj_set_style_bg_color(btns[i], lv_color_hex(0xff6500), LV_PART_MAIN | LV_STATE_CHECKED);
+        lv_obj_set_style_bg_opa(btns[i], LV_OPA_COVER, LV_PART_MAIN | LV_STATE_CHECKED);
+        lv_obj_set_style_radius(btns[i], 5, LV_PART_MAIN | LV_STATE_CHECKED);
     }
 
     /* ── 设备页: 绑定控件 + 刷状态 ── */

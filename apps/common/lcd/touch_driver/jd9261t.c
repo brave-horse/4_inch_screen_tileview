@@ -35,7 +35,7 @@
 #endif
 
 #define JD9261T_READ_XY_MODE     0     // 取坐标模式 0:定时轮询 1:中断。本芯片 INT 疑似心跳, 默认轮询
-#define JD9261T_POLLING_XY_TIME  30    // 轮询周期(ms)
+#define JD9261T_POLLING_XY_TIME  20    // 轮询周期(ms)
 #define JD9261T_INT_EDGE         EDGE_NEGATIVE
 
 /* I2C 8 位地址: 7 位 0x68 << 1 = 0xD0(写), 0xD1(读) */

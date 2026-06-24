@@ -138,15 +138,15 @@ void setup_scr_Reset(lv_ui *ui)
     lv_obj_align(ui->Reset_btn_2_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->Reset_btn_2, 0, LV_STATE_DEFAULT);
     lv_obj_set_width(ui->Reset_btn_2_label, LV_PCT(100));
-    lv_obj_set_pos(ui->Reset_btn_2, 78, 577);
-    lv_obj_set_size(ui->Reset_btn_2, 100, 50);
+    lv_obj_set_pos(ui->Reset_btn_2, 30, 600);
+    lv_obj_set_size(ui->Reset_btn_2, 290, 70);
 
     //Write style for Reset_btn_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_bg_opa(ui->Reset_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_color(ui->Reset_btn_2, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_grad_dir(ui->Reset_btn_2, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_border_width(ui->Reset_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->Reset_btn_2, 5, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->Reset_btn_2, 15, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_width(ui->Reset_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_color(ui->Reset_btn_2, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui->Reset_btn_2, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -161,15 +161,15 @@ void setup_scr_Reset(lv_ui *ui)
     lv_obj_align(ui->Reset_btn_3_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->Reset_btn_3, 0, LV_STATE_DEFAULT);
     lv_obj_set_width(ui->Reset_btn_3_label, LV_PCT(100));
-    lv_obj_set_pos(ui->Reset_btn_3, 547, 560);
-    lv_obj_set_size(ui->Reset_btn_3, 100, 50);
+    lv_obj_set_pos(ui->Reset_btn_3, 400, 600);
+    lv_obj_set_size(ui->Reset_btn_3, 290, 70);
 
     //Write style for Reset_btn_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_bg_opa(ui->Reset_btn_3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_color(ui->Reset_btn_3, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_grad_dir(ui->Reset_btn_3, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_border_width(ui->Reset_btn_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->Reset_btn_3, 5, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->Reset_btn_3, 15, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_width(ui->Reset_btn_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_color(ui->Reset_btn_3, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui->Reset_btn_3, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);

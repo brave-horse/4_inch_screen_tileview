@@ -114,10 +114,10 @@
  *====================*/
 
 /*Default display refresh period. LVG will redraw changed areas with this period time*/
-#define LV_DISP_DEF_REFR_PERIOD 25       /*[ms]*/ //刷屏定时器已解耦, 但是动画定时器会使用,因此根据屏幕TE帧率稍作调整
+#define LV_DISP_DEF_REFR_PERIOD 20       /*[ms]*/ //刷屏定时器已解耦, 但是动画定时器会使用,因此根据屏幕TE帧率稍作调整
 
 /*Input device read period in milliseconds*/
-#define LV_INDEV_DEF_READ_PERIOD 50    /*[ms]*/  //触摸定时器已解耦
+#define LV_INDEV_DEF_READ_PERIOD 25    /*[ms]*/  //触摸定时器已解耦
 
 /*Use a custom tick source that tells the elapsed time in milliseconds.
  *It removes the need to manually update the tick with `lv_tick_inc()`)*/

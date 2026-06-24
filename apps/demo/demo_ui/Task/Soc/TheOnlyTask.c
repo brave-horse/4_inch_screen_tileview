@@ -20,9 +20,8 @@ static void TheOnlyTask(void *parm)
 
 
     while (1) {
-
-
-
+        /* TODO: 轮询 changed, 有变更就 Apply */
+        os_time_dly(100);   //100 tick = 1s (OS_TICKS_PER_SEC=100), 让出CPU
     }
 }
 

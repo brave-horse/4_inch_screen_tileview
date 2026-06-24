@@ -228,8 +228,8 @@ void setup_scr_RelativeProduct(lv_ui *ui)
     ui->RelativeProduct_label_1 = lv_label_create(ui->RelativeProduct);
     lv_label_set_text(ui->RelativeProduct_label_1, "LDZNZK-YS-4");
     lv_label_set_long_mode(ui->RelativeProduct_label_1, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->RelativeProduct_label_1, 469, 110);
-    lv_obj_set_size(ui->RelativeProduct_label_1, 192, 32);
+    lv_obj_set_pos(ui->RelativeProduct_label_1, 440, 110);
+    lv_obj_set_size(ui->RelativeProduct_label_1, 230, 32);
 
     //Write style for RelativeProduct_label_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_border_width(ui->RelativeProduct_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -251,8 +251,8 @@ void setup_scr_RelativeProduct(lv_ui *ui)
     ui->RelativeProduct_label_2 = lv_label_create(ui->RelativeProduct);
     lv_label_set_text(ui->RelativeProduct_label_2, "LDZNZK-YS-4");
     lv_label_set_long_mode(ui->RelativeProduct_label_2, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->RelativeProduct_label_2, 469, 196);
-    lv_obj_set_size(ui->RelativeProduct_label_2, 192, 32);
+    lv_obj_set_pos(ui->RelativeProduct_label_2, 440, 196);
+    lv_obj_set_size(ui->RelativeProduct_label_2, 230, 32);
 
     //Write style for RelativeProduct_label_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_border_width(ui->RelativeProduct_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -274,8 +274,8 @@ void setup_scr_RelativeProduct(lv_ui *ui)
     ui->RelativeProduct_label_3 = lv_label_create(ui->RelativeProduct);
     lv_label_set_text(ui->RelativeProduct_label_3, "LDZNZK-YS-4");
     lv_label_set_long_mode(ui->RelativeProduct_label_3, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->RelativeProduct_label_3, 469, 282);
-    lv_obj_set_size(ui->RelativeProduct_label_3, 192, 32);
+    lv_obj_set_pos(ui->RelativeProduct_label_3, 440, 282);
+    lv_obj_set_size(ui->RelativeProduct_label_3, 230, 32);
 
     //Write style for RelativeProduct_label_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_border_width(ui->RelativeProduct_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -297,8 +297,8 @@ void setup_scr_RelativeProduct(lv_ui *ui)
     ui->RelativeProduct_label_4 = lv_label_create(ui->RelativeProduct);
     lv_label_set_text(ui->RelativeProduct_label_4, "LDZNZK-YS-4");
     lv_label_set_long_mode(ui->RelativeProduct_label_4, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->RelativeProduct_label_4, 469, 367);
-    lv_obj_set_size(ui->RelativeProduct_label_4, 192, 32);
+    lv_obj_set_pos(ui->RelativeProduct_label_4, 440, 367);
+    lv_obj_set_size(ui->RelativeProduct_label_4, 230, 32);
 
     //Write style for RelativeProduct_label_4, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_border_width(ui->RelativeProduct_label_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -322,4 +322,6 @@ void setup_scr_RelativeProduct(lv_ui *ui)
     //Update current screen layout.
     lv_obj_update_layout(ui->RelativeProduct);
 
+    //Init events for screen.
+    events_init_RelativeProduct(ui);
 }

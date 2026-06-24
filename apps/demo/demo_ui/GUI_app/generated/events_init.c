@@ -2549,6 +2549,25 @@ void events_init_huifuchuchangshezhi (lv_ui *ui)
     lv_obj_add_event_cb(ui->huifuchuchangshezhi_btn_4, huifuchuchangshezhi_btn_4_event_handler, LV_EVENT_ALL, ui);
 }
 
+static void RelativeProduct_btn_4_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.setting_screen, guider_ui.setting_screen_del, &guider_ui.RelativeProduct_del, setup_scr_setting_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void events_init_RelativeProduct (lv_ui *ui)
+{
+    lv_obj_add_event_cb(ui->RelativeProduct_btn_4, RelativeProduct_btn_4_event_handler, LV_EVENT_ALL, ui);
+}
+
 static void NetSetting_btn_1_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);

@@ -43,6 +43,42 @@ typedef struct
 	lv_obj_t *ui_home_screen_tileview_1_tile_2;
 	lv_obj_t *ui_home_screen_tileview_1_tile_3;
 	lv_obj_t *ui_home_screen_tileview_1_tile_4;
+	lv_obj_t *ui_home_screen_tileview_1_tile_5;
+	lv_obj_t *ui_home_screen_tileview_1_tile_6;
+	lv_obj_t *ui_home_screen_tabview_5;
+	lv_obj_t *ui_home_screen_tabview_5_tab_1;
+	lv_obj_t *ui_home_screen_cont_35;
+	lv_obj_t *ui_home_screen_img_98;
+	lv_obj_t *ui_home_screen_label_52;
+	lv_obj_t *ui_home_screen_img_97;
+	lv_obj_t *ui_home_screen_cont_34;
+	lv_obj_t *ui_home_screen_img_96;
+	lv_obj_t *ui_home_screen_label_51;
+	lv_obj_t *ui_home_screen_img_95;
+	lv_obj_t *ui_home_screen_cont_33;
+	lv_obj_t *ui_home_screen_img_94;
+	lv_obj_t *ui_home_screen_label_50;
+	lv_obj_t *ui_home_screen_img_93;
+	lv_obj_t *ui_home_screen_cont_32;
+	lv_obj_t *ui_home_screen_img_92;
+	lv_obj_t *ui_home_screen_label_49;
+	lv_obj_t *ui_home_screen_img_91;
+	lv_obj_t *ui_home_screen_cont_31;
+	lv_obj_t *ui_home_screen_img_90;
+	lv_obj_t *ui_home_screen_label_48;
+	lv_obj_t *ui_home_screen_img_89;
+	lv_obj_t *ui_home_screen_cont_30;
+	lv_obj_t *ui_home_screen_img_88;
+	lv_obj_t *ui_home_screen_label_47;
+	lv_obj_t *ui_home_screen_img_87;
+	lv_obj_t *ui_home_screen_cont_29;
+	lv_obj_t *ui_home_screen_img_86;
+	lv_obj_t *ui_home_screen_label_46;
+	lv_obj_t *ui_home_screen_img_85;
+	lv_obj_t *ui_home_screen_cont_28;
+	lv_obj_t *ui_home_screen_img_84;
+	lv_obj_t *ui_home_screen_label_45;
+	lv_obj_t *ui_home_screen_img_83;
 	lv_obj_t *ui_home_screen_img_1;
 	lv_obj_t *ui_home_screen_label_1;
 	lv_obj_t *ui_home_screen_label_2;
@@ -190,40 +226,6 @@ typedef struct
 	lv_obj_t *ui_home_screen_label_11;
 	lv_obj_t *ui_home_screen_img_13;
 	lv_obj_t *ui_home_screen_label_10;
-	lv_obj_t *ui_home_screen_tabview_4;
-	lv_obj_t *ui_home_screen_tabview_4_tab_1;
-	lv_obj_t *ui_home_screen_cont_1_8;
-	lv_obj_t *ui_home_screen_img_82;
-	lv_obj_t *ui_home_screen_label_44;
-	lv_obj_t *ui_home_screen_img_69;
-	lv_obj_t *ui_home_screen_cont_1_7;
-	lv_obj_t *ui_home_screen_img_81;
-	lv_obj_t *ui_home_screen_label_43;
-	lv_obj_t *ui_home_screen_img_68;
-	lv_obj_t *ui_home_screen_cont_1_6;
-	lv_obj_t *ui_home_screen_img_80;
-	lv_obj_t *ui_home_screen_label_37;
-	lv_obj_t *ui_home_screen_img_62;
-	lv_obj_t *ui_home_screen_cont_1_5;
-	lv_obj_t *ui_home_screen_img_79;
-	lv_obj_t *ui_home_screen_label_38;
-	lv_obj_t *ui_home_screen_img_63;
-	lv_obj_t *ui_home_screen_cont_1_4;
-	lv_obj_t *ui_home_screen_img_78;
-	lv_obj_t *ui_home_screen_label_40;
-	lv_obj_t *ui_home_screen_img_65;
-	lv_obj_t *ui_home_screen_cont_1_3;
-	lv_obj_t *ui_home_screen_img_77;
-	lv_obj_t *ui_home_screen_label_39;
-	lv_obj_t *ui_home_screen_img_64;
-	lv_obj_t *ui_home_screen_cont_1_2;
-	lv_obj_t *ui_home_screen_img_76;
-	lv_obj_t *ui_home_screen_label_41;
-	lv_obj_t *ui_home_screen_img_66;
-	lv_obj_t *ui_home_screen_cont_1_1;
-	lv_obj_t *ui_home_screen_img_70;
-	lv_obj_t *ui_home_screen_label_42;
-	lv_obj_t *ui_home_screen_img_67;
 	lv_obj_t *light_CT_screen;
 	bool light_CT_screen_del;
 	lv_obj_t *light_CT_screen_tabview_1;
@@ -750,7 +752,13 @@ LV_IMG_DECLARE(_sHome_alpha_46x46);
 LV_IMG_DECLARE(_sManual_alpha_46x46);
 LV_IMG_DECLARE(_sSleep_off_alpha_46x46);
 LV_IMG_DECLARE(_sSun_alpha_30x34);
-LV_IMG_DECLARE(_color_alpha_720x720);
+LV_IMG_DECLARE(_Lscene6_alpha_320x210);
+LV_IMG_DECLARE(_Lscene5_alpha_320x210);
+LV_IMG_DECLARE(_Lscene4_alpha_320x210);
+LV_IMG_DECLARE(_Lscene3_alpha_320x210);
+LV_IMG_DECLARE(_Lscene2_alpha_320x210);
+LV_IMG_DECLARE(_Lscene1_alpha_320x210);
+LV_IMG_DECLARE(_color1_alpha_720x720);
 LV_IMG_DECLARE(_small_disc_alpha_51x51);
 LV_IMG_DECLARE(_srack_alpha_20x31);
 LV_IMG_DECLARE(_sFanAndLTon_alpha_60x60);
@@ -763,10 +771,6 @@ LV_IMG_DECLARE(_sventilate_alpha_65x43);
 LV_IMG_DECLARE(_sFanMode_alpha_65x43);
 LV_IMG_DECLARE(_sDev_alpha_65x43);
 LV_IMG_DECLARE(_sIdleMode_alpha_65x43);
-LV_IMG_DECLARE(_Lscene4_alpha_320x210);
-LV_IMG_DECLARE(_Lscene3_alpha_320x210);
-LV_IMG_DECLARE(_Lscene2_alpha_320x210);
-LV_IMG_DECLARE(_Lscene1_alpha_320x210);
 LV_IMG_DECLARE(_spageback_alpha_14x24);
 LV_IMG_DECLARE(_spageback_alpha_14x24);
 LV_IMG_DECLARE(_spageback_alpha_14x24);
@@ -814,11 +818,12 @@ LV_IMG_DECLARE(_SQRCode_alpha_300x300);
 LV_IMG_DECLARE(_spageback_alpha_14x24);
 
 LV_FONT_DECLARE(lv_font_montserratMedium_16)
-LV_FONT_DECLARE(lv_font_MiSansNormal_30)
 LV_FONT_DECLARE(lv_font_ZiTiQuanWeiJunHeiW22_12)
+LV_FONT_DECLARE(lv_font_ZiTiQuanWeiJunHeiW22_20)
+LV_FONT_DECLARE(lv_font_MiSansNormal_30)
+LV_FONT_DECLARE(lv_font_ZiTiQuanWeiJunHeiW22_16)
 LV_FONT_DECLARE(lv_font_montserratMedium_12)
 LV_FONT_DECLARE(lv_font_ZiTiQuanWeiJunHeiW22_30)
-LV_FONT_DECLARE(lv_font_ZiTiQuanWeiJunHeiW22_20)
 LV_FONT_DECLARE(lv_font_ZiTiQuanWeiJunHeiW22_24)
 LV_FONT_DECLARE(lv_font_montserratMedium_30)
 
