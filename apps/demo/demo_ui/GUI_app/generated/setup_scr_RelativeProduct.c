@@ -188,27 +188,6 @@ void setup_scr_RelativeProduct(lv_ui *ui)
     lv_obj_set_style_text_opa(ui->RelativeProduct_btn_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->RelativeProduct_btn_1, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
 
-    //Write codes RelativeProduct_btn_4
-    ui->RelativeProduct_btn_4 = lv_btn_create(ui->RelativeProduct);
-    ui->RelativeProduct_btn_4_label = lv_label_create(ui->RelativeProduct_btn_4);
-    lv_label_set_text(ui->RelativeProduct_btn_4_label, "");
-    lv_label_set_long_mode(ui->RelativeProduct_btn_4_label, LV_LABEL_LONG_WRAP);
-    lv_obj_align(ui->RelativeProduct_btn_4_label, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_set_style_pad_all(ui->RelativeProduct_btn_4, 0, LV_STATE_DEFAULT);
-    lv_obj_set_width(ui->RelativeProduct_btn_4_label, LV_PCT(100));
-    lv_obj_set_pos(ui->RelativeProduct_btn_4, -6, -15);
-    lv_obj_set_size(ui->RelativeProduct_btn_4, 241, 108);
-
-    //Write style for RelativeProduct_btn_4, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_bg_opa(ui->RelativeProduct_btn_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_width(ui->RelativeProduct_btn_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->RelativeProduct_btn_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_width(ui->RelativeProduct_btn_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(ui->RelativeProduct_btn_4, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->RelativeProduct_btn_4, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui->RelativeProduct_btn_4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_align(ui->RelativeProduct_btn_4, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-
     //Write codes RelativeProduct_img_1
     ui->RelativeProduct_img_1 = lv_img_create(ui->RelativeProduct);
     lv_obj_add_flag(ui->RelativeProduct_img_1, LV_OBJ_FLAG_CLICKABLE);
@@ -315,6 +294,27 @@ void setup_scr_RelativeProduct(lv_ui *ui)
     lv_obj_set_style_pad_bottom(ui->RelativeProduct_label_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_pad_left(ui->RelativeProduct_label_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_width(ui->RelativeProduct_label_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes RelativeProduct_btn_4
+    ui->RelativeProduct_btn_4 = lv_btn_create(ui->RelativeProduct);
+    ui->RelativeProduct_btn_4_label = lv_label_create(ui->RelativeProduct_btn_4);
+    lv_label_set_text(ui->RelativeProduct_btn_4_label, "");
+    lv_label_set_long_mode(ui->RelativeProduct_btn_4_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->RelativeProduct_btn_4_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->RelativeProduct_btn_4, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->RelativeProduct_btn_4_label, LV_PCT(100));
+    lv_obj_set_pos(ui->RelativeProduct_btn_4, -6, -15);
+    lv_obj_set_size(ui->RelativeProduct_btn_4, 241, 108);
+
+    //Write style for RelativeProduct_btn_4, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->RelativeProduct_btn_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->RelativeProduct_btn_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->RelativeProduct_btn_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->RelativeProduct_btn_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->RelativeProduct_btn_4, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->RelativeProduct_btn_4, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->RelativeProduct_btn_4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->RelativeProduct_btn_4, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of RelativeProduct.
 

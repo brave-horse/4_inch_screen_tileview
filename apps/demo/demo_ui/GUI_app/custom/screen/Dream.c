@@ -8,12 +8,14 @@
 #define APPLY_MIN_MS 50         //MIN minimum, MS milliseconds
 #define ANGLE_MAX    180        /* 旋转角范围 0..180° */
 #define SLIDER_MAX   100        /* slider_1 量程 */
+#define SNAP_HALF    30         //点击中线±30 区域直接关紧
 
 static int32_t    s_offset;                        /* 当前开合位移 0..TRAVEL_PX */
 static int32_t    s_angle_slider = SLIDER_MAX / 2; /* 旋转角滑条值, 初始 50=90° */
 static uint32_t   s_post_tick;
 static uint32_t   s_angle_tick;
 static lv_coord_t s_left_x0, s_right_x0, s_pull1_x0, s_pull2_x0;   //x0 initial x, 运行时捕获
+static lv_coord_t s_center;     //两帘合拢中线 = 左帘右缘, on_screen_load 算
 
 /* 两帘+两拉手从各自设计位置对称平移 offset, label 显示百分比 */
 static void dream_apply(int32_t offset)
@@ -60,6 +62,32 @@ static void dream_anim_to_ms(int32_t target, uint32_t ms)
     lv_anim_start(&animation);
 }
 
+/* 点帘面 px(屏坐标) → 两帘对称瞬间到位; 中线±30 区域关紧(不播动画) */
+static void dream_tap_to(lv_coord_t px)
+{
+    int32_t d = px - s_center;
+    if (d < 0) d = -d;
+    int32_t target = (d <= SNAP_HALF) ? 0 : d;
+    if (target > TRAVEL_PX) target = TRAVEL_PX;
+    lv_anim_del(&s_offset, dream_anim_exec);
+    s_offset = target;
+    dream_apply(target);
+    curtain_motion_set(CURTAIN_IDX_DREAM, (uint16_t)(target * 100 / TRAVEL_PX));
+    dream_post(target);
+}
+
+/* 点窗口任意处(帘面已清CLICKABLE穿透到此cont_1)→到位; 避开底部按钮行 */
+static void dream_on_bg_tap(lv_event_t *event)
+{
+    LV_UNUSED(event);
+    lv_indev_t *indev = lv_indev_get_act();
+    if (!indev) return;
+    lv_point_t p;
+    lv_indev_get_point(indev, &p);
+    if (p.y > 560) return;
+    dream_tap_to(p.x);
+}
+
 /* 本屏不在 scr_guard, 自挂删除回调停动画防野指针 */
 static void dream_on_screen_delete(lv_event_t *event)
 {
@@ -77,7 +105,15 @@ void dream_on_screen_load(void)
     s_right_x0 = lv_obj_get_x(guider_ui.Dream_FabCurtianright);
     s_pull1_x0 = lv_obj_get_x(guider_ui.Dream_FabCurtianPull1);
     s_pull2_x0 = lv_obj_get_x(guider_ui.Dream_FabCurtianPull2);
+    s_center   = s_left_x0 + lv_obj_get_width(guider_ui.Dream_FabCurtianLeft);   //中线=左帘右缘
     lv_slider_set_value(guider_ui.Dream_slider_1, s_angle_slider, LV_ANIM_OFF);
+
+    /* 点击到位: 清两帘 CLICKABLE 让点穿透到 cont_1 统一接管(拉手仍 PRESSING 拖动) */
+    lv_obj_clear_flag(guider_ui.Dream_FabCurtianLeft,  LV_OBJ_FLAG_CLICKABLE);
+    lv_obj_clear_flag(guider_ui.Dream_FabCurtianright, LV_OBJ_FLAG_CLICKABLE);
+    lv_obj_add_flag(guider_ui.Dream_cont_1, LV_OBJ_FLAG_CLICKABLE);
+    lv_obj_remove_event_cb(guider_ui.Dream_cont_1, dream_on_bg_tap);
+    lv_obj_add_event_cb(guider_ui.Dream_cont_1, dream_on_bg_tap, LV_EVENT_CLICKED, NULL);
 
     /* 按时间算当前位置, 若仍在移动则续播到目标 */
     uint16_t cur_pct = curtain_motion_current(CURTAIN_IDX_DREAM);

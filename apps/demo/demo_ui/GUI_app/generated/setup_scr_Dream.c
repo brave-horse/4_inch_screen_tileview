@@ -249,7 +249,7 @@ void setup_scr_Dream(lv_ui *ui)
 #endif
     lv_img_set_pivot(ui->Dream_FabCurtianLeft, 50,50);
     lv_img_set_angle(ui->Dream_FabCurtianLeft, 0);
-    lv_obj_set_pos(ui->Dream_FabCurtianLeft, 128, 193);
+    lv_obj_set_pos(ui->Dream_FabCurtianLeft, 129, 193);
     lv_obj_set_size(ui->Dream_FabCurtianLeft, 230, 249);
 
     //Write style for Dream_FabCurtianLeft, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -279,8 +279,8 @@ void setup_scr_Dream(lv_ui *ui)
 
     //Write codes Dream_cont_2
     ui->Dream_cont_2 = lv_obj_create(ui->Dream);
-    lv_obj_set_pos(ui->Dream_cont_2, -173, 146);
-    lv_obj_set_size(ui->Dream_cont_2, 300, 326);
+    lv_obj_set_pos(ui->Dream_cont_2, -8, 148);
+    lv_obj_set_size(ui->Dream_cont_2, 134, 326);
     lv_obj_set_scrollbar_mode(ui->Dream_cont_2, LV_SCROLLBAR_MODE_OFF);
 
     //Write style for Dream_cont_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -297,8 +297,8 @@ void setup_scr_Dream(lv_ui *ui)
 
     //Write codes Dream_cont_3
     ui->Dream_cont_3 = lv_obj_create(ui->Dream);
-    lv_obj_set_pos(ui->Dream_cont_3, 589, 156);
-    lv_obj_set_size(ui->Dream_cont_3, 300, 326);
+    lv_obj_set_pos(ui->Dream_cont_3, 592, 156);
+    lv_obj_set_size(ui->Dream_cont_3, 140, 326);
     lv_obj_set_scrollbar_mode(ui->Dream_cont_3, LV_SCROLLBAR_MODE_OFF);
 
     //Write style for Dream_cont_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -323,7 +323,7 @@ void setup_scr_Dream(lv_ui *ui)
 #endif
     lv_img_set_pivot(ui->Dream_FabCurtianPull2, 50,50);
     lv_img_set_angle(ui->Dream_FabCurtianPull2, 0);
-    lv_obj_set_pos(ui->Dream_FabCurtianPull2, 367, 321);
+    lv_obj_set_pos(ui->Dream_FabCurtianPull2, 369, 295);
     lv_obj_set_size(ui->Dream_FabCurtianPull2, 45, 45);
 
     //Write style for Dream_FabCurtianPull2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -342,7 +342,7 @@ void setup_scr_Dream(lv_ui *ui)
 #endif
     lv_img_set_pivot(ui->Dream_FabCurtianPull1, 50,50);
     lv_img_set_angle(ui->Dream_FabCurtianPull1, 0);
-    lv_obj_set_pos(ui->Dream_FabCurtianPull1, 307, 321);
+    lv_obj_set_pos(ui->Dream_FabCurtianPull1, 304, 295);
     lv_obj_set_size(ui->Dream_FabCurtianPull1, 45, 45);
 
     //Write style for Dream_FabCurtianPull1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -490,27 +490,6 @@ void setup_scr_Dream(lv_ui *ui)
     lv_obj_set_style_pad_left(ui->Dream_label_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_width(ui->Dream_label_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 
-    //Write codes Dream_btn_2
-    ui->Dream_btn_2 = lv_btn_create(ui->Dream);
-    ui->Dream_btn_2_label = lv_label_create(ui->Dream_btn_2);
-    lv_label_set_text(ui->Dream_btn_2_label, "");
-    lv_label_set_long_mode(ui->Dream_btn_2_label, LV_LABEL_LONG_WRAP);
-    lv_obj_align(ui->Dream_btn_2_label, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_set_style_pad_all(ui->Dream_btn_2, 0, LV_STATE_DEFAULT);
-    lv_obj_set_width(ui->Dream_btn_2_label, LV_PCT(100));
-    lv_obj_set_pos(ui->Dream_btn_2, -6, -9);
-    lv_obj_set_size(ui->Dream_btn_2, 238, 101);
-
-    //Write style for Dream_btn_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_bg_opa(ui->Dream_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_width(ui->Dream_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->Dream_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_width(ui->Dream_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(ui->Dream_btn_2, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->Dream_btn_2, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui->Dream_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_align(ui->Dream_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-
     //Write codes Dream_img_1
     ui->Dream_img_1 = lv_img_create(ui->Dream);
     lv_obj_add_flag(ui->Dream_img_1, LV_OBJ_FLAG_CLICKABLE);
@@ -525,6 +504,27 @@ void setup_scr_Dream(lv_ui *ui)
     lv_obj_set_style_img_opa(ui->Dream_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->Dream_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_clip_corner(ui->Dream_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes Dream_btn_2
+    ui->Dream_btn_2 = lv_btn_create(ui->Dream);
+    ui->Dream_btn_2_label = lv_label_create(ui->Dream_btn_2);
+    lv_label_set_text(ui->Dream_btn_2_label, "");
+    lv_label_set_long_mode(ui->Dream_btn_2_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->Dream_btn_2_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->Dream_btn_2, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->Dream_btn_2_label, LV_PCT(100));
+    lv_obj_set_pos(ui->Dream_btn_2, -6, -12);
+    lv_obj_set_size(ui->Dream_btn_2, 238, 101);
+
+    //Write style for Dream_btn_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->Dream_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->Dream_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->Dream_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->Dream_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->Dream_btn_2, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->Dream_btn_2, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->Dream_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->Dream_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of Dream.
 

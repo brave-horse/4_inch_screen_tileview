@@ -345,6 +345,21 @@ void setup_scr_DryRack(lv_ui *ui)
     lv_obj_set_style_pad_left(ui->DryRack_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_width(ui->DryRack_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 
+    //Write codes DryRack_img_2
+    ui->DryRack_img_2 = lv_img_create(ui->DryRack);
+    lv_obj_add_flag(ui->DryRack_img_2, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->DryRack_img_2, &_spageback_alpha_14x24);
+    lv_img_set_pivot(ui->DryRack_img_2, 50,50);
+    lv_img_set_angle(ui->DryRack_img_2, 0);
+    lv_obj_set_pos(ui->DryRack_img_2, 43, 28);
+    lv_obj_set_size(ui->DryRack_img_2, 14, 24);
+
+    //Write style for DryRack_img_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->DryRack_img_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->DryRack_img_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->DryRack_img_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->DryRack_img_2, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
     //Write codes DryRack_btn_2
     ui->DryRack_btn_2 = lv_btn_create(ui->DryRack);
     ui->DryRack_btn_2_label = lv_label_create(ui->DryRack_btn_2);
@@ -365,21 +380,6 @@ void setup_scr_DryRack(lv_ui *ui)
     lv_obj_set_style_text_font(ui->DryRack_btn_2, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->DryRack_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->DryRack_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes DryRack_img_2
-    ui->DryRack_img_2 = lv_img_create(ui->DryRack);
-    lv_obj_add_flag(ui->DryRack_img_2, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->DryRack_img_2, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->DryRack_img_2, 50,50);
-    lv_img_set_angle(ui->DryRack_img_2, 0);
-    lv_obj_set_pos(ui->DryRack_img_2, 43, 28);
-    lv_obj_set_size(ui->DryRack_img_2, 14, 24);
-
-    //Write style for DryRack_img_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->DryRack_img_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->DryRack_img_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->DryRack_img_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->DryRack_img_2, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of DryRack.
 

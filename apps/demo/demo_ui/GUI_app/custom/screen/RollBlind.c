@@ -48,6 +48,31 @@ static void roll_anim_to_ms(int32_t target, uint32_t ms)
     lv_anim_start(&anim);
 }
 
+/* 点窗口 py(屏坐标) → 卷帘竖向瞬间到位(不播动画); cloth 自身拖动绑定已是绝对 p.y, 点 cloth 也即到位 */
+static void roll_tap_to(lv_coord_t py)
+{
+    int32_t pct = (PULL_CY - py) * 100 / TRAVEL_MAX;
+    if (pct < 0)   pct = 0;
+    if (pct > 100) pct = 100;
+    lv_anim_del(&s_pct, roll_anim_cb);
+    s_pct = pct;
+    roll_apply(pct);
+    curtain_motion_set(CURTAIN_IDX_ROLLBLIND, (uint16_t)pct);
+    roll_post(pct);
+}
+
+/* 点窗口空白处(cloth 收起后下方空白)→到位; 避开底部按钮行 */
+static void roll_on_bg_tap(lv_event_t *event)
+{
+    LV_UNUSED(event);
+    lv_indev_t *indev = lv_indev_get_act();
+    if (!indev) return;
+    lv_point_t p;
+    lv_indev_get_point(indev, &p);
+    if (p.y > 560) return;
+    roll_tap_to(p.y);
+}
+
 /* 本屏不在 scr_guard, 自挂删除回调停动画防野指针 */
 static void roll_del_cb(lv_event_t *event)
 {
@@ -61,6 +86,15 @@ void roll_blind_on_screen_load(void)
 {
     lv_obj_clear_flag(guider_ui.RollBlind, LV_OBJ_FLAG_SCROLLABLE);
     lv_obj_add_event_cb(guider_ui.RollBlind, roll_del_cb, LV_EVENT_DELETE, NULL);
+    /* 点空白处到位: cont_2 是窗口场景层(cloth收起后露出, 盖在cont_1之上, 之前点被它吃掉),
+     * cont_1/cont_2 都挂保证接住; 点 cloth 本身已由其拖动绑定即时到位 */
+    lv_obj_t *roll_bg[] = { guider_ui.RollBlind_cont_1, guider_ui.RollBlind_cont_2 };
+    for (uint8_t i = 0; i < 2; i++) {
+        if (!lv_obj_is_valid(roll_bg[i])) continue;
+        lv_obj_add_flag(roll_bg[i], LV_OBJ_FLAG_CLICKABLE);
+        lv_obj_remove_event_cb(roll_bg[i], roll_on_bg_tap);
+        lv_obj_add_event_cb(roll_bg[i], roll_on_bg_tap, LV_EVENT_CLICKED, NULL);
+    }
 
     /* 按时间算当前位置, 若仍在移动则续播到目标 */
     uint16_t cur_pct = curtain_motion_current(CURTAIN_IDX_ROLLBLIND);

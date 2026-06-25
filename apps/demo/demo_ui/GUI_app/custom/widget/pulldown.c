@@ -4,6 +4,7 @@
 #include <stddef.h>
 #include "lvgl.h"
 #include "pulldown.h"
+#include "nav.h"
 
 /*********************
  *      DEFINES
@@ -191,8 +192,7 @@ static void on_home_clicked(lv_event_t *e)
 {
     LV_UNUSED(e);
     if (lv_scr_act() != guider_ui.ui_home_screen) {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del,
-            &guider_ui.ui_home_screen_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_go_home();              /* 清栈回主页 tile_3 */
     }
     pulldown_collapse_slow();
 }
@@ -201,8 +201,7 @@ static void on_home_clicked(lv_event_t *e)
 static void on_set_clicked(lv_event_t *e)
 {
     LV_UNUSED(e);
-    ui_load_scr_animation(&guider_ui, &guider_ui.setting_screen, guider_ui.setting_screen_del,
-        &guider_ui.ui_home_screen_del, setup_scr_setting_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+    nav_go(SCR_SETTING);            /* 压当前屏入栈: 返回时回到下拉时所在屏 */
     pulldown_collapse_slow();
 }
 
@@ -210,8 +209,7 @@ static void on_set_clicked(lv_event_t *e)
 static void on_manual_clicked(lv_event_t *e)
 {
     LV_UNUSED(e);
-    ui_load_scr_animation(&guider_ui, &guider_ui.Helper, guider_ui.Helper_del,
-        &guider_ui.ui_home_screen_del, setup_scr_Helper, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+    nav_go(SCR_HELPER);            /* 压当前屏入栈: 返回时回到下拉时所在屏 */
     pulldown_collapse_slow();
 }
 

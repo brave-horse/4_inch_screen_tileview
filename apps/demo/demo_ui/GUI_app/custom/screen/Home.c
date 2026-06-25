@@ -5,6 +5,7 @@
 #include "hw_cloud_task.h"
 #include "FanAndLight.h"
 #include "device_management.h"
+#include "nav.h"
 
 /* 状态图显示/隐藏: 用 HIDDEN flag(不渲染)替代 opa(透明仍走渲染管线), 减小设备页渲染压力 */
 static inline void img_show(lv_obj_t *obj, bool show)
@@ -210,6 +211,75 @@ static void decode_subtree_imgs(lv_obj_t *obj)
     for (uint32_t i = 0; i < cnt; i++) decode_subtree_imgs(lv_obj_get_child(obj, i));
 }
 
+/* ── 场景卡片标签点击上滑 ── */
+static void scene_label_anim_exec_cb(void *var, int32_t v)
+{
+    lv_obj_set_y((lv_obj_t *)var, v);
+}
+
+static void scene_label_anim_ready_cb(lv_anim_t *anim)
+{
+    lv_obj_t *label = (lv_obj_t *)anim->var;
+    if (!lv_obj_is_valid(label)) return;
+    int32_t base_y = (int32_t)(intptr_t)lv_obj_get_user_data(label);
+    lv_obj_set_y(label, base_y);
+}
+
+static void scene_cont_clicked_cb(lv_event_t *e)
+{
+    lv_obj_t *label = (lv_obj_t *)lv_event_get_user_data(e);
+    if (!lv_obj_is_valid(label)) return;
+    int32_t base_y = (int32_t)(intptr_t)lv_obj_get_user_data(label);
+    lv_anim_t anim;
+    lv_anim_init(&anim);
+    lv_anim_set_var(&anim, label);
+    lv_anim_set_exec_cb(&anim, scene_label_anim_exec_cb);
+    lv_anim_set_values(&anim, base_y, base_y - 45);
+    lv_anim_set_time(&anim, 850);
+    lv_anim_set_path_cb(&anim, lv_anim_path_ease_out);
+    lv_anim_set_ready_cb(&anim, scene_label_anim_ready_cb);
+    lv_anim_start(&anim);
+}
+
+/* ── tile5 卡片松开颜色反馈 ── */
+static void cont_color_anim_exec_cb(void *var, int32_t v)
+{
+    lv_obj_t *cont = (lv_obj_t *)var;
+    lv_color_t c = lv_color_mix(lv_color_hex(0x1d3d60), lv_color_hex(0x333641), (uint8_t)v);
+    lv_obj_set_style_bg_color(cont, c, LV_PART_MAIN | LV_STATE_DEFAULT);
+}
+
+static void cont_released_cb(lv_event_t *e)
+{
+    lv_obj_t *cont = lv_event_get_target(e);
+    if (!lv_obj_is_valid(cont)) return;
+    lv_obj_set_style_bg_color(cont, lv_color_hex(0x1d3d60), LV_PART_MAIN | LV_STATE_DEFAULT);
+    lv_anim_t anim;
+    lv_anim_init(&anim);
+    lv_anim_set_var(&anim, cont);
+    lv_anim_set_exec_cb(&anim, cont_color_anim_exec_cb);
+    lv_anim_set_values(&anim, 255, 0);   // v:255蓝→0灰, 松开从蓝渐隐回原色
+    lv_anim_set_time(&anim, 400);
+    lv_anim_set_path_cb(&anim, lv_anim_path_ease_out);
+    lv_anim_start(&anim);
+}
+
+/* ── tile3 三个灯按键: off=_1(HlightOff) on=_2(HlightOn), btn 已是 CHECKABLE ── */
+typedef struct { lv_obj_t *btn; lv_obj_t *off_img; lv_obj_t *on_img; } LightBtn;  //off_img关图 on_img开图
+static LightBtn g_light_btns[3];
+
+static void light_btn_apply(LightBtn *light)
+{
+    if (!light->btn) return;
+    bool on = lv_obj_has_state(light->btn, LV_STATE_CHECKED);
+    img_show(light->on_img,  on);     //不显示的图用HIDDEN, 不进渲染
+    img_show(light->off_img, !on);
+}
+static void light_btn_event_cb(lv_event_t *e)
+{
+    light_btn_apply((LightBtn *)lv_event_get_user_data(e));
+}
+
 /* ═══════════ 首页 + 设备页合并加载 ═══════════ */
 void home_on_screen_load(void)
 {
@@ -238,7 +308,8 @@ void home_on_screen_load(void)
             if (lv_obj_is_valid(tiles[i])) ((struct tv_tile *)tiles[i])->dir = dirs[i];
         if (lv_obj_is_valid(tv)) {
             lv_obj_clear_flag(tv, LV_OBJ_FLAG_SCROLL_ELASTIC);
-            lv_obj_set_tile_id(tv, 3, 0, LV_ANIM_OFF);   /* 进 home 默认定位主页面 tile_3 */
+            int restore_tile = nav_consume_home_tile();  /* 从子屏返回时记的来源 tile, -1=无 */
+            lv_obj_set_tile_id(tv, restore_tile >= 0 ? restore_tile : 3, 0, LV_ANIM_OFF);
         }
     }
 
@@ -251,19 +322,27 @@ void home_on_screen_load(void)
     SAFE_CLEAR(ui_home_screen_img_6, LV_OBJ_FLAG_CLICKABLE);
     SAFE_CLEAR(ui_home_screen_MainSetImg, LV_OBJ_FLAG_CLICKABLE);
 
-    /* tile_3 的 btn_1/2/7: CHECKABLE 点击 toggle 透明↔红。
-     * CHECKED(toggle保持)+PRESSED(按下瞬间)都设纯红, 覆盖 GUI-Guider 原橙红, 颜色统一;
-     * 默认态透明(GUI-Guider 设 bg opa 0)。 */
-    lv_obj_t *btns[] = { guider_ui.ui_home_screen_btn_1,
-                         guider_ui.ui_home_screen_btn_2,
-                         guider_ui.ui_home_screen_btn_7 };
-    for (uint8_t i = 0; i < 3; i++) {
-        if (!lv_obj_is_valid(btns[i])) continue;
-        lv_obj_add_flag(btns[i], LV_OBJ_FLAG_CHECKABLE);
-        lv_obj_set_style_bg_color(btns[i], lv_color_hex(0xff0000), LV_PART_MAIN | LV_STATE_CHECKED);
-        lv_obj_set_style_bg_opa(btns[i], LV_OPA_COVER, LV_PART_MAIN | LV_STATE_CHECKED);
-        lv_obj_set_style_radius(btns[i], 5, LV_PART_MAIN | LV_STATE_CHECKED);
-        lv_obj_set_style_bg_color(btns[i], lv_color_hex(0xff0000), LV_PART_MAIN | LV_STATE_PRESSED);
+    /* ── tile_3 三个灯按键 btn_63/64/65: 点击 toggle 显示 on/off 图 ──
+     * 旧 btn_1/2/7 已在 GUI-Guider 删除。off=_1(HlightOff) on=_2(HlightOn)。 */
+    {
+        g_light_btns[0] = (LightBtn){ guider_ui.ui_home_screen_btn_63, guider_ui.ui_home_screen_img_off_63_1, guider_ui.ui_home_screen_img_off_63_2 };
+        g_light_btns[1] = (LightBtn){ guider_ui.ui_home_screen_btn_64, guider_ui.ui_home_screen_img_off_64_1, guider_ui.ui_home_screen_img_on_64_2  };
+        g_light_btns[2] = (LightBtn){ guider_ui.ui_home_screen_btn_65, guider_ui.ui_home_screen_img_off_65_1, guider_ui.ui_home_screen_img_off_65_2 };
+        /* 清 9 个图/标签的 CLICKABLE, 让点击穿透到下层 btn */
+        lv_obj_t *passthru[] = {
+            guider_ui.ui_home_screen_img_off_63_1, guider_ui.ui_home_screen_img_off_63_2, guider_ui.ui_home_screen_label_63,
+            guider_ui.ui_home_screen_img_off_64_1, guider_ui.ui_home_screen_img_on_64_2,  guider_ui.ui_home_screen_label_64,
+            guider_ui.ui_home_screen_img_off_65_1, guider_ui.ui_home_screen_img_off_65_2, guider_ui.ui_home_screen_label_65,
+        };
+        for (uint8_t i = 0; i < 9; i++)
+            if (lv_obj_is_valid(passthru[i])) lv_obj_clear_flag(passthru[i], LV_OBJ_FLAG_CLICKABLE);
+        for (uint8_t i = 0; i < 3; i++) {
+            LightBtn *light = &g_light_btns[i];
+            if (!lv_obj_is_valid(light->btn)) continue;
+            lv_obj_clear_state(light->btn, LV_STATE_CHECKED);   //默认off
+            light_btn_apply(light);                              //初始: 显off图, 隐on图
+            lv_obj_add_event_cb(light->btn, light_btn_event_cb, LV_EVENT_VALUE_CHANGED, light);
+        }
     }
 
     /* ── 设备页: 绑定控件 + 刷状态 ── */
@@ -357,6 +436,55 @@ void home_on_screen_load(void)
 
     /* 浴霸 */
     heater_apply();
+
+    /* ── 场景卡片标签点击动画 ── */
+    {
+        lv_obj_t *conts[8] = {
+            guider_ui.ui_home_screen_cont_28, guider_ui.ui_home_screen_cont_29,
+            guider_ui.ui_home_screen_cont_30, guider_ui.ui_home_screen_cont_31,
+            guider_ui.ui_home_screen_cont_32, guider_ui.ui_home_screen_cont_33,
+            guider_ui.ui_home_screen_cont_34, guider_ui.ui_home_screen_cont_35,
+        };
+        lv_obj_t *labels[8] = {
+            guider_ui.ui_home_screen_label_45, guider_ui.ui_home_screen_label_46,
+            guider_ui.ui_home_screen_label_47, guider_ui.ui_home_screen_label_48,
+            guider_ui.ui_home_screen_label_49, guider_ui.ui_home_screen_label_50,
+            guider_ui.ui_home_screen_label_51, guider_ui.ui_home_screen_label_52,
+        };
+        for (uint8_t i = 0; i < 8; i++) {
+            if (!lv_obj_is_valid(conts[i]) || !lv_obj_is_valid(labels[i])) continue;
+            /* 清 cont 内子图的 CLICKABLE, 让点击穿透到 cont */
+            uint32_t child_cnt = lv_obj_get_child_cnt(conts[i]);
+            for (uint32_t c = 0; c < child_cnt; c++) {
+                lv_obj_t *child = lv_obj_get_child(conts[i], c);
+                if (lv_obj_check_type(child, &lv_img_class))
+                    lv_obj_clear_flag(child, LV_OBJ_FLAG_CLICKABLE);
+            }
+            lv_obj_add_flag(conts[i], LV_OBJ_FLAG_CLICKABLE);
+            lv_obj_set_user_data(labels[i], (void *)(intptr_t)lv_obj_get_y(labels[i]));
+            lv_obj_add_event_cb(conts[i], scene_cont_clicked_cb, LV_EVENT_CLICKED, labels[i]);
+        }
+    }
+
+    /* ── tile5 卡片松开颜色反馈 ── */
+    {
+        lv_obj_t *conts[6] = {
+            guider_ui.ui_home_screen_cont_3, guider_ui.ui_home_screen_cont_4,
+            guider_ui.ui_home_screen_cont_5, guider_ui.ui_home_screen_cont_6,
+            guider_ui.ui_home_screen_cont_7, guider_ui.ui_home_screen_cont_8,
+        };
+        for (uint8_t i = 0; i < 6; i++) {
+            if (!lv_obj_is_valid(conts[i])) continue;
+            uint32_t child_cnt = lv_obj_get_child_cnt(conts[i]);
+            for (uint32_t c = 0; c < child_cnt; c++) {
+                lv_obj_t *child = lv_obj_get_child(conts[i], c);
+                if (lv_obj_check_type(child, &lv_img_class))
+                    lv_obj_clear_flag(child, LV_OBJ_FLAG_CLICKABLE);
+            }
+            lv_obj_add_flag(conts[i], LV_OBJ_FLAG_CLICKABLE);
+            lv_obj_add_event_cb(conts[i], cont_released_cb, LV_EVENT_RELEASED, NULL);
+        }
+    }
 }
 
 /* 预解码场景页(tile_4)全部图进缓存。由 scr_guard 在 purge_cache 之后调用。

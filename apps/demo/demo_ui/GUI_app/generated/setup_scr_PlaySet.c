@@ -186,6 +186,21 @@ void setup_scr_PlaySet(lv_ui *ui)
     lv_obj_add_style(ui->PlaySet_List_item1, &style_PlaySet_List_extra_texts_main_default, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_add_style(ui->PlaySet_List_item0, &style_PlaySet_List_extra_texts_main_default, LV_PART_MAIN|LV_STATE_DEFAULT);
 
+    //Write codes PlaySet_img_1
+    ui->PlaySet_img_1 = lv_img_create(ui->PlaySet);
+    lv_obj_add_flag(ui->PlaySet_img_1, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->PlaySet_img_1, &_spageback_alpha_14x24);
+    lv_img_set_pivot(ui->PlaySet_img_1, 50,50);
+    lv_img_set_angle(ui->PlaySet_img_1, 0);
+    lv_obj_set_pos(ui->PlaySet_img_1, 43, 28);
+    lv_obj_set_size(ui->PlaySet_img_1, 14, 24);
+
+    //Write style for PlaySet_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->PlaySet_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->PlaySet_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->PlaySet_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->PlaySet_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
     //Write codes PlaySet_btn_2
     ui->PlaySet_btn_2 = lv_btn_create(ui->PlaySet);
     ui->PlaySet_btn_2_label = lv_label_create(ui->PlaySet_btn_2);
@@ -206,21 +221,6 @@ void setup_scr_PlaySet(lv_ui *ui)
     lv_obj_set_style_text_font(ui->PlaySet_btn_2, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->PlaySet_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->PlaySet_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes PlaySet_img_1
-    ui->PlaySet_img_1 = lv_img_create(ui->PlaySet);
-    lv_obj_add_flag(ui->PlaySet_img_1, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->PlaySet_img_1, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->PlaySet_img_1, 50,50);
-    lv_img_set_angle(ui->PlaySet_img_1, 0);
-    lv_obj_set_pos(ui->PlaySet_img_1, 43, 28);
-    lv_obj_set_size(ui->PlaySet_img_1, 14, 24);
-
-    //Write style for PlaySet_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->PlaySet_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->PlaySet_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->PlaySet_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->PlaySet_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //Write codes PlaySet_img_2
     ui->PlaySet_img_2 = lv_img_create(ui->PlaySet);

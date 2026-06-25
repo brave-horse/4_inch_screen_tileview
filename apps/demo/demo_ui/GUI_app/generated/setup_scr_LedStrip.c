@@ -418,6 +418,21 @@ void setup_scr_LedStrip(lv_ui *ui)
     lv_obj_set_style_radius(ui->LedStrip_LSOff, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_clip_corner(ui->LedStrip_LSOff, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
+    //Write codes LedStrip_img_1
+    ui->LedStrip_img_1 = lv_img_create(ui->LedStrip);
+    lv_obj_add_flag(ui->LedStrip_img_1, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->LedStrip_img_1, &_spageback_alpha_14x24);
+    lv_img_set_pivot(ui->LedStrip_img_1, 50,50);
+    lv_img_set_angle(ui->LedStrip_img_1, 0);
+    lv_obj_set_pos(ui->LedStrip_img_1, 43, 28);
+    lv_obj_set_size(ui->LedStrip_img_1, 14, 24);
+
+    //Write style for LedStrip_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->LedStrip_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->LedStrip_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->LedStrip_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->LedStrip_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
     //Write codes LedStrip_btn_4
     ui->LedStrip_btn_4 = lv_btn_create(ui->LedStrip);
     ui->LedStrip_btn_4_label = lv_label_create(ui->LedStrip_btn_4);
@@ -439,20 +454,113 @@ void setup_scr_LedStrip(lv_ui *ui)
     lv_obj_set_style_text_opa(ui->LedStrip_btn_4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->LedStrip_btn_4, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
 
-    //Write codes LedStrip_img_1
-    ui->LedStrip_img_1 = lv_img_create(ui->LedStrip);
-    lv_obj_add_flag(ui->LedStrip_img_1, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->LedStrip_img_1, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->LedStrip_img_1, 50,50);
-    lv_img_set_angle(ui->LedStrip_img_1, 0);
-    lv_obj_set_pos(ui->LedStrip_img_1, 43, 28);
-    lv_obj_set_size(ui->LedStrip_img_1, 14, 24);
+    //Write codes LedStrip_cont_2
+    ui->LedStrip_cont_2 = lv_obj_create(ui->LedStrip);
+    lv_obj_set_pos(ui->LedStrip_cont_2, 98, -509);
+    lv_obj_set_size(ui->LedStrip_cont_2, 524, 392);
+    lv_obj_set_scrollbar_mode(ui->LedStrip_cont_2, LV_SCROLLBAR_MODE_OFF);
 
-    //Write style for LedStrip_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->LedStrip_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->LedStrip_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->LedStrip_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->LedStrip_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+    //Write style for LedStrip_cont_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->LedStrip_cont_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->LedStrip_cont_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->LedStrip_cont_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->LedStrip_cont_2, lv_color_hex(0x171717), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_grad_dir(ui->LedStrip_cont_2, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->LedStrip_cont_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->LedStrip_cont_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->LedStrip_cont_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->LedStrip_cont_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->LedStrip_cont_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes LedStrip_img_7
+    ui->LedStrip_img_7 = lv_img_create(ui->LedStrip_cont_2);
+    lv_obj_add_flag(ui->LedStrip_img_7, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->LedStrip_img_7, &_LSscene1_alpha_112x140);
+    lv_img_set_pivot(ui->LedStrip_img_7, 50,50);
+    lv_img_set_angle(ui->LedStrip_img_7, 0);
+    lv_obj_set_pos(ui->LedStrip_img_7, 40, 29);
+    lv_obj_set_size(ui->LedStrip_img_7, 112, 140);
+
+    //Write style for LedStrip_img_7, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->LedStrip_img_7, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->LedStrip_img_7, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->LedStrip_img_7, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->LedStrip_img_7, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes LedStrip_img_6
+    ui->LedStrip_img_6 = lv_img_create(ui->LedStrip_cont_2);
+    lv_obj_add_flag(ui->LedStrip_img_6, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->LedStrip_img_6, &_LSscene2_alpha_112x140);
+    lv_img_set_pivot(ui->LedStrip_img_6, 50,50);
+    lv_img_set_angle(ui->LedStrip_img_6, 0);
+    lv_obj_set_pos(ui->LedStrip_img_6, 210, 29);
+    lv_obj_set_size(ui->LedStrip_img_6, 112, 140);
+
+    //Write style for LedStrip_img_6, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->LedStrip_img_6, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->LedStrip_img_6, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->LedStrip_img_6, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->LedStrip_img_6, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes LedStrip_img_5
+    ui->LedStrip_img_5 = lv_img_create(ui->LedStrip_cont_2);
+    lv_obj_add_flag(ui->LedStrip_img_5, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->LedStrip_img_5, &_LSscene3_alpha_112x140);
+    lv_img_set_pivot(ui->LedStrip_img_5, 50,50);
+    lv_img_set_angle(ui->LedStrip_img_5, 0);
+    lv_obj_set_pos(ui->LedStrip_img_5, 380, 29);
+    lv_obj_set_size(ui->LedStrip_img_5, 112, 140);
+
+    //Write style for LedStrip_img_5, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->LedStrip_img_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->LedStrip_img_5, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->LedStrip_img_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->LedStrip_img_5, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes LedStrip_img_4
+    ui->LedStrip_img_4 = lv_img_create(ui->LedStrip_cont_2);
+    lv_obj_add_flag(ui->LedStrip_img_4, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->LedStrip_img_4, &_LSscene4_alpha_112x140);
+    lv_img_set_pivot(ui->LedStrip_img_4, 50,50);
+    lv_img_set_angle(ui->LedStrip_img_4, 0);
+    lv_obj_set_pos(ui->LedStrip_img_4, 40, 204);
+    lv_obj_set_size(ui->LedStrip_img_4, 112, 140);
+
+    //Write style for LedStrip_img_4, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->LedStrip_img_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->LedStrip_img_4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->LedStrip_img_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->LedStrip_img_4, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes LedStrip_img_3
+    ui->LedStrip_img_3 = lv_img_create(ui->LedStrip_cont_2);
+    lv_obj_add_flag(ui->LedStrip_img_3, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->LedStrip_img_3, &_LSscene5_alpha_112x140);
+    lv_img_set_pivot(ui->LedStrip_img_3, 50,50);
+    lv_img_set_angle(ui->LedStrip_img_3, 0);
+    lv_obj_set_pos(ui->LedStrip_img_3, 210, 204);
+    lv_obj_set_size(ui->LedStrip_img_3, 112, 140);
+
+    //Write style for LedStrip_img_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->LedStrip_img_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->LedStrip_img_3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->LedStrip_img_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->LedStrip_img_3, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes LedStrip_img_2
+    ui->LedStrip_img_2 = lv_img_create(ui->LedStrip_cont_2);
+    lv_obj_add_flag(ui->LedStrip_img_2, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->LedStrip_img_2, &_LSscene6_alpha_112x140);
+    lv_img_set_pivot(ui->LedStrip_img_2, 50,50);
+    lv_img_set_angle(ui->LedStrip_img_2, 0);
+    lv_obj_set_pos(ui->LedStrip_img_2, 380, 204);
+    lv_obj_set_size(ui->LedStrip_img_2, 112, 140);
+
+    //Write style for LedStrip_img_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->LedStrip_img_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->LedStrip_img_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->LedStrip_img_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->LedStrip_img_2, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of LedStrip.
 

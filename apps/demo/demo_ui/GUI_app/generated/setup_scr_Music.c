@@ -275,7 +275,7 @@ void setup_scr_Music(lv_ui *ui)
 #else
     lv_img_set_src(ui->Music_rack, "S:/sdfile/EXT_RESERVED/uipackres/ui/rack.png");
 #endif
-    lv_img_set_pivot(ui->Music_rack, 50,50);
+    lv_img_set_pivot(ui->Music_rack, 80,40);
     lv_img_set_angle(ui->Music_rack, 0);
     lv_obj_set_pos(ui->Music_rack, 405, 128);
     lv_obj_set_size(ui->Music_rack, 124, 195);
@@ -285,6 +285,21 @@ void setup_scr_Music(lv_ui *ui)
     lv_obj_set_style_img_opa(ui->Music_rack, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->Music_rack, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_clip_corner(ui->Music_rack, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes Music_img_1
+    ui->Music_img_1 = lv_img_create(ui->Music);
+    lv_obj_add_flag(ui->Music_img_1, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->Music_img_1, &_spageback_alpha_14x24);
+    lv_img_set_pivot(ui->Music_img_1, 50,50);
+    lv_img_set_angle(ui->Music_img_1, 0);
+    lv_obj_set_pos(ui->Music_img_1, 43, 28);
+    lv_obj_set_size(ui->Music_img_1, 14, 24);
+
+    //Write style for Music_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->Music_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->Music_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->Music_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->Music_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //Write codes Music_btn_2
     ui->Music_btn_2 = lv_btn_create(ui->Music);
@@ -306,21 +321,6 @@ void setup_scr_Music(lv_ui *ui)
     lv_obj_set_style_text_font(ui->Music_btn_2, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->Music_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->Music_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes Music_img_1
-    ui->Music_img_1 = lv_img_create(ui->Music);
-    lv_obj_add_flag(ui->Music_img_1, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->Music_img_1, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->Music_img_1, 50,50);
-    lv_img_set_angle(ui->Music_img_1, 0);
-    lv_obj_set_pos(ui->Music_img_1, 43, 28);
-    lv_obj_set_size(ui->Music_img_1, 14, 24);
-
-    //Write style for Music_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->Music_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->Music_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->Music_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->Music_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of Music.
 

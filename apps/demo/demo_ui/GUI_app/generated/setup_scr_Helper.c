@@ -128,6 +128,21 @@ void setup_scr_Helper(lv_ui *ui)
     lv_obj_set_style_radius(ui->Helper_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_clip_corner(ui->Helper_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
+    //Write codes Helper_img_2
+    ui->Helper_img_2 = lv_img_create(ui->Helper);
+    lv_obj_add_flag(ui->Helper_img_2, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->Helper_img_2, &_spageback_alpha_14x24);
+    lv_img_set_pivot(ui->Helper_img_2, 50,50);
+    lv_img_set_angle(ui->Helper_img_2, 0);
+    lv_obj_set_pos(ui->Helper_img_2, 43, 28);
+    lv_obj_set_size(ui->Helper_img_2, 14, 24);
+
+    //Write style for Helper_img_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->Helper_img_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->Helper_img_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->Helper_img_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->Helper_img_2, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
     //Write codes Helper_btn_1
     ui->Helper_btn_1 = lv_btn_create(ui->Helper);
     ui->Helper_btn_1_label = lv_label_create(ui->Helper_btn_1);
@@ -148,21 +163,6 @@ void setup_scr_Helper(lv_ui *ui)
     lv_obj_set_style_text_font(ui->Helper_btn_1, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->Helper_btn_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->Helper_btn_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes Helper_img_2
-    ui->Helper_img_2 = lv_img_create(ui->Helper);
-    lv_obj_add_flag(ui->Helper_img_2, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->Helper_img_2, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->Helper_img_2, 50,50);
-    lv_img_set_angle(ui->Helper_img_2, 0);
-    lv_obj_set_pos(ui->Helper_img_2, 43, 28);
-    lv_obj_set_size(ui->Helper_img_2, 14, 24);
-
-    //Write style for Helper_img_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->Helper_img_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->Helper_img_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->Helper_img_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->Helper_img_2, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of Helper.
 

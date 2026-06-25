@@ -6,12 +6,14 @@
 #include "HWDataAccess.h"
 #include "hw_cloud_task.h"
 #include "light_CT_screen.h"
+#include "scene_panel.h"
 
 /**********************
  *  STATIC VARIABLES
  **********************/
 static uint32_t s_bri_tick;
 static uint32_t s_ct_tick;
+static ScenePanel s_panel;   /* cont_2 情景面板 */
 #define APPLY_MIN_MS  50
 
 /**********************
@@ -83,6 +85,11 @@ void light_ct_on_screen_load(void)
         lv_obj_set_style_img_opa(btns[i], 128, LV_PART_MAIN | LV_STATE_PRESSED);   /* 按下 50% 透明 */
         lv_obj_set_ext_click_area(btns[i], 30);   /* 点击热区各+30px,图片不变 */
     }
+
+    /* cont_2 情景面板: 滑出/收回/模态/图片反馈 见 scene_panel 模块 */
+    scene_panel_setup(&s_panel, guider_ui.light_CT_screen, guider_ui.light_CT_screen_cont_2,
+                      guider_ui.light_CT_screen_imgbtn_1, guider_ui.light_CT_screen_on_off_2_img,
+                      light_ct_refresh);
 }
 
 void light_ct_on_switch_toggle(lv_event_t *e)
@@ -95,7 +102,7 @@ void light_ct_on_switch_toggle(lv_event_t *e)
         .type = HW_MSG_LIGHT_CT_SWITCH,
         .on   = btn_status
     });
-    light_ct_refresh(btn_status);
+    scene_panel_on_power(&s_panel, btn_status);   /* 开/关灯; 关时面板若开先收回再上遮罩 */
 }
 
 void light_ct_on_bri_slider_change(void)

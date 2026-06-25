@@ -3,10 +3,12 @@
 #include "HWDataAccess.h"
 #include "hw_cloud_task.h"
 #include "RGBLight.h"
+#include "scene_panel.h"
 
 static uint32_t s_bri_tick;
 static uint32_t s_color_tick;
 static uint16_t s_color_pos;            /* 颜色滑条位置, 切屏后回填 */
+static ScenePanel s_panel;              /* cont_2 情景面板 */
 #define APPLY_MIN_MS  50
 #define RGB_SEG_LEN   100
 #define RGB_ANCHORS   7
@@ -101,6 +103,11 @@ void rgb_light_on_screen_load(void)
         lv_obj_set_style_img_opa(btns[i], 128, LV_PART_MAIN | LV_STATE_PRESSED);   /* 按下 50% 透明 */
         lv_obj_set_ext_click_area(btns[i], 30);   /* 热区各+30px,图片不变 */
     }
+
+    /* cont_2 情景面板: 滑出/收回/模态/图片反馈 见 scene_panel 模块 */
+    scene_panel_setup(&s_panel, guider_ui.RGBLight, guider_ui.RGBLight_cont_2,
+                      guider_ui.RGBLight_imgbtn_1, guider_ui.RGBLight_on_off_2_img,
+                      rgb_light_refresh);
 }
 
 void rgb_light_on_switch_toggle(lv_event_t *e)
@@ -110,7 +117,7 @@ void rgb_light_on_switch_toggle(lv_event_t *e)
 
     HWInterface.RGBLight.SetOnOff(btn_status);
     hw_cloud_post(&(HW_Msg){ .type = HW_MSG_LIGHT_RGB_SWITCH, .on = btn_status });
-    rgb_light_refresh(btn_status);
+    scene_panel_on_power(&s_panel, btn_status);   /* 开/关灯; 关时面板若开先收回再上遮罩 */
 }
 
 void rgb_light_on_bri_slider_change(void)

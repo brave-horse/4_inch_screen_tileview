@@ -15,7 +15,8 @@
 #include "freemaster_client.h"
 #endif
 
-#include "Home.h"
+#include "Home.h"
+#include "nav.h"
 
 
 #include "light_CT_screen.h"
@@ -58,7 +59,7 @@ static void ui_home_screen_cont_27_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.light_CT_screen, guider_ui.light_CT_screen_del, &guider_ui.ui_home_screen_del, setup_scr_light_CT_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_go(SCR_LIGHT_CT);
         break;
     }
     default:
@@ -86,7 +87,7 @@ static void ui_home_screen_cont_26_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.LedStrip, guider_ui.LedStrip_del, &guider_ui.ui_home_screen_del, setup_scr_LedStrip, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_go(SCR_LEDSTRIP);
         break;
     }
     default:
@@ -114,7 +115,7 @@ static void ui_home_screen_cont_25_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.MagLight, guider_ui.MagLight_del, &guider_ui.ui_home_screen_del, setup_scr_MagLight, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_go(SCR_MAGLIGHT);
         break;
     }
     default:
@@ -142,7 +143,7 @@ static void ui_home_screen_cont_24_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.RGBLight, guider_ui.RGBLight_del, &guider_ui.ui_home_screen_del, setup_scr_RGBLight, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_go(SCR_RGBLIGHT);
         break;
     }
     default:
@@ -170,7 +171,7 @@ static void ui_home_screen_cont_23_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.FabricCurtian, guider_ui.FabricCurtian_del, &guider_ui.ui_home_screen_del, setup_scr_FabricCurtian, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_go(SCR_FABRICCURTAIN);
         break;
     }
     default:
@@ -212,7 +213,7 @@ static void ui_home_screen_cont_22_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Sheers, guider_ui.Sheers_del, &guider_ui.ui_home_screen_del, setup_scr_Sheers, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_go(SCR_SHEERS);
         break;
     }
     default:
@@ -254,7 +255,7 @@ static void ui_home_screen_cont_21_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.RollBlind, guider_ui.RollBlind_del, &guider_ui.ui_home_screen_del, setup_scr_RollBlind, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_go(SCR_ROLLBLIND);
         break;
     }
     default:
@@ -296,7 +297,7 @@ static void ui_home_screen_cont_20_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Dream, guider_ui.Dream_del, &guider_ui.ui_home_screen_del, setup_scr_Dream, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_go(SCR_DREAM);
         break;
     }
     default:
@@ -338,7 +339,7 @@ static void ui_home_screen_cont_19_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.AirCondition, guider_ui.AirCondition_del, &guider_ui.ui_home_screen_del, setup_scr_AirCondition, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_go(SCR_AIRCONDITION);
         break;
     }
     default:
@@ -352,7 +353,7 @@ static void ui_home_screen_cont_18_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Music, guider_ui.Music_del, &guider_ui.ui_home_screen_del, setup_scr_Music, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_go(SCR_MUSIC);
         break;
     }
     default:
@@ -380,7 +381,7 @@ static void ui_home_screen_cont_17_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.DryRack, guider_ui.DryRack_del, &guider_ui.ui_home_screen_del, setup_scr_DryRack, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_go(SCR_DRYRACK);
         break;
     }
     default:
@@ -422,7 +423,7 @@ static void ui_home_screen_cont_16_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.FanAndLight, guider_ui.FanAndLight_del, &guider_ui.ui_home_screen_del, setup_scr_FanAndLight, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_go(SCR_FANANDLIGHT);
         break;
     }
     default:
@@ -464,7 +465,7 @@ static void ui_home_screen_cont_15_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Heater, guider_ui.Heater_del, &guider_ui.ui_home_screen_del, setup_scr_Heater, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_go(SCR_HEATER);
         break;
     }
     default:
@@ -597,6 +598,20 @@ static void light_CT_screen_btn_1_event_handler (lv_event_t *e)
     }
 }
 
+static void light_CT_screen_imgbtn_1_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_VALUE_CHANGED:
+    {
+
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 static void light_CT_screen_on_off_2_img_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
@@ -617,7 +632,7 @@ static void light_CT_screen_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.light_CT_screen_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_back();
         break;
     }
     default:
@@ -631,6 +646,7 @@ void events_init_light_CT_screen (lv_ui *ui)
     lv_obj_add_event_cb(ui->light_CT_screen_slider_2, light_CT_screen_slider_2_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->light_CT_screen_slider_1, light_CT_screen_slider_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->light_CT_screen_btn_1, light_CT_screen_btn_1_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->light_CT_screen_imgbtn_1, light_CT_screen_imgbtn_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->light_CT_screen_on_off_2_img, light_CT_screen_on_off_2_img_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->light_CT_screen_btn_2, light_CT_screen_btn_2_event_handler, LV_EVENT_ALL, ui);
 }
@@ -715,7 +731,7 @@ static void LedStrip_btn_4_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.LedStrip_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_back();
         break;
     }
     default:
@@ -813,7 +829,7 @@ static void RGBLight_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.RGBLight_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_back();
         break;
     }
     default:
@@ -911,7 +927,7 @@ static void MagLight_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.MagLight_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_back();
         break;
     }
     default:
@@ -1063,7 +1079,7 @@ static void FabricCurtian_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.FabricCurtian_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_back();
         break;
     }
     default:
@@ -1219,7 +1235,7 @@ static void Sheers_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.Sheers_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_back();
         break;
     }
     default:
@@ -1304,7 +1320,7 @@ static void RollBlind_FabCurtianLeft_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
-    case LV_EVENT_CLICKED:
+    case LV_EVENT_PRESSED:
     {
         roll_blind_on_drag(e);
         break;
@@ -1347,7 +1363,7 @@ static void RollBlind_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.RollBlind_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_back();
         break;
     }
     default:
@@ -1515,7 +1531,7 @@ static void Dream_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.Dream_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_back();
         break;
     }
     default:
@@ -1697,7 +1713,7 @@ static void AirCondition_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.AirCondition_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_back();
         break;
     }
     default:
@@ -1768,7 +1784,7 @@ static void Music_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.Music_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_back();
         break;
     }
     default:
@@ -1904,7 +1920,7 @@ static void DryRack_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.DryRack_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_back();
         break;
     }
     default:
@@ -2084,7 +2100,7 @@ static void FanAndLight_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.FanAndLight_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_back();
         break;
     }
     default:
@@ -2295,7 +2311,7 @@ static void Heater_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.Heater_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_back();
         break;
     }
     default:
@@ -2453,7 +2469,7 @@ static void setting_screen_btn_2_event_handler (lv_event_t *e)
     switch (code) {
     case LV_EVENT_CLICKED:
     {
-        ui_load_scr_animation(&guider_ui, &guider_ui.ui_home_screen, guider_ui.ui_home_screen_del, &guider_ui.setting_screen_del, setup_scr_ui_home_screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        nav_back();
         break;
     }
     default:

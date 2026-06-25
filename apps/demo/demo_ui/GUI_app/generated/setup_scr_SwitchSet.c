@@ -377,6 +377,21 @@ void setup_scr_SwitchSet(lv_ui *ui)
     lv_obj_set_style_text_opa(ui->SwitchSet_btn_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->SwitchSet_btn_1, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
 
+    //Write codes SwitchSet_img_1
+    ui->SwitchSet_img_1 = lv_img_create(ui->SwitchSet);
+    lv_obj_add_flag(ui->SwitchSet_img_1, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->SwitchSet_img_1, &_spageback_alpha_14x24);
+    lv_img_set_pivot(ui->SwitchSet_img_1, 50,50);
+    lv_img_set_angle(ui->SwitchSet_img_1, 0);
+    lv_obj_set_pos(ui->SwitchSet_img_1, 43, 28);
+    lv_obj_set_size(ui->SwitchSet_img_1, 14, 24);
+
+    //Write style for SwitchSet_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->SwitchSet_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->SwitchSet_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->SwitchSet_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->SwitchSet_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
     //Write codes SwitchSet_btn_8
     ui->SwitchSet_btn_8 = lv_btn_create(ui->SwitchSet);
     ui->SwitchSet_btn_8_label = lv_label_create(ui->SwitchSet_btn_8);
@@ -397,21 +412,6 @@ void setup_scr_SwitchSet(lv_ui *ui)
     lv_obj_set_style_text_font(ui->SwitchSet_btn_8, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->SwitchSet_btn_8, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->SwitchSet_btn_8, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes SwitchSet_img_1
-    ui->SwitchSet_img_1 = lv_img_create(ui->SwitchSet);
-    lv_obj_add_flag(ui->SwitchSet_img_1, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->SwitchSet_img_1, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->SwitchSet_img_1, 50,50);
-    lv_img_set_angle(ui->SwitchSet_img_1, 0);
-    lv_obj_set_pos(ui->SwitchSet_img_1, 43, 28);
-    lv_obj_set_size(ui->SwitchSet_img_1, 14, 24);
-
-    //Write style for SwitchSet_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->SwitchSet_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->SwitchSet_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->SwitchSet_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->SwitchSet_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of SwitchSet.
 

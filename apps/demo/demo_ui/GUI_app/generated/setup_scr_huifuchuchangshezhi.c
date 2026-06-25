@@ -176,6 +176,21 @@ void setup_scr_huifuchuchangshezhi(lv_ui *ui)
     lv_obj_set_style_text_opa(ui->huifuchuchangshezhi_btn_3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->huifuchuchangshezhi_btn_3, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
 
+    //Write codes huifuchuchangshezhi_img_1
+    ui->huifuchuchangshezhi_img_1 = lv_img_create(ui->huifuchuchangshezhi);
+    lv_obj_add_flag(ui->huifuchuchangshezhi_img_1, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->huifuchuchangshezhi_img_1, &_spageback_alpha_14x24);
+    lv_img_set_pivot(ui->huifuchuchangshezhi_img_1, 50,50);
+    lv_img_set_angle(ui->huifuchuchangshezhi_img_1, 0);
+    lv_obj_set_pos(ui->huifuchuchangshezhi_img_1, 43, 28);
+    lv_obj_set_size(ui->huifuchuchangshezhi_img_1, 14, 24);
+
+    //Write style for huifuchuchangshezhi_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->huifuchuchangshezhi_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->huifuchuchangshezhi_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->huifuchuchangshezhi_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->huifuchuchangshezhi_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
     //Write codes huifuchuchangshezhi_btn_4
     ui->huifuchuchangshezhi_btn_4 = lv_btn_create(ui->huifuchuchangshezhi);
     ui->huifuchuchangshezhi_btn_4_label = lv_label_create(ui->huifuchuchangshezhi_btn_4);
@@ -196,21 +211,6 @@ void setup_scr_huifuchuchangshezhi(lv_ui *ui)
     lv_obj_set_style_text_font(ui->huifuchuchangshezhi_btn_4, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->huifuchuchangshezhi_btn_4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->huifuchuchangshezhi_btn_4, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes huifuchuchangshezhi_img_1
-    ui->huifuchuchangshezhi_img_1 = lv_img_create(ui->huifuchuchangshezhi);
-    lv_obj_add_flag(ui->huifuchuchangshezhi_img_1, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->huifuchuchangshezhi_img_1, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->huifuchuchangshezhi_img_1, 50,50);
-    lv_img_set_angle(ui->huifuchuchangshezhi_img_1, 0);
-    lv_obj_set_pos(ui->huifuchuchangshezhi_img_1, 43, 28);
-    lv_obj_set_size(ui->huifuchuchangshezhi_img_1, 14, 24);
-
-    //Write style for huifuchuchangshezhi_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->huifuchuchangshezhi_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->huifuchuchangshezhi_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->huifuchuchangshezhi_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->huifuchuchangshezhi_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of huifuchuchangshezhi.
 

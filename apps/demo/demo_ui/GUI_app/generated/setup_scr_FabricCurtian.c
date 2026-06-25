@@ -249,7 +249,7 @@ void setup_scr_FabricCurtian(lv_ui *ui)
 #endif
     lv_img_set_pivot(ui->FabricCurtian_FabCurtianLeft, 50,50);
     lv_img_set_angle(ui->FabricCurtian_FabCurtianLeft, 0);
-    lv_obj_set_pos(ui->FabricCurtian_FabCurtianLeft, 129, 194);
+    lv_obj_set_pos(ui->FabricCurtian_FabCurtianLeft, 129, 193);
     lv_obj_set_size(ui->FabricCurtian_FabCurtianLeft, 231, 287);
 
     //Write style for FabricCurtian_FabCurtianLeft, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -268,7 +268,7 @@ void setup_scr_FabricCurtian(lv_ui *ui)
 #endif
     lv_img_set_pivot(ui->FabricCurtian_FabCurtianright, 50,50);
     lv_img_set_angle(ui->FabricCurtian_FabCurtianright, 0);
-    lv_obj_set_pos(ui->FabricCurtian_FabCurtianright, 359, 193);
+    lv_obj_set_pos(ui->FabricCurtian_FabCurtianright, 360, 193);
     lv_obj_set_size(ui->FabricCurtian_FabCurtianright, 231, 287);
 
     //Write style for FabricCurtian_FabCurtianright, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -279,8 +279,8 @@ void setup_scr_FabricCurtian(lv_ui *ui)
 
     //Write codes FabricCurtian_cont_2
     ui->FabricCurtian_cont_2 = lv_obj_create(ui->FabricCurtian);
-    lv_obj_set_pos(ui->FabricCurtian_cont_2, -172, 170);
-    lv_obj_set_size(ui->FabricCurtian_cont_2, 300, 324);
+    lv_obj_set_pos(ui->FabricCurtian_cont_2, -9, 170);
+    lv_obj_set_size(ui->FabricCurtian_cont_2, 137, 324);
     lv_obj_set_scrollbar_mode(ui->FabricCurtian_cont_2, LV_SCROLLBAR_MODE_OFF);
 
     //Write style for FabricCurtian_cont_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -297,8 +297,8 @@ void setup_scr_FabricCurtian(lv_ui *ui)
 
     //Write codes FabricCurtian_cont_3
     ui->FabricCurtian_cont_3 = lv_obj_create(ui->FabricCurtian);
-    lv_obj_set_pos(ui->FabricCurtian_cont_3, 599, 161);
-    lv_obj_set_size(ui->FabricCurtian_cont_3, 300, 324);
+    lv_obj_set_pos(ui->FabricCurtian_cont_3, 590, 164);
+    lv_obj_set_size(ui->FabricCurtian_cont_3, 132, 324);
     lv_obj_set_scrollbar_mode(ui->FabricCurtian_cont_3, LV_SCROLLBAR_MODE_OFF);
 
     //Write style for FabricCurtian_cont_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -323,7 +323,7 @@ void setup_scr_FabricCurtian(lv_ui *ui)
 #endif
     lv_img_set_pivot(ui->FabricCurtian_FabCurtianPull2, 50,50);
     lv_img_set_angle(ui->FabricCurtian_FabCurtianPull2, 0);
-    lv_obj_set_pos(ui->FabricCurtian_FabCurtianPull2, 367, 321);
+    lv_obj_set_pos(ui->FabricCurtian_FabCurtianPull2, 367, 314);
     lv_obj_set_size(ui->FabricCurtian_FabCurtianPull2, 45, 45);
 
     //Write style for FabricCurtian_FabCurtianPull2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -342,7 +342,7 @@ void setup_scr_FabricCurtian(lv_ui *ui)
 #endif
     lv_img_set_pivot(ui->FabricCurtian_FabCurtianPull1, 50,50);
     lv_img_set_angle(ui->FabricCurtian_FabCurtianPull1, 0);
-    lv_obj_set_pos(ui->FabricCurtian_FabCurtianPull1, 302, 321);
+    lv_obj_set_pos(ui->FabricCurtian_FabCurtianPull1, 302, 314);
     lv_obj_set_size(ui->FabricCurtian_FabCurtianPull1, 45, 45);
 
     //Write style for FabricCurtian_FabCurtianPull1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -374,8 +374,8 @@ void setup_scr_FabricCurtian(lv_ui *ui)
     ui->FabricCurtian_label_1 = lv_label_create(ui->FabricCurtian);
     lv_label_set_text(ui->FabricCurtian_label_1, "0%");
     lv_label_set_long_mode(ui->FabricCurtian_label_1, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->FabricCurtian_label_1, 328, 503);
-    lv_obj_set_size(ui->FabricCurtian_label_1, 70, 30);
+    lv_obj_set_pos(ui->FabricCurtian_label_1, 316, 503);
+    lv_obj_set_size(ui->FabricCurtian_label_1, 87, 30);
 
     //Write style for FabricCurtian_label_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_border_width(ui->FabricCurtian_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -392,6 +392,21 @@ void setup_scr_FabricCurtian(lv_ui *ui)
     lv_obj_set_style_pad_bottom(ui->FabricCurtian_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_pad_left(ui->FabricCurtian_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_width(ui->FabricCurtian_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes FabricCurtian_img_1
+    ui->FabricCurtian_img_1 = lv_img_create(ui->FabricCurtian);
+    lv_obj_add_flag(ui->FabricCurtian_img_1, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->FabricCurtian_img_1, &_spageback_alpha_14x24);
+    lv_img_set_pivot(ui->FabricCurtian_img_1, 50,50);
+    lv_img_set_angle(ui->FabricCurtian_img_1, 0);
+    lv_obj_set_pos(ui->FabricCurtian_img_1, 43, 28);
+    lv_obj_set_size(ui->FabricCurtian_img_1, 14, 24);
+
+    //Write style for FabricCurtian_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->FabricCurtian_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->FabricCurtian_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->FabricCurtian_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->FabricCurtian_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //Write codes FabricCurtian_btn_2
     ui->FabricCurtian_btn_2 = lv_btn_create(ui->FabricCurtian);
@@ -413,21 +428,6 @@ void setup_scr_FabricCurtian(lv_ui *ui)
     lv_obj_set_style_text_font(ui->FabricCurtian_btn_2, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->FabricCurtian_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->FabricCurtian_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes FabricCurtian_img_1
-    ui->FabricCurtian_img_1 = lv_img_create(ui->FabricCurtian);
-    lv_obj_add_flag(ui->FabricCurtian_img_1, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->FabricCurtian_img_1, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->FabricCurtian_img_1, 50,50);
-    lv_img_set_angle(ui->FabricCurtian_img_1, 0);
-    lv_obj_set_pos(ui->FabricCurtian_img_1, 43, 28);
-    lv_obj_set_size(ui->FabricCurtian_img_1, 14, 24);
-
-    //Write style for FabricCurtian_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->FabricCurtian_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->FabricCurtian_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->FabricCurtian_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->FabricCurtian_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of FabricCurtian.
 

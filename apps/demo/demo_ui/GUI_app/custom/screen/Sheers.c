@@ -6,11 +6,13 @@
 
 #define TRAVEL_PX    190        //PX pixels
 #define APPLY_MIN_MS 50         //MIN minimum, MS milliseconds
+#define SNAP_HALF    30         //点击中线±30 区域直接关紧
 
 static int32_t    s_offset;     /* 当前开合位移 0..TRAVEL_PX */
 static uint32_t   s_post_tick;
 /* 闭合时各控件 x, on_screen_load 运行时捕获(尊重 GUI-Guider 摆放) */
 static lv_coord_t s_left_x0, s_right_x0, s_pull1_x0, s_pull2_x0;   //x0 initial x
+static lv_coord_t s_center;     //两帘合拢中线 = 左帘右缘, on_screen_load 算
 
 /* 两帘+两拉手从各自设计位置对称平移 offset(拉手随帘一起动) */
 static void sheers_apply(int32_t offset)
@@ -50,6 +52,32 @@ static void sheers_anim_to_ms(int32_t target, uint32_t ms)
     lv_anim_start(&animation);
 }
 
+/* 点帘面 px(屏坐标) → 两帘对称瞬间到位; 中线±30 区域关紧(用户嫌动画慢, 不播) */
+static void sheers_tap_to(lv_coord_t px)
+{
+    int32_t d = px - s_center;
+    if (d < 0) d = -d;
+    int32_t target = (d <= SNAP_HALF) ? 0 : d;
+    if (target > TRAVEL_PX) target = TRAVEL_PX;
+    lv_anim_del(&s_offset, sheers_anim_exec);
+    s_offset = target;
+    sheers_apply(target);
+    curtain_motion_set(CURTAIN_IDX_SHEERS, (uint16_t)(target * 100 / TRAVEL_PX));
+    sheers_post(target);
+}
+
+/* 点窗口任意处(帘面已清CLICKABLE穿透到此cont_1)→到位; 避开底部按钮行 */
+static void sheers_on_bg_tap(lv_event_t *event)
+{
+    LV_UNUSED(event);
+    lv_indev_t *indev = lv_indev_get_act();
+    if (!indev) return;
+    lv_point_t p;
+    lv_indev_get_point(indev, &p);
+    if (p.y > 560) return;
+    sheers_tap_to(p.x);
+}
+
 /* 本屏不在 scr_guard, 自挂删除回调停动画防野指针 */
 static void sheers_on_screen_delete(lv_event_t *event)
 {
@@ -67,6 +95,14 @@ void sheers_on_screen_load(void)
     s_right_x0 = lv_obj_get_x(guider_ui.Sheers_FabCurtianright);
     s_pull1_x0 = lv_obj_get_x(guider_ui.Sheers_FabCurtianPull1);
     s_pull2_x0 = lv_obj_get_x(guider_ui.Sheers_FabCurtianPull2);
+    s_center   = s_left_x0 + lv_obj_get_width(guider_ui.Sheers_FabCurtianLeft);   //中线=左帘右缘
+
+    /* 点击到位: 清两帘 CLICKABLE 让点穿透到 cont_1 统一接管(拉手仍 PRESSING 拖动) */
+    lv_obj_clear_flag(guider_ui.Sheers_FabCurtianLeft,  LV_OBJ_FLAG_CLICKABLE);
+    lv_obj_clear_flag(guider_ui.Sheers_FabCurtianright, LV_OBJ_FLAG_CLICKABLE);
+    lv_obj_add_flag(guider_ui.Sheers_cont_1, LV_OBJ_FLAG_CLICKABLE);
+    lv_obj_remove_event_cb(guider_ui.Sheers_cont_1, sheers_on_bg_tap);
+    lv_obj_add_event_cb(guider_ui.Sheers_cont_1, sheers_on_bg_tap, LV_EVENT_CLICKED, NULL);
 
     /* 按时间算当前位置, 若仍在移动则续播到目标 */
     uint16_t cur_pct = curtain_motion_current(CURTAIN_IDX_SHEERS);

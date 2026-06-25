@@ -577,6 +577,21 @@ void setup_scr_Heater(lv_ui *ui)
     lv_obj_set_style_radius(ui->Heater_idleMode, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_clip_corner(ui->Heater_idleMode, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
+    //Write codes Heater_img_1
+    ui->Heater_img_1 = lv_img_create(ui->Heater);
+    lv_obj_add_flag(ui->Heater_img_1, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->Heater_img_1, &_spageback_alpha_14x24);
+    lv_img_set_pivot(ui->Heater_img_1, 50,50);
+    lv_img_set_angle(ui->Heater_img_1, 0);
+    lv_obj_set_pos(ui->Heater_img_1, 43, 28);
+    lv_obj_set_size(ui->Heater_img_1, 14, 24);
+
+    //Write style for Heater_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->Heater_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->Heater_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->Heater_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->Heater_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
     //Write codes Heater_btn_2
     ui->Heater_btn_2 = lv_btn_create(ui->Heater);
     ui->Heater_btn_2_label = lv_label_create(ui->Heater_btn_2);
@@ -597,21 +612,6 @@ void setup_scr_Heater(lv_ui *ui)
     lv_obj_set_style_text_font(ui->Heater_btn_2, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->Heater_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->Heater_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes Heater_img_1
-    ui->Heater_img_1 = lv_img_create(ui->Heater);
-    lv_obj_add_flag(ui->Heater_img_1, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->Heater_img_1, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->Heater_img_1, 50,50);
-    lv_img_set_angle(ui->Heater_img_1, 0);
-    lv_obj_set_pos(ui->Heater_img_1, 43, 28);
-    lv_obj_set_size(ui->Heater_img_1, 14, 24);
-
-    //Write style for Heater_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->Heater_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->Heater_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->Heater_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->Heater_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of Heater.
 

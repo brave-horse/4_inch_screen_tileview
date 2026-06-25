@@ -351,6 +351,21 @@ void setup_scr_RollBlind(lv_ui *ui)
     lv_obj_set_style_text_opa(ui->RollBlind_btn_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->RollBlind_btn_1, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
 
+    //Write codes RollBlind_img_1
+    ui->RollBlind_img_1 = lv_img_create(ui->RollBlind);
+    lv_obj_add_flag(ui->RollBlind_img_1, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->RollBlind_img_1, &_spageback_alpha_14x24);
+    lv_img_set_pivot(ui->RollBlind_img_1, 50,50);
+    lv_img_set_angle(ui->RollBlind_img_1, 0);
+    lv_obj_set_pos(ui->RollBlind_img_1, 43, 28);
+    lv_obj_set_size(ui->RollBlind_img_1, 14, 24);
+
+    //Write style for RollBlind_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->RollBlind_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->RollBlind_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->RollBlind_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->RollBlind_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
     //Write codes RollBlind_btn_2
     ui->RollBlind_btn_2 = lv_btn_create(ui->RollBlind);
     ui->RollBlind_btn_2_label = lv_label_create(ui->RollBlind_btn_2);
@@ -371,21 +386,6 @@ void setup_scr_RollBlind(lv_ui *ui)
     lv_obj_set_style_text_font(ui->RollBlind_btn_2, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->RollBlind_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->RollBlind_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes RollBlind_img_1
-    ui->RollBlind_img_1 = lv_img_create(ui->RollBlind);
-    lv_obj_add_flag(ui->RollBlind_img_1, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->RollBlind_img_1, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->RollBlind_img_1, 50,50);
-    lv_img_set_angle(ui->RollBlind_img_1, 0);
-    lv_obj_set_pos(ui->RollBlind_img_1, 43, 28);
-    lv_obj_set_size(ui->RollBlind_img_1, 14, 24);
-
-    //Write style for RollBlind_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->RollBlind_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->RollBlind_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->RollBlind_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->RollBlind_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of RollBlind.
 

@@ -6,14 +6,16 @@
 #include "HWDataAccess.h"
 #include "hw_cloud_task.h"
 #include "MagLight.h"
+#include "scene_panel.h"
 
 /**********************
  *  STATIC VARIABLES
  **********************/
 static uint32_t s_bri_tick;
 static uint32_t s_ct_tick;
+static ScenePanel s_panel;   /* cont_2 情景面板 */
 #define APPLY_MIN_MS  50
-#define MAGLIGHT_OPA_MIN  (LV_OPA_COVER * 1 / 100)   /* 亮度最低时灯图最低可见度(=1%) */
+#define MAGLIGHT_OPA_MIN  (LV_OPA_COVER * 20 / 100)  /* 亮度下限: 拖到1%也按20%出光, 防止灯图消失 */
 
 /**********************
  *  GLOBAL FUNCTIONS
@@ -78,6 +80,11 @@ void mag_light_on_screen_load(void)
         lv_obj_set_style_img_opa(btns[i], 128, LV_PART_MAIN | LV_STATE_PRESSED);   /* 按下 50% 透明 */
         lv_obj_set_ext_click_area(btns[i], 30);   /* 热区各+30px,图片不变 */
     }
+
+    /* cont_2 情景面板: 滑出/收回/模态/图片反馈 见 scene_panel 模块 */
+    scene_panel_setup(&s_panel, guider_ui.MagLight, guider_ui.MagLight_cont_2,
+                      guider_ui.MagLight_imgbtn_1, guider_ui.MagLight_on_off_2_img,
+                      mag_light_refresh);
 }
 
 void mag_light_on_switch_toggle(lv_event_t *e)
@@ -90,7 +97,7 @@ void mag_light_on_switch_toggle(lv_event_t *e)
         .type = HW_MSG_LIGHT_MAG_SWITCH,
         .on   = btn_status
     });
-    mag_light_refresh(btn_status);
+    scene_panel_on_power(&s_panel, btn_status);   /* 开/关灯; 关时面板若开先收回再上遮罩 */
 }
 
 void mag_light_on_bri_slider_change(void)

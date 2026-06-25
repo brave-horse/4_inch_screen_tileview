@@ -249,7 +249,7 @@ void setup_scr_Sheers(lv_ui *ui)
 #endif
     lv_img_set_pivot(ui->Sheers_FabCurtianLeft, 50,50);
     lv_img_set_angle(ui->Sheers_FabCurtianLeft, 0);
-    lv_obj_set_pos(ui->Sheers_FabCurtianLeft, 129, 193);
+    lv_obj_set_pos(ui->Sheers_FabCurtianLeft, 129, 202);
     lv_obj_set_size(ui->Sheers_FabCurtianLeft, 230, 282);
 
     //Write style for Sheers_FabCurtianLeft, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -268,7 +268,7 @@ void setup_scr_Sheers(lv_ui *ui)
 #endif
     lv_img_set_pivot(ui->Sheers_FabCurtianright, 50,50);
     lv_img_set_angle(ui->Sheers_FabCurtianright, 0);
-    lv_obj_set_pos(ui->Sheers_FabCurtianright, 359, 193);
+    lv_obj_set_pos(ui->Sheers_FabCurtianright, 359, 202);
     lv_obj_set_size(ui->Sheers_FabCurtianright, 230, 282);
 
     //Write style for Sheers_FabCurtianright, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -279,8 +279,8 @@ void setup_scr_Sheers(lv_ui *ui)
 
     //Write codes Sheers_cont_2
     ui->Sheers_cont_2 = lv_obj_create(ui->Sheers);
-    lv_obj_set_pos(ui->Sheers_cont_2, -172, 164);
-    lv_obj_set_size(ui->Sheers_cont_2, 300, 336);
+    lv_obj_set_pos(ui->Sheers_cont_2, -2, 164);
+    lv_obj_set_size(ui->Sheers_cont_2, 130, 336);
     lv_obj_set_scrollbar_mode(ui->Sheers_cont_2, LV_SCROLLBAR_MODE_OFF);
 
     //Write style for Sheers_cont_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -298,7 +298,7 @@ void setup_scr_Sheers(lv_ui *ui)
     //Write codes Sheers_cont_3
     ui->Sheers_cont_3 = lv_obj_create(ui->Sheers);
     lv_obj_set_pos(ui->Sheers_cont_3, 591, 174);
-    lv_obj_set_size(ui->Sheers_cont_3, 300, 336);
+    lv_obj_set_size(ui->Sheers_cont_3, 130, 336);
     lv_obj_set_scrollbar_mode(ui->Sheers_cont_3, LV_SCROLLBAR_MODE_OFF);
 
     //Write style for Sheers_cont_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -342,7 +342,7 @@ void setup_scr_Sheers(lv_ui *ui)
 #endif
     lv_img_set_pivot(ui->Sheers_FabCurtianPull1, 50,50);
     lv_img_set_angle(ui->Sheers_FabCurtianPull1, 0);
-    lv_obj_set_pos(ui->Sheers_FabCurtianPull1, 313, 321);
+    lv_obj_set_pos(ui->Sheers_FabCurtianPull1, 311, 321);
     lv_obj_set_size(ui->Sheers_FabCurtianPull1, 45, 45);
 
     //Write style for Sheers_FabCurtianPull1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -370,6 +370,21 @@ void setup_scr_Sheers(lv_ui *ui)
     lv_obj_set_style_radius(ui->Sheers_FabCurtianPole, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_clip_corner(ui->Sheers_FabCurtianPole, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
+    //Write codes Sheers_img_1
+    ui->Sheers_img_1 = lv_img_create(ui->Sheers);
+    lv_obj_add_flag(ui->Sheers_img_1, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->Sheers_img_1, &_spageback_alpha_14x24);
+    lv_img_set_pivot(ui->Sheers_img_1, 50,50);
+    lv_img_set_angle(ui->Sheers_img_1, 0);
+    lv_obj_set_pos(ui->Sheers_img_1, 43, 28);
+    lv_obj_set_size(ui->Sheers_img_1, 14, 24);
+
+    //Write style for Sheers_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->Sheers_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->Sheers_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->Sheers_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->Sheers_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
     //Write codes Sheers_btn_2
     ui->Sheers_btn_2 = lv_btn_create(ui->Sheers);
     ui->Sheers_btn_2_label = lv_label_create(ui->Sheers_btn_2);
@@ -390,21 +405,6 @@ void setup_scr_Sheers(lv_ui *ui)
     lv_obj_set_style_text_font(ui->Sheers_btn_2, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->Sheers_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->Sheers_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes Sheers_img_1
-    ui->Sheers_img_1 = lv_img_create(ui->Sheers);
-    lv_obj_add_flag(ui->Sheers_img_1, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->Sheers_img_1, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->Sheers_img_1, 50,50);
-    lv_img_set_angle(ui->Sheers_img_1, 0);
-    lv_obj_set_pos(ui->Sheers_img_1, 43, 28);
-    lv_obj_set_size(ui->Sheers_img_1, 14, 24);
-
-    //Write style for Sheers_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->Sheers_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->Sheers_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->Sheers_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->Sheers_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of Sheers.
 
