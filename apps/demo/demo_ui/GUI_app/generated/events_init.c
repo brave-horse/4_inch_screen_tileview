@@ -1025,6 +1025,11 @@ static void FabricCurtian_FabCurtianLeft_event_handler (lv_event_t *e)
         fab_curtain_on_drag(e);
         break;
     }
+    case LV_EVENT_PRESSING:
+    {
+        fab_curtain_on_drag(e);
+        break;
+    }
     default:
         break;
     }
@@ -1035,6 +1040,11 @@ static void FabricCurtian_FabCurtianright_event_handler (lv_event_t *e)
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_PRESSED:
+    {
+        fab_curtain_on_drag(e);
+        break;
+    }
+    case LV_EVENT_PRESSING:
     {
         fab_curtain_on_drag(e);
         break;
@@ -1053,6 +1063,11 @@ static void FabricCurtian_FabCurtianPull2_event_handler (lv_event_t *e)
         fab_curtain_on_drag(e);
         break;
     }
+    case LV_EVENT_PRESSED:
+    {
+        fab_curtain_on_drag(e);
+        break;
+    }
     default:
         break;
     }
@@ -1063,6 +1078,11 @@ static void FabricCurtian_FabCurtianPull1_event_handler (lv_event_t *e)
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_PRESSING:
+    {
+        fab_curtain_on_drag(e);
+        break;
+    }
+    case LV_EVENT_PRESSED:
     {
         fab_curtain_on_drag(e);
         break;
@@ -1095,6 +1115,11 @@ static void FabricCurtian_FabCurtianPull3_event_handler (lv_event_t *e)
         fab_curtain_on_drag(e);
         break;
     }
+    case LV_EVENT_PRESSED:
+    {
+        fab_curtain_on_drag(e);
+        break;
+    }
     default:
         break;
     }
@@ -1105,6 +1130,11 @@ static void FabricCurtian_FabCurtianPull4_event_handler (lv_event_t *e)
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_PRESSING:
+    {
+        fab_curtain_on_drag(e);
+        break;
+    }
+    case LV_EVENT_PRESSED:
     {
         fab_curtain_on_drag(e);
         break;
@@ -1211,6 +1241,11 @@ static void Sheers_FabCurtianLeft_event_handler (lv_event_t *e)
         sheers_on_drag(e);
         break;
     }
+    case LV_EVENT_PRESSING:
+    {
+        sheers_on_drag(e);
+        break;
+    }
     default:
         break;
     }
@@ -1221,6 +1256,11 @@ static void Sheers_FabCurtianright_event_handler (lv_event_t *e)
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_PRESSED:
+    {
+        sheers_on_drag(e);
+        break;
+    }
+    case LV_EVENT_PRESSING:
     {
         sheers_on_drag(e);
         break;
@@ -1281,6 +1321,11 @@ static void Sheers_FabCurtianPull4_event_handler (lv_event_t *e)
         sheers_on_drag(e);
         break;
     }
+    case LV_EVENT_PRESSED:
+    {
+        sheers_on_drag(e);
+        break;
+    }
     default:
         break;
     }
@@ -1291,6 +1336,11 @@ static void Sheers_FabCurtianPull3_event_handler (lv_event_t *e)
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_PRESSING:
+    {
+        sheers_on_drag(e);
+        break;
+    }
+    case LV_EVENT_PRESSED:
     {
         sheers_on_drag(e);
         break;
@@ -1380,6 +1430,11 @@ static void RollBlind_FabCurtianLeft_event_handler (lv_event_t *e)
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_PRESSED:
+    {
+        roll_blind_on_drag(e);
+        break;
+    }
+    case LV_EVENT_PRESSING:
     {
         roll_blind_on_drag(e);
         break;
@@ -1538,6 +1593,11 @@ static void Dream_FabCurtianLeft_event_handler (lv_event_t *e)
         dream_on_drag(e);
         break;
     }
+    case LV_EVENT_PRESSING:
+    {
+        dream_on_drag(e);
+        break;
+    }
     default:
         break;
     }
@@ -1548,6 +1608,11 @@ static void Dream_FabCurtianright_event_handler (lv_event_t *e)
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_PRESSED:
+    {
+        dream_on_drag(e);
+        break;
+    }
+    case LV_EVENT_PRESSING:
     {
         dream_on_drag(e);
         break;
@@ -1622,6 +1687,11 @@ static void Dream_FabCurtianPull3_event_handler (lv_event_t *e)
         dream_on_drag(e);
         break;
     }
+    case LV_EVENT_PRESSED:
+    {
+        dream_on_drag(e);
+        break;
+    }
     default:
         break;
     }
@@ -1632,6 +1702,11 @@ static void Dream_FabCurtianPull4_event_handler (lv_event_t *e)
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_PRESSING:
+    {
+        dream_on_drag(e);
+        break;
+    }
+    case LV_EVENT_PRESSED:
     {
         dream_on_drag(e);
         break;

@@ -19,6 +19,7 @@ static void roll_apply(int32_t pct)
     lv_obj_set_y(guider_ui.RollBlind_FabCurtianLeft,  s_cloth_y0 - displacement);
     lv_obj_set_y(guider_ui.RollBlind_FabCurtianPull1, s_pull_y0  - displacement);
     lv_obj_set_y(guider_ui.RollBlind_FabCurtianPull2, s_pull2_y0 - displacement);
+    lv_label_set_text_fmt(guider_ui.RollBlind_label_1, "%d%%", (int)pct);
 }
 
 static void roll_post(int32_t pct)

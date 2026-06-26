@@ -98,6 +98,7 @@ void init_scr_del_flag(lv_ui *ui)
     ui->huifuchuchangshezhi_del = true;
     ui->RelativeProduct_del = true;
     ui->Helper_del = true;
+    ui->screen_1_del = true;
 }
 
 void setup_ui(lv_ui *ui)

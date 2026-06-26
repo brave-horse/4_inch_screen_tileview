@@ -105,6 +105,13 @@ void dream_on_screen_load(void)
     lv_obj_clear_flag(guider_ui.Dream, LV_OBJ_FLAG_SCROLLABLE);
     lv_obj_add_event_cb(guider_ui.Dream, dream_on_screen_delete, LV_EVENT_DELETE, NULL);
     curtain_motion_set_speed(CURTAIN_IDX_DREAM, DREAM_FULL_MS);   /* 本屏开合速度 */
+    /* Pull1~4 + 帘面: PRESS_LOCK → PRESSED 跳位后坐标变动不丢 PRESSING */
+    lv_obj_add_flag(guider_ui.Dream_FabCurtianPull1, LV_OBJ_FLAG_PRESS_LOCK);
+    lv_obj_add_flag(guider_ui.Dream_FabCurtianPull2, LV_OBJ_FLAG_PRESS_LOCK);
+    lv_obj_add_flag(guider_ui.Dream_FabCurtianPull3, LV_OBJ_FLAG_PRESS_LOCK);
+    lv_obj_add_flag(guider_ui.Dream_FabCurtianPull4, LV_OBJ_FLAG_PRESS_LOCK);
+    lv_obj_add_flag(guider_ui.Dream_FabCurtianLeft,  LV_OBJ_FLAG_PRESS_LOCK);
+    lv_obj_add_flag(guider_ui.Dream_FabCurtianright, LV_OBJ_FLAG_PRESS_LOCK);
     s_left_x0  = lv_obj_get_x(guider_ui.Dream_FabCurtianLeft);
     s_right_x0 = lv_obj_get_x(guider_ui.Dream_FabCurtianright);
     s_pull1_x0 = lv_obj_get_x(guider_ui.Dream_FabCurtianPull1);
@@ -112,12 +119,12 @@ void dream_on_screen_load(void)
     s_center   = s_left_x0 + lv_obj_get_width(guider_ui.Dream_FabCurtianLeft);   //中线=左帘右缘
     lv_slider_set_value(guider_ui.Dream_slider_1, s_angle_slider, LV_ANIM_OFF);
 
-    /* 点击到位: 清两帘 CLICKABLE 让点穿透到 cont_1 统一接管(拉手仍 PRESSING 拖动) */
-    lv_obj_clear_flag(guider_ui.Dream_FabCurtianLeft,  LV_OBJ_FLAG_CLICKABLE);
-    lv_obj_clear_flag(guider_ui.Dream_FabCurtianright, LV_OBJ_FLAG_CLICKABLE);
+    /* cont_1 背景: PRESSED 点哪跳哪 + PRESSING 接着拖 + 锁定 */
     lv_obj_add_flag(guider_ui.Dream_cont_1, LV_OBJ_FLAG_CLICKABLE);
-    lv_obj_remove_event_cb(guider_ui.Dream_cont_1, dream_on_bg_tap);
-    lv_obj_add_event_cb(guider_ui.Dream_cont_1, dream_on_bg_tap, LV_EVENT_CLICKED, NULL);
+    lv_obj_add_flag(guider_ui.Dream_cont_1, LV_OBJ_FLAG_PRESS_LOCK);
+    while (lv_obj_remove_event_cb(guider_ui.Dream_cont_1, NULL));
+    lv_obj_add_event_cb(guider_ui.Dream_cont_1, dream_on_bg_tap,    LV_EVENT_PRESSED, NULL);
+    lv_obj_add_event_cb(guider_ui.Dream_cont_1, dream_on_drag,      LV_EVENT_PRESSING, NULL);
 
     /* 按时间算当前位置, 若仍在移动则续播到目标 */
     uint16_t cur_pct = curtain_motion_current(CURTAIN_IDX_DREAM);
@@ -159,11 +166,22 @@ void dream_on_pause(void)
     dream_post(s_offset);
 }
 
-/* 拖拉手: 跟手累加位移(像素), 按抓住的拉手锁定方向(越过中线不切边) */
+/* Pull1~4 拖动: PRESSED→跳到手指下 + PRESSING→跟手拖(其余事件忽略不乱跳) */
 void dream_on_drag(lv_event_t *event)
 {
-    lv_indev_t *indev = lv_indev_get_act();   //indev input device
+    lv_event_code_t code = lv_event_get_code(event);
+    lv_indev_t *indev = lv_indev_get_act();
     if (!indev) return;
+
+    if (code == LV_EVENT_PRESSED) {
+        lv_point_t p;
+        lv_indev_get_point(indev, &p);
+        dream_tap_to(p.x);         /* 按下瞬间跳到手指位置 */
+        return;
+    }
+    if (code != LV_EVENT_PRESSING) return;   /* 只处理 PRESSING, 其余全忽略 */
+
+    /* PRESSING: 跟手拖动 */
     lv_anim_del(&s_offset, dream_anim_exec);
 
     lv_obj_t *target = lv_event_get_target(event);

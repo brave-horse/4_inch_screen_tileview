@@ -280,6 +280,10 @@ static void light_btn_event_cb(lv_event_t *e)
     light_btn_apply((LightBtn *)lv_event_get_user_data(e));
 }
 
+/* tile5 灯光总控前向声明(定义在文件尾部) */
+static void lights_all_on(lv_event_t *e);
+static void lights_all_off(lv_event_t *e);
+
 /* ═══════════ 首页 + 设备页合并加载 ═══════════ */
 void home_on_screen_load(void)
 {
@@ -446,6 +450,22 @@ void home_on_screen_load(void)
     /* 浴霸 */
     heater_apply();
 
+    /* tile5 灯光总控: cont_3=全开, cont_4=全关; 清内部子 CLICKABLE 让按压落容器 */
+    if (lv_obj_is_valid(guider_ui.ui_home_screen_cont_3)) {
+        uint32_t cc = lv_obj_get_child_cnt(guider_ui.ui_home_screen_cont_3);
+        for (uint32_t ci = 0; ci < cc; ci++)
+            lv_obj_clear_flag(lv_obj_get_child(guider_ui.ui_home_screen_cont_3, ci), LV_OBJ_FLAG_CLICKABLE);
+        lv_obj_add_flag(guider_ui.ui_home_screen_cont_3, LV_OBJ_FLAG_CLICKABLE);
+        lv_obj_add_event_cb(guider_ui.ui_home_screen_cont_3, lights_all_on, LV_EVENT_PRESSED, NULL);
+    }
+    if (lv_obj_is_valid(guider_ui.ui_home_screen_cont_4)) {
+        uint32_t cc = lv_obj_get_child_cnt(guider_ui.ui_home_screen_cont_4);
+        for (uint32_t ci = 0; ci < cc; ci++)
+            lv_obj_clear_flag(lv_obj_get_child(guider_ui.ui_home_screen_cont_4, ci), LV_OBJ_FLAG_CLICKABLE);
+        lv_obj_add_flag(guider_ui.ui_home_screen_cont_4, LV_OBJ_FLAG_CLICKABLE);
+        lv_obj_add_event_cb(guider_ui.ui_home_screen_cont_4, lights_all_off, LV_EVENT_PRESSED, NULL);
+    }
+
     /* ── 场景卡片标签点击动画 ── */
     {
         lv_obj_t *conts[8] = {
@@ -520,6 +540,22 @@ void dev_mgmt_ct_on_toggle(void)     { slot_toggle(DEV_SLOT_CT_LIGHT); }
 void dev_mgmt_led_on_toggle(void *e) { (void)e; slot_toggle(DEV_SLOT_LEDSTRIP); }  /* e 忽略, 兼容 GUI-Guider 带参回调 */
 void dev_mgmt_mag_on_toggle(void)    { slot_toggle(DEV_SLOT_MAGLIGHT); }
 void dev_mgmt_rgb_on_toggle(void)    { slot_toggle(DEV_SLOT_RGBLIGHT); }
+
+/* tile5 灯光总控: cont_3=全开, cont_4=全关 */
+static void lights_all_on(lv_event_t *e)
+{
+    LV_UNUSED(e);
+    ct_set_on(true);  led_set_on(true);
+    mag_set_on(true); rgb_set_on(true);
+    for (uint8_t i = 0; i < DEV_SLOT_COUNT; i++) slot_refresh(&g_slots[i]);
+}
+static void lights_all_off(lv_event_t *e)
+{
+    LV_UNUSED(e);
+    ct_set_on(false);  led_set_on(false);
+    mag_set_on(false); rgb_set_on(false);
+    for (uint8_t i = 0; i < DEV_SLOT_COUNT; i++) slot_refresh(&g_slots[i]);
+}
 
 static void curtain_move(uint8_t idx, uint16_t target)
 {

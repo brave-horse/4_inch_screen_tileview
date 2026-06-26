@@ -96,10 +96,20 @@ void fab_curtain_on_screen_load(void)
     lv_obj_clear_flag(guider_ui.FabricCurtian, LV_OBJ_FLAG_SCROLLABLE);
     lv_obj_add_event_cb(guider_ui.FabricCurtian, fab_on_screen_delete, LV_EVENT_DELETE, NULL);
     curtain_motion_set_speed(CURTAIN_IDX_FABRIC, FAB_FULL_MS);   /* 本屏开合速度 */
-    /* 空白点击挂在遮罩层 cont_1(它盖住整个窗口, 在帘面板之下), 不能挂屏幕(点被cont_1吃掉) */
+    /* Pull1~4: PRESS_LOCK → PRESSED 跳位后坐标变动不丢失 PRESSING */
+    lv_obj_add_flag(guider_ui.FabricCurtian_FabCurtianPull1, LV_OBJ_FLAG_PRESS_LOCK);
+    lv_obj_add_flag(guider_ui.FabricCurtian_FabCurtianPull2, LV_OBJ_FLAG_PRESS_LOCK);
+    lv_obj_add_flag(guider_ui.FabricCurtian_FabCurtianPull3, LV_OBJ_FLAG_PRESS_LOCK);
+    lv_obj_add_flag(guider_ui.FabricCurtian_FabCurtianPull4, LV_OBJ_FLAG_PRESS_LOCK);
+    lv_obj_add_flag(guider_ui.FabricCurtian_FabCurtianLeft,  LV_OBJ_FLAG_PRESS_LOCK);  /* 帘面也锁: 跳位不丢 PRESSING */
+    lv_obj_add_flag(guider_ui.FabricCurtian_FabCurtianright, LV_OBJ_FLAG_PRESS_LOCK);
+    /* cont_1 背景: PRESSED 点哪跳哪 + PRESSING 接着拖 + 锁定 */
     lv_obj_add_flag(guider_ui.FabricCurtian_cont_1, LV_OBJ_FLAG_CLICKABLE);
-    lv_obj_remove_event_cb(guider_ui.FabricCurtian_cont_1, fab_on_bg_tap);   //先清防重复
-    lv_obj_add_event_cb(guider_ui.FabricCurtian_cont_1, fab_on_bg_tap, LV_EVENT_CLICKED, NULL);
+    lv_obj_add_flag(guider_ui.FabricCurtian_cont_1, LV_OBJ_FLAG_PRESS_LOCK);
+    while (lv_obj_remove_event_cb(guider_ui.FabricCurtian_cont_1, NULL));
+    lv_obj_add_event_cb(guider_ui.FabricCurtian_cont_1, fab_on_bg_tap, LV_EVENT_PRESSED, NULL);
+    lv_obj_add_event_cb(guider_ui.FabricCurtian_cont_1, fab_curtain_on_drag, LV_EVENT_PRESSING, NULL);
+    /* 空白点击挂在遮罩层 cont_1(它盖住整个窗口, 在帘面板之下), 不能挂屏幕(点被cont_1吃掉) */
     s_left_x0  = lv_obj_get_x(guider_ui.FabricCurtian_FabCurtianLeft);
     s_right_x0 = lv_obj_get_x(guider_ui.FabricCurtian_FabCurtianright);
     s_pull1_x0 = lv_obj_get_x(guider_ui.FabricCurtian_FabCurtianPull1);
@@ -144,20 +154,22 @@ void fab_curtain_on_pause(void)
     fab_post(s_offset);
 }
 
-/* 拉手 PRESSING 跟手拖动; 左/右帘 CLICKED 则"点击到位"(见 fab_tap_to) */
+/* Pull1~4 拖动: PRESSED→跳到手指下 + PRESSING→跟手拖(其余事件忽略不乱跳) */
 void fab_curtain_on_drag(lv_event_t *event)
 {
-    lv_indev_t *indev = lv_indev_get_act();   //indev input device
+    lv_event_code_t code = lv_event_get_code(event);
+    lv_indev_t *indev = lv_indev_get_act();
     if (!indev) return;
 
-    if (lv_event_get_code(event) == LV_EVENT_PRESSED) {   //点击帘面→到位
+    if (code == LV_EVENT_PRESSED) {
         lv_point_t p;
         lv_indev_get_point(indev, &p);
-        fab_tap_to(p.x);
+        fab_tap_to(p.x);           /* 按下瞬间跳到手指位置 */
         return;
     }
+    if (code != LV_EVENT_PRESSING) return;   /* 只处理 PRESSING, 其余全忽略 */
 
-    /* 以下: Pull1/Pull2 PRESSING 跟手累加位移, 按抓住的拉手锁定方向 */
+    /* PRESSING: 跟手累加位移, 按抓住的拉手锁定方向 */
     lv_anim_del(&s_offset, fab_anim_exec);
 
     lv_obj_t *target = lv_event_get_target(event);

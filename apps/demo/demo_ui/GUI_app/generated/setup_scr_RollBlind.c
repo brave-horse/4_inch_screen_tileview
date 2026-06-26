@@ -172,7 +172,7 @@ void setup_scr_RollBlind(lv_ui *ui)
     lv_img_set_pivot(ui->RollBlind_FabCurtianPause, 50,50);
     lv_img_set_angle(ui->RollBlind_FabCurtianPause, 0);
     lv_obj_set_pos(ui->RollBlind_FabCurtianPause, 305, 662);
-    lv_obj_set_size(ui->RollBlind_FabCurtianPause, 95, 95);
+    lv_obj_set_size(ui->RollBlind_FabCurtianPause, 109, 110);
 
     //Write style for RollBlind_FabCurtianPause, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_img_recolor_opa(ui->RollBlind_FabCurtianPause, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -329,6 +329,29 @@ void setup_scr_RollBlind(lv_ui *ui)
     lv_obj_set_style_img_opa(ui->RollBlind_RollBlindPole, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->RollBlind_RollBlindPole, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_clip_corner(ui->RollBlind_RollBlindPole, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes RollBlind_label_1
+    ui->RollBlind_label_1 = lv_label_create(ui->RollBlind);
+    lv_label_set_text(ui->RollBlind_label_1, "0%");
+    lv_label_set_long_mode(ui->RollBlind_label_1, LV_LABEL_LONG_WRAP);
+    lv_obj_set_pos(ui->RollBlind_label_1, 318, 487);
+    lv_obj_set_size(ui->RollBlind_label_1, 100, 32);
+
+    //Write style for RollBlind_label_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->RollBlind_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->RollBlind_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->RollBlind_label_1, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->RollBlind_label_1, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->RollBlind_label_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui->RollBlind_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui->RollBlind_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->RollBlind_label_1, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->RollBlind_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->RollBlind_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->RollBlind_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->RollBlind_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->RollBlind_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->RollBlind_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //Write codes RollBlind_btn_1
     ui->RollBlind_btn_1 = lv_btn_create(ui->RollBlind);

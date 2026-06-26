@@ -182,7 +182,7 @@ HW_InterfaceTypeDef HWInterface = {
         .Apply         = impl_Curtain_Apply,
     },
     .FanAndLight = {
-        .power     = true,     /* 总电源默认开: 风扇/灯各自子开关, 都关也不关总电源 */
+        .power     = false,    /* 总电源默认关 */
         .fan_on    = false,
         .light_on  = false,
         .speed     = 0,
