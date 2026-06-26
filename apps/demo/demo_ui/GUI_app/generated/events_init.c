@@ -1020,7 +1020,7 @@ static void FabricCurtian_FabCurtianLeft_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
-    case LV_EVENT_CLICKED:
+    case LV_EVENT_PRESSED:
     {
         fab_curtain_on_drag(e);
         break;
@@ -1034,7 +1034,7 @@ static void FabricCurtian_FabCurtianright_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
-    case LV_EVENT_CLICKED:
+    case LV_EVENT_PRESSED:
     {
         fab_curtain_on_drag(e);
         break;
@@ -1206,7 +1206,7 @@ static void Sheers_FabCurtianLeft_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
-    case LV_EVENT_CLICKED:
+    case LV_EVENT_PRESSED:
     {
         sheers_on_drag(e);
         break;
@@ -1220,7 +1220,7 @@ static void Sheers_FabCurtianright_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
-    case LV_EVENT_CLICKED:
+    case LV_EVENT_PRESSED:
     {
         sheers_on_drag(e);
         break;
@@ -1533,7 +1533,7 @@ static void Dream_FabCurtianLeft_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
-    case LV_EVENT_CLICKED:
+    case LV_EVENT_PRESSED:
     {
         dream_on_drag(e);
         break;
@@ -1547,7 +1547,7 @@ static void Dream_FabCurtianright_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
-    case LV_EVENT_PRESSING:
+    case LV_EVENT_PRESSED:
     {
         dream_on_drag(e);
         break;
@@ -1972,6 +1972,11 @@ static void DryRack_img_1_event_handler (lv_event_t *e)
         dryrack_on_drag(e);
         break;
     }
+    case LV_EVENT_PRESSED:
+    {
+        dryrack_on_drag(e);
+        break;
+    }
     default:
         break;
     }
@@ -2037,6 +2042,11 @@ static void DryRack_dry_rack_pull_event_handler (lv_event_t *e)
     lv_event_code_t code = lv_event_get_code(e);
     switch (code) {
     case LV_EVENT_PRESSING:
+    {
+        dryrack_on_drag(e);
+        break;
+    }
+    case LV_EVENT_PRESSED:
     {
         dryrack_on_drag(e);
         break;

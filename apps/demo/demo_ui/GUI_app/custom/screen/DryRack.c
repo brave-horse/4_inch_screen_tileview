@@ -119,11 +119,18 @@ void dryrack_on_screen_load(void)
     /* 点场景空白处升降到位(学卷帘): 挂在 cont_1 背景层 */
     if (lv_obj_is_valid(guider_ui.DryRack_cont_1)) {
         lv_obj_add_flag(guider_ui.DryRack_cont_1, LV_OBJ_FLAG_CLICKABLE);
-        lv_obj_remove_event_cb(guider_ui.DryRack_cont_1, dryrack_on_bg_tap);
-        lv_obj_add_event_cb(guider_ui.DryRack_cont_1, dryrack_on_bg_tap, LV_EVENT_CLICKED, NULL);
+        while (lv_obj_remove_event_cb(guider_ui.DryRack_cont_1, NULL));
+        lv_obj_add_event_cb(guider_ui.DryRack_cont_1, dryrack_on_bg_tap, LV_EVENT_PRESSED, NULL);
+        lv_obj_add_event_cb(guider_ui.DryRack_cont_1, dryrack_on_drag,  LV_EVENT_PRESSING, NULL);  /* PRESSED 跳位后接着拖 */
+        lv_obj_add_flag(guider_ui.DryRack_cont_1, LV_OBJ_FLAG_PRESS_LOCK);
     }
-    /* 大按钮 dry_rack_pull: 追加 CLICKED 到位(PRESSING 拖动走生成的 dryrack_on_drag, 不碰) */
-    lv_obj_add_event_cb(guider_ui.DryRack_dry_rack_pull, dryrack_pull_click, LV_EVENT_CLICKED, NULL);
+    /* 大按钮事件全部走 GUI-Guider 生成(PRESSED+PRESSING→dryrack_on_drag), custom 不碰绑定 */
+    lv_obj_add_flag(guider_ui.DryRack_dry_rack_pull, LV_OBJ_FLAG_PRESS_LOCK);  /* 锁定: 跳位后不丢失 PRESSING */
+    lv_obj_add_flag(guider_ui.DryRack_img_1,  LV_OBJ_FLAG_PRESS_LOCK);
+    /* Open/Close/Pause 置顶: 大按钮降下来后不盖住它们 */
+    lv_obj_move_foreground(guider_ui.DryRack_FabCurtianOpen);
+    lv_obj_move_foreground(guider_ui.DryRack_FabCurtianClose);
+    lv_obj_move_foreground(guider_ui.DryRack_FabCurtianPause);
 
     s_img_y0   = lv_obj_get_y(guider_ui.DryRack_img_1);
     s_label_y0 = lv_obj_get_y(guider_ui.DryRack_label_1);
@@ -159,33 +166,30 @@ void dryrack_on_light_toggle(lv_event_t *e)
     hw_cloud_post(&(HW_Msg){ .type = HW_MSG_DRYRACK_LIGHT, .on = s_light });
 }
 
-/* 大按钮点击到位: CLICKED 独立回调(不碰 PRESSING 拖动, 免得干扰 vect 累加) */
-static void dryrack_pull_click(lv_event_t *e)
-{
-    LV_UNUSED(e);
-    lv_indev_t *indev = lv_indev_get_act();
-    if (!indev) return;
-    lv_point_t p;
-    lv_indev_get_point(indev, &p);
-    if (p.y <= TAP_BTN_Y) dryrack_tap_to(p.y);
-}
-
-/* 触摸 label_1/img_1/dry_rack_pull 拖动: 跟手累加位移, 两者同步移动 */
+/* dry_rack_pull 拖动: PRESSED→跳到手指下 + PRESSING→跟手拖(其余事件忽略不乱跳) */
 void dryrack_on_drag(lv_event_t *e)
 {
-    LV_UNUSED(e);
+    lv_event_code_t code = lv_event_get_code(e);
     lv_indev_t *indev = lv_indev_get_act();
     if (!indev) return;
-    lv_anim_del(&s_d, d_anim_cb);
 
+    if (code == LV_EVENT_PRESSED) {
+        lv_point_t p;
+        lv_indev_get_point(indev, &p);
+        if (p.y <= TAP_BTN_Y) dryrack_tap_to(p.y);   /* 按下瞬间跳到位 */
+        return;
+    }
+    if (code != LV_EVENT_PRESSING) return;           /* 只处理 PRESSING, 其余全忽略 */
+
+    /* PRESSING: 跟手拖动 */
+    lv_anim_del(&s_d, d_anim_cb);
     lv_point_t v;
     lv_indev_get_vect(indev, &v);
     s_d += v.y;
     if (s_d < 0)        s_d = 0;
     if (s_d > s_travel) s_d = s_travel;
-
     dryrack_apply(s_d);
-    curtain_motion_set(MOTION_IDX_DRYRACK, d_to_pct(s_d));   /* 手动定位, 停在此处 */
+    curtain_motion_set(MOTION_IDX_DRYRACK, d_to_pct(s_d));
     if (lv_tick_elaps(s_post_tick) >= APPLY_MIN_MS) {
         s_post_tick = lv_tick_get();
         dryrack_post(s_d);
