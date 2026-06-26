@@ -9,6 +9,7 @@
 #define ANGLE_MAX    180        /* 旋转角范围 0..180° */
 #define SLIDER_MAX   100        /* slider_1 量程 */
 #define SNAP_HALF    30         //点击中线±30 区域直接关紧
+#define DREAM_FULL_MS 3500      /* 开合全程耗时 ms —— 改这里调梦幻帘开合速度(越大越慢) */
 
 static int32_t    s_offset;                        /* 当前开合位移 0..TRAVEL_PX */
 static int32_t    s_angle_slider = SLIDER_MAX / 2; /* 旋转角滑条值, 初始 50=90° */
@@ -25,6 +26,8 @@ static void dream_apply(int32_t offset)
     lv_obj_set_x(guider_ui.Dream_FabCurtianright, s_right_x0 + offset);
     lv_obj_set_x(guider_ui.Dream_FabCurtianPull1, s_pull1_x0 - offset);
     lv_obj_set_x(guider_ui.Dream_FabCurtianPull2, s_pull2_x0 + offset);
+    lv_obj_set_x(guider_ui.Dream_FabCurtianPull3, s_pull1_x0 - offset);
+    lv_obj_set_x(guider_ui.Dream_FabCurtianPull4, s_pull2_x0 + offset);
     lv_label_set_text_fmt(guider_ui.Dream_label_1, "%d%%", (int)(offset * 100 / TRAVEL_PX));
 }
 
@@ -101,6 +104,7 @@ void dream_on_screen_load(void)
 {
     lv_obj_clear_flag(guider_ui.Dream, LV_OBJ_FLAG_SCROLLABLE);
     lv_obj_add_event_cb(guider_ui.Dream, dream_on_screen_delete, LV_EVENT_DELETE, NULL);
+    curtain_motion_set_speed(CURTAIN_IDX_DREAM, DREAM_FULL_MS);   /* 本屏开合速度 */
     s_left_x0  = lv_obj_get_x(guider_ui.Dream_FabCurtianLeft);
     s_right_x0 = lv_obj_get_x(guider_ui.Dream_FabCurtianright);
     s_pull1_x0 = lv_obj_get_x(guider_ui.Dream_FabCurtianPull1);
@@ -164,6 +168,7 @@ void dream_on_drag(lv_event_t *event)
 
     lv_obj_t *target = lv_event_get_target(event);
     bool right = (target == guider_ui.Dream_FabCurtianPull2 ||
+                  target == guider_ui.Dream_FabCurtianPull4 ||   /* 右帘大按钮 */
                   target == guider_ui.Dream_FabCurtianright);
     lv_point_t delta;
     lv_indev_get_vect(indev, &delta);         //vect vector

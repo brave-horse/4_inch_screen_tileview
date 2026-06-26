@@ -9,6 +9,7 @@
 #define FAB_CENTER_X 360        //两帘合拢中线(=屏中心), 点击到位用屏坐标
 #define FAB_SNAP_LO  330        //点中线±30(330~390)区域直接关紧
 #define FAB_SNAP_HI  390
+#define FAB_FULL_MS  3500       /* 开合全程耗时 ms —— 改这里调布帘开合速度(越大越慢) */
 
 static int32_t    s_offset;     /* 当前开合位移 0..TRAVEL_PX */
 static uint32_t   s_post_tick;
@@ -22,6 +23,8 @@ static void fab_apply(int32_t offset)
     lv_obj_set_x(guider_ui.FabricCurtian_FabCurtianright, s_right_x0 + offset);
     lv_obj_set_x(guider_ui.FabricCurtian_FabCurtianPull1, s_pull1_x0 - offset);
     lv_obj_set_x(guider_ui.FabricCurtian_FabCurtianPull2, s_pull2_x0 + offset);
+    lv_obj_set_x(guider_ui.FabricCurtian_FabCurtianPull3, s_pull1_x0 - offset);
+    lv_obj_set_x(guider_ui.FabricCurtian_FabCurtianPull4, s_pull2_x0 + offset);
     lv_label_set_text_fmt(guider_ui.FabricCurtian_label_1, "%d%%", (int)(offset * 100 / TRAVEL_PX));
 }
 
@@ -92,6 +95,7 @@ void fab_curtain_on_screen_load(void)
 {
     lv_obj_clear_flag(guider_ui.FabricCurtian, LV_OBJ_FLAG_SCROLLABLE);
     lv_obj_add_event_cb(guider_ui.FabricCurtian, fab_on_screen_delete, LV_EVENT_DELETE, NULL);
+    curtain_motion_set_speed(CURTAIN_IDX_FABRIC, FAB_FULL_MS);   /* 本屏开合速度 */
     /* 空白点击挂在遮罩层 cont_1(它盖住整个窗口, 在帘面板之下), 不能挂屏幕(点被cont_1吃掉) */
     lv_obj_add_flag(guider_ui.FabricCurtian_cont_1, LV_OBJ_FLAG_CLICKABLE);
     lv_obj_remove_event_cb(guider_ui.FabricCurtian_cont_1, fab_on_bg_tap);   //先清防重复
@@ -146,7 +150,7 @@ void fab_curtain_on_drag(lv_event_t *event)
     lv_indev_t *indev = lv_indev_get_act();   //indev input device
     if (!indev) return;
 
-    if (lv_event_get_code(event) == LV_EVENT_CLICKED) {   //点击帘面→到位
+    if (lv_event_get_code(event) == LV_EVENT_PRESSED) {   //点击帘面→到位
         lv_point_t p;
         lv_indev_get_point(indev, &p);
         fab_tap_to(p.x);
@@ -158,6 +162,7 @@ void fab_curtain_on_drag(lv_event_t *event)
 
     lv_obj_t *target = lv_event_get_target(event);
     bool right = (target == guider_ui.FabricCurtian_FabCurtianPull2 ||
+                  target == guider_ui.FabricCurtian_FabCurtianPull4 ||   /* 右帘大按钮 */
                   target == guider_ui.FabricCurtian_FabCurtianright);
     lv_point_t delta;
     lv_indev_get_vect(indev, &delta);         //vect vector

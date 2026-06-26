@@ -2879,19 +2879,19 @@ void setup_scr_ui_home_screen(lv_ui *ui)
     ui->ui_home_screen_imgbtn_3 = lv_imgbtn_create(ui->ui_home_screen_cont_16);
     lv_obj_add_flag(ui->ui_home_screen_imgbtn_3, LV_OBJ_FLAG_CHECKABLE);
 #if LV_USE_GUIDER_SIMULATOR
-    lv_imgbtn_set_src(ui->ui_home_screen_imgbtn_3, LV_IMGBTN_STATE_RELEASED, NULL, "D:\\7.NXP-GUI-PROJECT\\4_inch_screen_tileview\\import\\image\\onoff_off.png", NULL);
-    lv_imgbtn_set_src(ui->ui_home_screen_imgbtn_3, LV_IMGBTN_STATE_CHECKED_RELEASED, NULL, "D:\\7.NXP-GUI-PROJECT\\4_inch_screen_tileview\\import\\image\\onoff_on.png", NULL);
+    lv_imgbtn_set_src(ui->ui_home_screen_imgbtn_3, LV_IMGBTN_STATE_RELEASED, NULL, "D:\\7.NXP-GUI-PROJECT\\4_inch_screen_tileview\\import\\image\\sFanOff.png", NULL);
+    lv_imgbtn_set_src(ui->ui_home_screen_imgbtn_3, LV_IMGBTN_STATE_CHECKED_RELEASED, NULL, "D:\\7.NXP-GUI-PROJECT\\4_inch_screen_tileview\\import\\image\\sFanOn.png", NULL);
 #else
-    lv_imgbtn_set_src(ui->ui_home_screen_imgbtn_3, LV_IMGBTN_STATE_RELEASED, NULL, "S:/sdfile/EXT_RESERVED/uipackres/ui/onoff_off.png", NULL);
-    lv_imgbtn_set_src(ui->ui_home_screen_imgbtn_3, LV_IMGBTN_STATE_CHECKED_RELEASED, NULL, "S:/sdfile/EXT_RESERVED/uipackres/ui/onoff_on.png", NULL);
+    lv_imgbtn_set_src(ui->ui_home_screen_imgbtn_3, LV_IMGBTN_STATE_RELEASED, NULL, "S:/sdfile/EXT_RESERVED/uipackres/ui/sFanOff.png", NULL);
+    lv_imgbtn_set_src(ui->ui_home_screen_imgbtn_3, LV_IMGBTN_STATE_CHECKED_RELEASED, NULL, "S:/sdfile/EXT_RESERVED/uipackres/ui/sFanOn.png", NULL);
 #endif
     ui->ui_home_screen_imgbtn_3_label = lv_label_create(ui->ui_home_screen_imgbtn_3);
     lv_label_set_text(ui->ui_home_screen_imgbtn_3_label, "");
     lv_label_set_long_mode(ui->ui_home_screen_imgbtn_3_label, LV_LABEL_LONG_WRAP);
     lv_obj_align(ui->ui_home_screen_imgbtn_3_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->ui_home_screen_imgbtn_3, 0, LV_STATE_DEFAULT);
-    lv_obj_set_pos(ui->ui_home_screen_imgbtn_3, 250, 30);
-    lv_obj_set_size(ui->ui_home_screen_imgbtn_3, 48, 48);
+    lv_obj_set_pos(ui->ui_home_screen_imgbtn_3, 250, 20);
+    lv_obj_set_size(ui->ui_home_screen_imgbtn_3, 60, 60);
 
     //Write style for ui_home_screen_imgbtn_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_text_color(ui->ui_home_screen_imgbtn_3, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);

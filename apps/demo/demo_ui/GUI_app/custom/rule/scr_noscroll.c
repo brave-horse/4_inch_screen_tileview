@@ -118,9 +118,9 @@ static void scr_noscroll_poll_cb(lv_timer_t *timer)
             for (c = 0; c < cnt; c++) {
                 lv_obj_t *child = lv_obj_get_child(act, c);
                 /* list / slider / tileview 这类靠自身拖动交互的控件: 既不关滚动, 也不挂 GESTURE_BUBBLE。
-                 * - list    : 直接建在屏上(setting_screen), 关了滚动就翻不动条目;
+                 * - list    : 屏上长列表自身滚动翻条目, 关了就翻不动;
                  * - slider  : 横向拖动就是调节(亮度/色温), 一旦冒泡会被当成左右切屏手势吞掉;
-                 * - tileview: home 屏内嵌 4 tile 左右滑, 关滚动切不动。 */
+                 * - tileview: home 屏内嵌 tile 左右滑, 关滚动切不动。 */
                 if (lv_obj_check_type(child, &lv_list_class) ||
                     lv_obj_check_type(child, &lv_slider_class) ||
                     lv_obj_check_type(child, &lv_tileview_class)) {

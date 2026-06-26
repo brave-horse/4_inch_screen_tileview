@@ -4,21 +4,21 @@
 #include "hw_cloud_task.h"
 #include "RollBlind.h"
 
-/* 竖向卷帘: 取自 generated 布局 */
-#define CLOTH_Y0    181          /* 帘布 closed Y: 全关时帘布控件 Y 坐标 */
-#define PULL_Y0     481          /* 拉手 closed Y: 全关时拉手控件 Y 坐标 */
-#define PULL_CY     500          /* 拉手 closed 中心 Y: 全关时拉手中心点, 拖动以它反算 pct */
+/* 竖向卷帘: 闭帘位置从 GUI-Guider 运行时捕获, 挪图即生效(不写死坐标) */
 #define TRAVEL_MAX  280          /* 拉手行程 px: 从最下移到最上 */
 #define APPLY_MIN_MS 50          /* 拖动时云端上报最小间隔 ms */
+#define ROLL_FULL_MS 5500        /* 开合全程耗时 ms —— 改这里调卷帘开合速度(越大越慢) */
 
-static int32_t  s_pct;           /* 0=放到最长(下), 100=收到最短(上) */
+static int32_t  s_pct;                           /* 0=放到最长(下), 100=收到最短(上) */
+static lv_coord_t s_cloth_y0, s_pull_y0, s_pull2_y0, s_pull_cy;  /* on_screen_load 捕获 */
 static uint32_t s_post_tick;
 
 static void roll_apply(int32_t pct)
 {
     int32_t displacement = pct * TRAVEL_MAX / 100;
-    lv_obj_set_y(guider_ui.RollBlind_FabCurtianLeft,  CLOTH_Y0 - displacement);
-    lv_obj_set_y(guider_ui.RollBlind_FabCurtianPull1, PULL_Y0  - displacement);
+    lv_obj_set_y(guider_ui.RollBlind_FabCurtianLeft,  s_cloth_y0 - displacement);
+    lv_obj_set_y(guider_ui.RollBlind_FabCurtianPull1, s_pull_y0  - displacement);
+    lv_obj_set_y(guider_ui.RollBlind_FabCurtianPull2, s_pull2_y0 - displacement);
 }
 
 static void roll_post(int32_t pct)
@@ -51,7 +51,7 @@ static void roll_anim_to_ms(int32_t target, uint32_t ms)
 /* 点窗口 py(屏坐标) → 卷帘竖向瞬间到位(不播动画); cloth 自身拖动绑定已是绝对 p.y, 点 cloth 也即到位 */
 static void roll_tap_to(lv_coord_t py)
 {
-    int32_t pct = (PULL_CY - py) * 100 / TRAVEL_MAX;
+    int32_t pct = (s_pull_cy -py) * 100 / TRAVEL_MAX;
     if (pct < 0)   pct = 0;
     if (pct > 100) pct = 100;
     lv_anim_del(&s_pct, roll_anim_cb);
@@ -86,6 +86,12 @@ void roll_blind_on_screen_load(void)
 {
     lv_obj_clear_flag(guider_ui.RollBlind, LV_OBJ_FLAG_SCROLLABLE);
     lv_obj_add_event_cb(guider_ui.RollBlind, roll_del_cb, LV_EVENT_DELETE, NULL);
+    curtain_motion_set_speed(CURTAIN_IDX_ROLLBLIND, ROLL_FULL_MS);   /* 本屏开合速度 */
+    /* 运行时捕获闭帘位置(GUI-Guider 挪图也生效, 不写死坐标) */
+    s_cloth_y0 = lv_obj_get_y(guider_ui.RollBlind_FabCurtianLeft);
+    s_pull_y0  = lv_obj_get_y(guider_ui.RollBlind_FabCurtianPull1);
+    s_pull2_y0 = lv_obj_get_y(guider_ui.RollBlind_FabCurtianPull2);
+    s_pull_cy  = s_pull_y0 + lv_obj_get_height(guider_ui.RollBlind_FabCurtianPull1) / 2;  /* 拉手中心 y */
     /* 点空白处到位: cont_2 是窗口场景层(cloth收起后露出, 盖在cont_1之上, 之前点被它吃掉),
      * cont_1/cont_2 都挂保证接住; 点 cloth 本身已由其拖动绑定即时到位 */
     lv_obj_t *roll_bg[] = { guider_ui.RollBlind_cont_1, guider_ui.RollBlind_cont_2 };
@@ -145,7 +151,7 @@ void roll_blind_on_drag(lv_event_t *event)
 
     lv_anim_del(&s_pct, roll_anim_cb);
 
-    int32_t pct = (PULL_CY - point.y) * 100 / TRAVEL_MAX;
+    int32_t pct = (s_pull_cy -point.y) * 100 / TRAVEL_MAX;
     if (pct < 0)   pct = 0;
     if (pct > 100) pct = 100;
 

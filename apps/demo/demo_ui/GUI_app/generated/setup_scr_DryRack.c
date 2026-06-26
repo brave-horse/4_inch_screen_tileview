@@ -171,7 +171,7 @@ void setup_scr_DryRack(lv_ui *ui)
 #endif
     lv_img_set_pivot(ui->DryRack_img_1, 50,50);
     lv_img_set_angle(ui->DryRack_img_1, 0);
-    lv_obj_set_pos(ui->DryRack_img_1, 163, -109);
+    lv_obj_set_pos(ui->DryRack_img_1, 162, -110);
     lv_obj_set_size(ui->DryRack_img_1, 405, 319);
 
     //Write style for DryRack_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -380,6 +380,30 @@ void setup_scr_DryRack(lv_ui *ui)
     lv_obj_set_style_text_font(ui->DryRack_btn_2, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->DryRack_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->DryRack_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes DryRack_dry_rack_pull
+    ui->DryRack_dry_rack_pull = lv_btn_create(ui->DryRack);
+    ui->DryRack_dry_rack_pull_label = lv_label_create(ui->DryRack_dry_rack_pull);
+    lv_label_set_text(ui->DryRack_dry_rack_pull_label, "");
+    lv_label_set_long_mode(ui->DryRack_dry_rack_pull_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->DryRack_dry_rack_pull_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->DryRack_dry_rack_pull, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->DryRack_dry_rack_pull_label, LV_PCT(100));
+    lv_obj_set_pos(ui->DryRack_dry_rack_pull, 145, 176);
+    lv_obj_set_size(ui->DryRack_dry_rack_pull, 445, 82);
+
+    //Write style for DryRack_dry_rack_pull, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->DryRack_dry_rack_pull, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->DryRack_dry_rack_pull, 3, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_opa(ui->DryRack_dry_rack_pull, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_color(ui->DryRack_dry_rack_pull, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_side(ui->DryRack_dry_rack_pull, LV_BORDER_SIDE_FULL, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->DryRack_dry_rack_pull, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->DryRack_dry_rack_pull, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->DryRack_dry_rack_pull, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->DryRack_dry_rack_pull, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->DryRack_dry_rack_pull, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->DryRack_dry_rack_pull, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of DryRack.
 

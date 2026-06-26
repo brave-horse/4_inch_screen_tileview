@@ -342,7 +342,7 @@ void setup_scr_FabricCurtian(lv_ui *ui)
 #endif
     lv_img_set_pivot(ui->FabricCurtian_FabCurtianPull1, 50,50);
     lv_img_set_angle(ui->FabricCurtian_FabCurtianPull1, 0);
-    lv_obj_set_pos(ui->FabricCurtian_FabCurtianPull1, 302, 314);
+    lv_obj_set_pos(ui->FabricCurtian_FabCurtianPull1, 302, 315);
     lv_obj_set_size(ui->FabricCurtian_FabCurtianPull1, 45, 45);
 
     //Write style for FabricCurtian_FabCurtianPull1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
@@ -428,6 +428,48 @@ void setup_scr_FabricCurtian(lv_ui *ui)
     lv_obj_set_style_text_font(ui->FabricCurtian_btn_2, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->FabricCurtian_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->FabricCurtian_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes FabricCurtian_FabCurtianPull3
+    ui->FabricCurtian_FabCurtianPull3 = lv_btn_create(ui->FabricCurtian);
+    ui->FabricCurtian_FabCurtianPull3_label = lv_label_create(ui->FabricCurtian_FabCurtianPull3);
+    lv_label_set_text(ui->FabricCurtian_FabCurtianPull3_label, "");
+    lv_label_set_long_mode(ui->FabricCurtian_FabCurtianPull3_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->FabricCurtian_FabCurtianPull3_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->FabricCurtian_FabCurtianPull3, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->FabricCurtian_FabCurtianPull3_label, LV_PCT(100));
+    lv_obj_set_pos(ui->FabricCurtian_FabCurtianPull3, 290, 205);
+    lv_obj_set_size(ui->FabricCurtian_FabCurtianPull3, 65, 300);
+
+    //Write style for FabricCurtian_FabCurtianPull3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->FabricCurtian_FabCurtianPull3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->FabricCurtian_FabCurtianPull3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->FabricCurtian_FabCurtianPull3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->FabricCurtian_FabCurtianPull3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->FabricCurtian_FabCurtianPull3, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->FabricCurtian_FabCurtianPull3, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->FabricCurtian_FabCurtianPull3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->FabricCurtian_FabCurtianPull3, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes FabricCurtian_FabCurtianPull4
+    ui->FabricCurtian_FabCurtianPull4 = lv_btn_create(ui->FabricCurtian);
+    ui->FabricCurtian_FabCurtianPull4_label = lv_label_create(ui->FabricCurtian_FabCurtianPull4);
+    lv_label_set_text(ui->FabricCurtian_FabCurtianPull4_label, "");
+    lv_label_set_long_mode(ui->FabricCurtian_FabCurtianPull4_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->FabricCurtian_FabCurtianPull4_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->FabricCurtian_FabCurtianPull4, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->FabricCurtian_FabCurtianPull4_label, LV_PCT(100));
+    lv_obj_set_pos(ui->FabricCurtian_FabCurtianPull4, 362, 205);
+    lv_obj_set_size(ui->FabricCurtian_FabCurtianPull4, 65, 300);
+
+    //Write style for FabricCurtian_FabCurtianPull4, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->FabricCurtian_FabCurtianPull4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->FabricCurtian_FabCurtianPull4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->FabricCurtian_FabCurtianPull4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->FabricCurtian_FabCurtianPull4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->FabricCurtian_FabCurtianPull4, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->FabricCurtian_FabCurtianPull4, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->FabricCurtian_FabCurtianPull4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->FabricCurtian_FabCurtianPull4, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of FabricCurtian.
 

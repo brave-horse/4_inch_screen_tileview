@@ -558,15 +558,17 @@ void dev_mgmt_music_toggle(void)
 
 void dev_mgmt_fanlight_light_toggle(void)
 {
-    HWInterface.FanAndLight.light_on = lv_obj_has_state(guider_ui.ui_home_screen_imgbtn_2, LV_STATE_CHECKED);
-    HWInterface.FanAndLight.power = HWInterface.FanAndLight.fan_on || HWInterface.FanAndLight.light_on;
+    bool on = lv_obj_has_state(guider_ui.ui_home_screen_imgbtn_2, LV_STATE_CHECKED);
+    if (on) HWInterface.FanAndLight.power = true;   /* 开灯先开总电源(否则总开关关时点不亮), 关灯不动 power */
+    HWInterface.FanAndLight.light_on = on;
     fanlight_apply();
 }
 
 void dev_mgmt_fanlight_fan_toggle(void)
 {
-    HWInterface.FanAndLight.fan_on = lv_obj_has_state(guider_ui.ui_home_screen_imgbtn_3, LV_STATE_CHECKED);
-    HWInterface.FanAndLight.power = HWInterface.FanAndLight.fan_on || HWInterface.FanAndLight.light_on;
+    bool on = lv_obj_has_state(guider_ui.ui_home_screen_imgbtn_3, LV_STATE_CHECKED);
+    if (on) HWInterface.FanAndLight.power = true;   /* 开风扇先开总电源, 关风扇不动 power */
+    HWInterface.FanAndLight.fan_on = on;
     fanlight_apply();
 }
 

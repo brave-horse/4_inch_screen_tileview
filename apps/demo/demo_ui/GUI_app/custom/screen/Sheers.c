@@ -7,6 +7,7 @@
 #define TRAVEL_PX    190        //PX pixels
 #define APPLY_MIN_MS 50         //MIN minimum, MS milliseconds
 #define SNAP_HALF    30         //点击中线±30 区域直接关紧
+#define SHEERS_FULL_MS 3500     /* 开合全程耗时 ms —— 改这里调纱帘开合速度(越大越慢) */
 
 static int32_t    s_offset;     /* 当前开合位移 0..TRAVEL_PX */
 static uint32_t   s_post_tick;
@@ -22,6 +23,8 @@ static void sheers_apply(int32_t offset)
     lv_obj_set_x(guider_ui.Sheers_FabCurtianright, s_right_x0 + offset);
     lv_obj_set_x(guider_ui.Sheers_FabCurtianPull1, s_pull1_x0 - offset);
     lv_obj_set_x(guider_ui.Sheers_FabCurtianPull2, s_pull2_x0 + offset);
+    lv_obj_set_x(guider_ui.Sheers_FabCurtianPull3, s_pull1_x0 - offset);
+    lv_obj_set_x(guider_ui.Sheers_FabCurtianPull4, s_pull2_x0 + offset);
 }
 
 static void sheers_post(int32_t offset)
@@ -91,6 +94,7 @@ void sheers_on_screen_load(void)
 {
     lv_obj_clear_flag(guider_ui.Sheers, LV_OBJ_FLAG_SCROLLABLE);
     lv_obj_add_event_cb(guider_ui.Sheers, sheers_on_screen_delete, LV_EVENT_DELETE, NULL);
+    curtain_motion_set_speed(CURTAIN_IDX_SHEERS, SHEERS_FULL_MS);   /* 本屏开合速度 */
     s_left_x0  = lv_obj_get_x(guider_ui.Sheers_FabCurtianLeft);
     s_right_x0 = lv_obj_get_x(guider_ui.Sheers_FabCurtianright);
     s_pull1_x0 = lv_obj_get_x(guider_ui.Sheers_FabCurtianPull1);
@@ -152,6 +156,7 @@ void sheers_on_drag(lv_event_t *event)
 
     lv_obj_t *target = lv_event_get_target(event);
     bool right = (target == guider_ui.Sheers_FabCurtianPull2 ||
+                  target == guider_ui.Sheers_FabCurtianPull4 ||   /* 右帘大按钮 */
                   target == guider_ui.Sheers_FabCurtianright);
     lv_point_t delta;
     lv_indev_get_vect(indev, &delta);         //vect vector

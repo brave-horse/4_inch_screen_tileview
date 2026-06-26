@@ -406,6 +406,48 @@ void setup_scr_Sheers(lv_ui *ui)
     lv_obj_set_style_text_opa(ui->Sheers_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->Sheers_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
 
+    //Write codes Sheers_FabCurtianPull4
+    ui->Sheers_FabCurtianPull4 = lv_btn_create(ui->Sheers);
+    ui->Sheers_FabCurtianPull4_label = lv_label_create(ui->Sheers_FabCurtianPull4);
+    lv_label_set_text(ui->Sheers_FabCurtianPull4_label, "");
+    lv_label_set_long_mode(ui->Sheers_FabCurtianPull4_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->Sheers_FabCurtianPull4_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->Sheers_FabCurtianPull4, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->Sheers_FabCurtianPull4_label, LV_PCT(100));
+    lv_obj_set_pos(ui->Sheers_FabCurtianPull4, 361, 205);
+    lv_obj_set_size(ui->Sheers_FabCurtianPull4, 65, 300);
+
+    //Write style for Sheers_FabCurtianPull4, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->Sheers_FabCurtianPull4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->Sheers_FabCurtianPull4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->Sheers_FabCurtianPull4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->Sheers_FabCurtianPull4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->Sheers_FabCurtianPull4, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->Sheers_FabCurtianPull4, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->Sheers_FabCurtianPull4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->Sheers_FabCurtianPull4, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes Sheers_FabCurtianPull3
+    ui->Sheers_FabCurtianPull3 = lv_btn_create(ui->Sheers);
+    ui->Sheers_FabCurtianPull3_label = lv_label_create(ui->Sheers_FabCurtianPull3);
+    lv_label_set_text(ui->Sheers_FabCurtianPull3_label, "");
+    lv_label_set_long_mode(ui->Sheers_FabCurtianPull3_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->Sheers_FabCurtianPull3_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->Sheers_FabCurtianPull3, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->Sheers_FabCurtianPull3_label, LV_PCT(100));
+    lv_obj_set_pos(ui->Sheers_FabCurtianPull3, 292, 205);
+    lv_obj_set_size(ui->Sheers_FabCurtianPull3, 65, 300);
+
+    //Write style for Sheers_FabCurtianPull3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->Sheers_FabCurtianPull3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->Sheers_FabCurtianPull3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->Sheers_FabCurtianPull3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->Sheers_FabCurtianPull3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->Sheers_FabCurtianPull3, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->Sheers_FabCurtianPull3, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->Sheers_FabCurtianPull3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->Sheers_FabCurtianPull3, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+
     //The custom code of Sheers.
 
 

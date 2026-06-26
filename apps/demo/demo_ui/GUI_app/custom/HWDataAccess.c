@@ -182,7 +182,7 @@ HW_InterfaceTypeDef HWInterface = {
         .Apply         = impl_Curtain_Apply,
     },
     .FanAndLight = {
-        .power     = false,
+        .power     = true,     /* 总电源默认开: 风扇/灯各自子开关, 都关也不关总电源 */
         .fan_on    = false,
         .light_on  = false,
         .speed     = 0,
@@ -211,6 +211,19 @@ HW_InterfaceTypeDef HWInterface = {
 static uint16_t s_mv_start_pos[CURTAIN_COUNT_MAX];   /* 本段起点(%) */
 static uint16_t s_mv_target[CURTAIN_COUNT_MAX];      /* 目标(%) */
 static uint32_t s_mv_start_tick[CURTAIN_COUNT_MAX];  /* 起始 tick */
+static uint32_t s_full_ms[CURTAIN_COUNT_MAX];        /* 每槽位 0→100% 全程耗时, 0=用默认 CURTAIN_FULL_MS */
+
+/* 取该槽位全程耗时: 各屏 set_speed 设过就用自己的, 否则用默认宏 */
+static uint32_t idx_full_ms(uint8_t idx)
+{
+    return (idx < CURTAIN_COUNT_MAX && s_full_ms[idx]) ? s_full_ms[idx] : CURTAIN_FULL_MS;
+}
+
+/* 各屏在 on_screen_load 调: 设本屏开合全程耗时(ms), 单独调速度用 */
+void curtain_motion_set_speed(uint8_t idx, uint32_t full_ms)
+{
+    if (idx < CURTAIN_COUNT_MAX) s_full_ms[idx] = full_ms;
+}
 
 uint16_t curtain_motion_current(uint8_t idx)
 {
@@ -223,7 +236,7 @@ uint16_t curtain_motion_current(uint8_t idx)
         cur = target;
     } else {
         int32_t abs_dist = dist < 0 ? -dist : dist;
-        uint32_t dur     = (uint32_t)abs_dist * CURTAIN_FULL_MS / 100;   /* 本段耗时 */
+        uint32_t dur     = (uint32_t)abs_dist * idx_full_ms(idx) / 100;   /* 本段耗时 */
         uint32_t elapsed = lv_tick_elaps(s_mv_start_tick[idx]);
         if (elapsed >= dur) cur = target;
         else                cur = start + dist * (int32_t)elapsed / (int32_t)dur;
@@ -263,7 +276,7 @@ uint32_t curtain_motion_remaining_ms(uint8_t idx)
     if (idx >= CURTAIN_COUNT_MAX) return 0;
     int32_t dist = (int32_t)s_mv_target[idx] - (int32_t)curtain_motion_current(idx);
     if (dist < 0) dist = -dist;
-    return (uint32_t)dist * CURTAIN_FULL_MS / 100;
+    return (uint32_t)dist * idx_full_ms(idx) / 100;
 }
 
 void HW_Init(void)

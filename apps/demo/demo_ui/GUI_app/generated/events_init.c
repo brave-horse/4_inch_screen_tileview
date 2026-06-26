@@ -33,7 +33,6 @@
 #include "FanAndLight.h"
 #include "Heater.h"
 #include "Setting.h"
-
 #include "NetSetting.h"
 
 #include "PlaySet.h"
@@ -1087,6 +1086,34 @@ static void FabricCurtian_btn_2_event_handler (lv_event_t *e)
     }
 }
 
+static void FabricCurtian_FabCurtianPull3_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_PRESSING:
+    {
+        fab_curtain_on_drag(e);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void FabricCurtian_FabCurtianPull4_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_PRESSING:
+    {
+        fab_curtain_on_drag(e);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 void events_init_FabricCurtian (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->FabricCurtian, FabricCurtian_event_handler, LV_EVENT_ALL, ui);
@@ -1099,6 +1126,8 @@ void events_init_FabricCurtian (lv_ui *ui)
     lv_obj_add_event_cb(ui->FabricCurtian_FabCurtianPull2, FabricCurtian_FabCurtianPull2_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->FabricCurtian_FabCurtianPull1, FabricCurtian_FabCurtianPull1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->FabricCurtian_btn_2, FabricCurtian_btn_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->FabricCurtian_FabCurtianPull3, FabricCurtian_FabCurtianPull3_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->FabricCurtian_FabCurtianPull4, FabricCurtian_FabCurtianPull4_event_handler, LV_EVENT_ALL, ui);
 }
 
 static void Sheers_event_handler (lv_event_t *e)
@@ -1243,6 +1272,34 @@ static void Sheers_btn_2_event_handler (lv_event_t *e)
     }
 }
 
+static void Sheers_FabCurtianPull4_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_PRESSING:
+    {
+        sheers_on_drag(e);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void Sheers_FabCurtianPull3_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_PRESSING:
+    {
+        sheers_on_drag(e);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 void events_init_Sheers (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->Sheers, Sheers_event_handler, LV_EVENT_ALL, ui);
@@ -1255,6 +1312,8 @@ void events_init_Sheers (lv_ui *ui)
     lv_obj_add_event_cb(ui->Sheers_FabCurtianPull2, Sheers_FabCurtianPull2_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->Sheers_FabCurtianPull1, Sheers_FabCurtianPull1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->Sheers_btn_2, Sheers_btn_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Sheers_FabCurtianPull4, Sheers_FabCurtianPull4_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Sheers_FabCurtianPull3, Sheers_FabCurtianPull3_event_handler, LV_EVENT_ALL, ui);
 }
 
 static void RollBlind_event_handler (lv_event_t *e)
@@ -1371,6 +1430,20 @@ static void RollBlind_btn_2_event_handler (lv_event_t *e)
     }
 }
 
+static void RollBlind_FabCurtianPull2_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_PRESSING:
+    {
+        roll_blind_on_drag(e);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 void events_init_RollBlind (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->RollBlind, RollBlind_event_handler, LV_EVENT_ALL, ui);
@@ -1381,6 +1454,7 @@ void events_init_RollBlind (lv_ui *ui)
     lv_obj_add_event_cb(ui->RollBlind_FabCurtianPull1, RollBlind_FabCurtianPull1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->RollBlind_btn_1, RollBlind_btn_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->RollBlind_btn_2, RollBlind_btn_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->RollBlind_FabCurtianPull2, RollBlind_FabCurtianPull2_event_handler, LV_EVENT_ALL, ui);
 }
 
 static void Dream_event_handler (lv_event_t *e)
@@ -1539,6 +1613,34 @@ static void Dream_btn_2_event_handler (lv_event_t *e)
     }
 }
 
+static void Dream_FabCurtianPull3_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_PRESSING:
+    {
+        dream_on_drag(e);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+static void Dream_FabCurtianPull4_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_PRESSING:
+    {
+        dream_on_drag(e);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 void events_init_Dream (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->Dream, Dream_event_handler, LV_EVENT_ALL, ui);
@@ -1552,6 +1654,8 @@ void events_init_Dream (lv_ui *ui)
     lv_obj_add_event_cb(ui->Dream_FabCurtianPull1, Dream_FabCurtianPull1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->Dream_slider_1, Dream_slider_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->Dream_btn_2, Dream_btn_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Dream_FabCurtianPull3, Dream_FabCurtianPull3_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->Dream_FabCurtianPull4, Dream_FabCurtianPull4_event_handler, LV_EVENT_ALL, ui);
 }
 
 static void AirCondition_event_handler (lv_event_t *e)
@@ -1928,6 +2032,20 @@ static void DryRack_btn_2_event_handler (lv_event_t *e)
     }
 }
 
+static void DryRack_dry_rack_pull_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_PRESSING:
+    {
+        dryrack_on_drag(e);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 void events_init_DryRack (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->DryRack, DryRack_event_handler, LV_EVENT_ALL, ui);
@@ -1939,6 +2057,7 @@ void events_init_DryRack (lv_ui *ui)
     lv_obj_add_event_cb(ui->DryRack_btn_1, DryRack_btn_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->DryRack_label_1, DryRack_label_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->DryRack_btn_2, DryRack_btn_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->DryRack_dry_rack_pull, DryRack_dry_rack_pull_event_handler, LV_EVENT_ALL, ui);
 }
 
 static void FanAndLight_event_handler (lv_event_t *e)
@@ -2351,104 +2470,6 @@ static void setting_screen_event_handler (lv_event_t *e)
     }
 }
 
-static void setting_screen_list_1_item0_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.NetSetting, guider_ui.NetSetting_del, &guider_ui.setting_screen_del, setup_scr_NetSetting, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void setting_screen_list_1_item1_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.PlaySet, guider_ui.PlaySet_del, &guider_ui.setting_screen_del, setup_scr_PlaySet, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void setting_screen_list_1_item2_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.SwitchSet, guider_ui.SwitchSet_del, &guider_ui.setting_screen_del, setup_scr_SwitchSet, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void setting_screen_list_1_item3_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.SensorSet, guider_ui.SensorSet_del, &guider_ui.setting_screen_del, setup_scr_SensorSet, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void setting_screen_list_1_item4_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.Reset, guider_ui.Reset_del, &guider_ui.setting_screen_del, setup_scr_Reset, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void setting_screen_list_1_item5_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.huifuchuchangshezhi, guider_ui.huifuchuchangshezhi_del, &guider_ui.setting_screen_del, setup_scr_huifuchuchangshezhi, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
-static void setting_screen_list_1_item6_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        ui_load_scr_animation(&guider_ui, &guider_ui.RelativeProduct, guider_ui.RelativeProduct_del, &guider_ui.setting_screen_del, setup_scr_RelativeProduct, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
-        break;
-    }
-    default:
-        break;
-    }
-}
-
 static void setting_screen_btn_1_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
@@ -2477,18 +2498,26 @@ static void setting_screen_btn_2_event_handler (lv_event_t *e)
     }
 }
 
+static void setting_screen_cont_3_event_handler (lv_event_t *e)
+{
+    lv_event_code_t code = lv_event_get_code(e);
+    switch (code) {
+    case LV_EVENT_CLICKED:
+    {
+        ui_load_scr_animation(&guider_ui, &guider_ui.NetSetting, guider_ui.NetSetting_del, &guider_ui.setting_screen_del, setup_scr_NetSetting, LV_SCR_LOAD_ANIM_NONE, 0, 0, true, true);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
 void events_init_setting_screen (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->setting_screen, setting_screen_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->setting_screen_list_1_item0, setting_screen_list_1_item0_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->setting_screen_list_1_item1, setting_screen_list_1_item1_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->setting_screen_list_1_item2, setting_screen_list_1_item2_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->setting_screen_list_1_item3, setting_screen_list_1_item3_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->setting_screen_list_1_item4, setting_screen_list_1_item4_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->setting_screen_list_1_item5, setting_screen_list_1_item5_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->setting_screen_list_1_item6, setting_screen_list_1_item6_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->setting_screen_btn_1, setting_screen_btn_1_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->setting_screen_btn_2, setting_screen_btn_2_event_handler, LV_EVENT_ALL, ui);
+    lv_obj_add_event_cb(ui->setting_screen_cont_3, setting_screen_cont_3_event_handler, LV_EVENT_ALL, ui);
 }
 
 static void NetSetting_event_handler (lv_event_t *e)
@@ -2539,19 +2568,6 @@ static void PlaySet_event_handler (lv_event_t *e)
     }
 }
 
-static void PlaySet_List_item0_event_handler (lv_event_t *e)
-{
-    lv_event_code_t code = lv_event_get_code(e);
-    switch (code) {
-    case LV_EVENT_CLICKED:
-    {
-        break;
-    }
-    default:
-        break;
-    }
-}
-
 static void PlaySet_btn_2_event_handler (lv_event_t *e)
 {
     lv_event_code_t code = lv_event_get_code(e);
@@ -2569,7 +2585,6 @@ static void PlaySet_btn_2_event_handler (lv_event_t *e)
 void events_init_PlaySet (lv_ui *ui)
 {
     lv_obj_add_event_cb(ui->PlaySet, PlaySet_event_handler, LV_EVENT_ALL, ui);
-    lv_obj_add_event_cb(ui->PlaySet_List_item0, PlaySet_List_item0_event_handler, LV_EVENT_ALL, ui);
     lv_obj_add_event_cb(ui->PlaySet_btn_2, PlaySet_btn_2_event_handler, LV_EVENT_ALL, ui);
 }
 
