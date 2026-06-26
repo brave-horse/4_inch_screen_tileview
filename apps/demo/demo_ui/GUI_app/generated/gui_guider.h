@@ -586,6 +586,7 @@ typedef struct
 	lv_obj_t *setting_screen_list_1_item4;
 	lv_obj_t *setting_screen_list_1_item5;
 	lv_obj_t *setting_screen_list_1_item6;
+	lv_obj_t *setting_screen_list_1_item7;
 	lv_obj_t *setting_screen_btn_1;
 	lv_obj_t *setting_screen_btn_1_label;
 	lv_obj_t *setting_screen_img_1;

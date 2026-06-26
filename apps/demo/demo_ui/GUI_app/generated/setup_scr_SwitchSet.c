@@ -400,7 +400,7 @@ void setup_scr_SwitchSet(lv_ui *ui)
     lv_obj_align(ui->SwitchSet_btn_8_label, LV_ALIGN_CENTER, 0, 0);
     lv_obj_set_style_pad_all(ui->SwitchSet_btn_8, 0, LV_STATE_DEFAULT);
     lv_obj_set_width(ui->SwitchSet_btn_8_label, LV_PCT(100));
-    lv_obj_set_pos(ui->SwitchSet_btn_8, -10, -14);
+    lv_obj_set_pos(ui->SwitchSet_btn_8, -9, -13);
     lv_obj_set_size(ui->SwitchSet_btn_8, 251, 107);
 
     //Write style for SwitchSet_btn_8, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.

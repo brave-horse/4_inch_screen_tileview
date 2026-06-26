@@ -95,7 +95,8 @@ void setup_scr_setting_screen(lv_ui *ui)
     ui->setting_screen_list_1_item4 = lv_list_add_btn(ui->setting_screen_list_1, &_setreboot_alpha_43x43, "设备重启");
     ui->setting_screen_list_1_item5 = lv_list_add_btn(ui->setting_screen_list_1, &_setrestore_alpha_47x40, "恢复出厂");
     ui->setting_screen_list_1_item6 = lv_list_add_btn(ui->setting_screen_list_1, &_setabout_alpha_43x43, "关于产品");
-    lv_obj_set_pos(ui->setting_screen_list_1, 12, -15);
+    ui->setting_screen_list_1_item7 = lv_list_add_btn(ui->setting_screen_list_1, LV_SYMBOL_SAVE, "");
+    lv_obj_set_pos(ui->setting_screen_list_1, 22, -15);
     lv_obj_set_size(ui->setting_screen_list_1, 649, 629);
     lv_obj_set_scrollbar_mode(ui->setting_screen_list_1, LV_SCROLLBAR_MODE_OFF);
 
@@ -144,6 +145,7 @@ void setup_scr_setting_screen(lv_ui *ui)
     lv_style_set_bg_opa(&style_setting_screen_list_1_extra_btns_main_default, 255);
     lv_style_set_bg_color(&style_setting_screen_list_1_extra_btns_main_default, lv_color_hex(0x000000));
     lv_style_set_bg_grad_dir(&style_setting_screen_list_1_extra_btns_main_default, LV_GRAD_DIR_NONE);
+    lv_obj_add_style(ui->setting_screen_list_1_item7, &style_setting_screen_list_1_extra_btns_main_default, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_add_style(ui->setting_screen_list_1_item6, &style_setting_screen_list_1_extra_btns_main_default, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_add_style(ui->setting_screen_list_1_item5, &style_setting_screen_list_1_extra_btns_main_default, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_add_style(ui->setting_screen_list_1_item4, &style_setting_screen_list_1_extra_btns_main_default, LV_PART_MAIN|LV_STATE_DEFAULT);

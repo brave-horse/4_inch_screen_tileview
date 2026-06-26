@@ -308,8 +308,17 @@ void home_on_screen_load(void)
             if (lv_obj_is_valid(tiles[i])) ((struct tv_tile *)tiles[i])->dir = dirs[i];
         if (lv_obj_is_valid(tv)) {
             lv_obj_clear_flag(tv, LV_OBJ_FLAG_SCROLL_ELASTIC);
-            int restore_tile = nav_consume_home_tile();  /* 从子屏返回时记的来源 tile, -1=无 */
-            lv_obj_set_tile_id(tv, restore_tile >= 0 ? restore_tile : 3, 0, LV_ANIM_OFF);
+            int restore_tile   = nav_consume_home_tile();    /* 返回时记的来源 tile, -1=无 */
+            int restore_scroll = nav_consume_home_scroll();  /* 设备页 tabview 内部滚动位置 */
+            uint8_t col = restore_tile >= 0 ? (uint8_t)restore_tile : 3;
+            lv_obj_set_tile_id(tv, col, 0, LV_ANIM_OFF);
+            /* 设备页(tile4)卡片的滚动在内部 tabview_3 的 tab_1, 不是 tile 本身 */
+            if (col == 4 && restore_scroll > 0 &&
+                lv_obj_is_valid(guider_ui.ui_home_screen_tabview_3_tab_1)) {
+                lv_obj_t *dev_tab = guider_ui.ui_home_screen_tabview_3_tab_1;
+                lv_obj_update_layout(dev_tab);               /* 先布局, 滚动范围才有效 */
+                lv_obj_scroll_to_y(dev_tab, restore_scroll, LV_ANIM_OFF);
+            }
         }
     }
 

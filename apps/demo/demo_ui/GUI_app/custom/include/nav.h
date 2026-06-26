@@ -28,6 +28,9 @@ void nav_go_home(void);
 /* Home 加载时取回待恢复 tile(并清除); -1 表示无(用默认主页 tile_3)。 */
 int  nav_consume_home_tile(void);
 
+/* Home 加载时取回待恢复的 tile 内部滚动 y(并清除); 0 表示不滚。 */
+int  nav_consume_home_scroll(void);
+
 #ifdef __cplusplus
 }
 #endif
