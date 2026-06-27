@@ -140,10 +140,10 @@ void setup_scr_LanguageSet(lv_ui *ui)
     lv_obj_set_size(ui->LanguageSet_img_31, 14, 24);
 
     //Write style for LanguageSet_img_31, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->LanguageSet_img_31, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->LanguageSet_img_31, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->LanguageSet_img_31, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_clip_corner(ui->LanguageSet_img_31, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_recolor_opa(ui->LanguageSet_img_31, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->LanguageSet_img_31, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //Write codes LanguageSet_cont_4
     ui->LanguageSet_cont_4 = lv_obj_create(ui->LanguageSet_tabview_1_tab_1);
@@ -199,128 +199,10 @@ void setup_scr_LanguageSet(lv_ui *ui)
     lv_obj_set_size(ui->LanguageSet_img_29, 14, 24);
 
     //Write style for LanguageSet_img_29, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->LanguageSet_img_29, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->LanguageSet_img_29, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->LanguageSet_img_29, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_clip_corner(ui->LanguageSet_img_29, true, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes LanguageSet_cont_5
-    ui->LanguageSet_cont_5 = lv_obj_create(ui->LanguageSet_tabview_1_tab_1);
-    lv_obj_set_pos(ui->LanguageSet_cont_5, 12, 170);
-    lv_obj_set_size(ui->LanguageSet_cont_5, 658, 90);
-    lv_obj_set_scrollbar_mode(ui->LanguageSet_cont_5, LV_SCROLLBAR_MODE_OFF);
-
-    //Write style for LanguageSet_cont_5, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_border_width(ui->LanguageSet_cont_5, 3, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_opa(ui->LanguageSet_cont_5, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_color(ui->LanguageSet_cont_5, lv_color_hex(0x151313), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_side(ui->LanguageSet_cont_5, LV_BORDER_SIDE_BOTTOM, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->LanguageSet_cont_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(ui->LanguageSet_cont_5, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_color(ui->LanguageSet_cont_5, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_grad_dir(ui->LanguageSet_cont_5, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_top(ui->LanguageSet_cont_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_bottom(ui->LanguageSet_cont_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_left(ui->LanguageSet_cont_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_right(ui->LanguageSet_cont_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_width(ui->LanguageSet_cont_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes LanguageSet_label_17
-    ui->LanguageSet_label_17 = lv_label_create(ui->LanguageSet_cont_5);
-    lv_label_set_text(ui->LanguageSet_label_17, "English");
-    lv_label_set_long_mode(ui->LanguageSet_label_17, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->LanguageSet_label_17, 0, 30);
-    lv_obj_set_size(ui->LanguageSet_label_17, 148, 38);
-
-    //Write style for LanguageSet_label_17, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_border_width(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(ui->LanguageSet_label_17, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->LanguageSet_label_17, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui->LanguageSet_label_17, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_letter_space(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_line_space(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_align(ui->LanguageSet_label_17, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_top(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_right(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_bottom(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_left(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_width(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes LanguageSet_img_32
-    ui->LanguageSet_img_32 = lv_img_create(ui->LanguageSet_cont_5);
-    lv_obj_add_flag(ui->LanguageSet_img_32, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->LanguageSet_img_32, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->LanguageSet_img_32, 0,0);
-    lv_img_set_angle(ui->LanguageSet_img_32, 1800);
-    lv_obj_set_pos(ui->LanguageSet_img_32, 625, 59);
-    lv_obj_set_size(ui->LanguageSet_img_32, 14, 24);
-
-    //Write style for LanguageSet_img_32, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->LanguageSet_img_32, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->LanguageSet_img_32, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->LanguageSet_img_32, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->LanguageSet_img_32, true, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes LanguageSet_cont_6
-    ui->LanguageSet_cont_6 = lv_obj_create(ui->LanguageSet_tabview_1_tab_1);
-    lv_obj_set_pos(ui->LanguageSet_cont_6, -9, 278);
-    lv_obj_set_size(ui->LanguageSet_cont_6, 658, 90);
-    lv_obj_set_scrollbar_mode(ui->LanguageSet_cont_6, LV_SCROLLBAR_MODE_OFF);
-
-    //Write style for LanguageSet_cont_6, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_border_width(ui->LanguageSet_cont_6, 3, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_opa(ui->LanguageSet_cont_6, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_color(ui->LanguageSet_cont_6, lv_color_hex(0x151313), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_side(ui->LanguageSet_cont_6, LV_BORDER_SIDE_BOTTOM, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->LanguageSet_cont_6, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(ui->LanguageSet_cont_6, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_color(ui->LanguageSet_cont_6, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_grad_dir(ui->LanguageSet_cont_6, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_top(ui->LanguageSet_cont_6, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_bottom(ui->LanguageSet_cont_6, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_left(ui->LanguageSet_cont_6, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_right(ui->LanguageSet_cont_6, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_width(ui->LanguageSet_cont_6, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes LanguageSet_label_18
-    ui->LanguageSet_label_18 = lv_label_create(ui->LanguageSet_cont_6);
-    lv_label_set_text(ui->LanguageSet_label_18, "English");
-    lv_label_set_long_mode(ui->LanguageSet_label_18, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->LanguageSet_label_18, 0, 30);
-    lv_obj_set_size(ui->LanguageSet_label_18, 148, 38);
-
-    //Write style for LanguageSet_label_18, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_border_width(ui->LanguageSet_label_18, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->LanguageSet_label_18, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(ui->LanguageSet_label_18, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->LanguageSet_label_18, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui->LanguageSet_label_18, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_letter_space(ui->LanguageSet_label_18, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_line_space(ui->LanguageSet_label_18, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_align(ui->LanguageSet_label_18, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(ui->LanguageSet_label_18, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_top(ui->LanguageSet_label_18, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_right(ui->LanguageSet_label_18, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_bottom(ui->LanguageSet_label_18, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_left(ui->LanguageSet_label_18, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_width(ui->LanguageSet_label_18, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes LanguageSet_img_33
-    ui->LanguageSet_img_33 = lv_img_create(ui->LanguageSet_cont_6);
-    lv_obj_add_flag(ui->LanguageSet_img_33, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->LanguageSet_img_33, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->LanguageSet_img_33, 0,0);
-    lv_img_set_angle(ui->LanguageSet_img_33, 1800);
-    lv_obj_set_pos(ui->LanguageSet_img_33, 625, 59);
-    lv_obj_set_size(ui->LanguageSet_img_33, 14, 24);
-
-    //Write style for LanguageSet_img_33, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->LanguageSet_img_33, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->LanguageSet_img_33, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->LanguageSet_img_33, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->LanguageSet_img_33, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_recolor_opa(ui->LanguageSet_img_29, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->LanguageSet_img_29, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //Write codes LanguageSet_btn_1
     ui->LanguageSet_btn_1 = lv_btn_create(ui->LanguageSet);
@@ -334,9 +216,9 @@ void setup_scr_LanguageSet(lv_ui *ui)
     lv_obj_set_size(ui->LanguageSet_btn_1, 95, 32);
 
     //Write style for LanguageSet_btn_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_radius(ui->LanguageSet_btn_1, 5, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui->LanguageSet_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_border_width(ui->LanguageSet_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->LanguageSet_btn_1, 5, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_width(ui->LanguageSet_btn_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_color(ui->LanguageSet_btn_1, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui->LanguageSet_btn_1, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
@@ -353,10 +235,10 @@ void setup_scr_LanguageSet(lv_ui *ui)
     lv_obj_set_size(ui->LanguageSet_img_1, 14, 24);
 
     //Write style for LanguageSet_img_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->LanguageSet_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->LanguageSet_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->LanguageSet_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_clip_corner(ui->LanguageSet_img_1, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_recolor_opa(ui->LanguageSet_img_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->LanguageSet_img_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //Write codes LanguageSet_btn_2
     ui->LanguageSet_btn_2 = lv_btn_create(ui->LanguageSet);
@@ -370,14 +252,104 @@ void setup_scr_LanguageSet(lv_ui *ui)
     lv_obj_set_size(ui->LanguageSet_btn_2, 229, 103);
 
     //Write style for LanguageSet_btn_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_radius(ui->LanguageSet_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_bg_opa(ui->LanguageSet_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_border_width(ui->LanguageSet_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->LanguageSet_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_width(ui->LanguageSet_btn_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_color(ui->LanguageSet_btn_2, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_font(ui->LanguageSet_btn_2, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->LanguageSet_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->LanguageSet_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes LanguageSet_cont_5
+    ui->LanguageSet_cont_5 = lv_obj_create(ui->LanguageSet);
+    lv_obj_set_pos(ui->LanguageSet_cont_5, 108, -291);
+    lv_obj_set_size(ui->LanguageSet_cont_5, 584, 262);
+    lv_obj_set_scrollbar_mode(ui->LanguageSet_cont_5, LV_SCROLLBAR_MODE_OFF);
+
+    //Write style for LanguageSet_cont_5, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->LanguageSet_cont_5, 2, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_opa(ui->LanguageSet_cont_5, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_color(ui->LanguageSet_cont_5, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_side(ui->LanguageSet_cont_5, LV_BORDER_SIDE_FULL, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->LanguageSet_cont_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->LanguageSet_cont_5, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->LanguageSet_cont_5, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_grad_dir(ui->LanguageSet_cont_5, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->LanguageSet_cont_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->LanguageSet_cont_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->LanguageSet_cont_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->LanguageSet_cont_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->LanguageSet_cont_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes LanguageSet_label_17
+    ui->LanguageSet_label_17 = lv_label_create(ui->LanguageSet_cont_5);
+    lv_label_set_text(ui->LanguageSet_label_17, "是否将语言更改为:");
+    lv_label_set_long_mode(ui->LanguageSet_label_17, LV_LABEL_LONG_WRAP);
+    lv_obj_set_pos(ui->LanguageSet_label_17, 32, 66);
+    lv_obj_set_size(ui->LanguageSet_label_17, 508, 40);
+
+    //Write style for LanguageSet_label_17, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->LanguageSet_label_17, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->LanguageSet_label_17, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->LanguageSet_label_17, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->LanguageSet_label_17, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->LanguageSet_label_17, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes LanguageSet_cancel_btn
+    ui->LanguageSet_cancel_btn = lv_btn_create(ui->LanguageSet_cont_5);
+    ui->LanguageSet_cancel_btn_label = lv_label_create(ui->LanguageSet_cancel_btn);
+    lv_label_set_text(ui->LanguageSet_cancel_btn_label, "取消");
+    lv_label_set_long_mode(ui->LanguageSet_cancel_btn_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->LanguageSet_cancel_btn_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->LanguageSet_cancel_btn, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->LanguageSet_cancel_btn_label, LV_PCT(100));
+    lv_obj_set_pos(ui->LanguageSet_cancel_btn, 44, 165);
+    lv_obj_set_size(ui->LanguageSet_cancel_btn, 100, 50);
+
+    //Write style for LanguageSet_cancel_btn, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->LanguageSet_cancel_btn, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->LanguageSet_cancel_btn, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_grad_dir(ui->LanguageSet_cancel_btn, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->LanguageSet_cancel_btn, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->LanguageSet_cancel_btn, 5, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->LanguageSet_cancel_btn, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->LanguageSet_cancel_btn, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->LanguageSet_cancel_btn, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->LanguageSet_cancel_btn, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->LanguageSet_cancel_btn, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes LanguageSet_ok_btn
+    ui->LanguageSet_ok_btn = lv_btn_create(ui->LanguageSet_cont_5);
+    ui->LanguageSet_ok_btn_label = lv_label_create(ui->LanguageSet_ok_btn);
+    lv_label_set_text(ui->LanguageSet_ok_btn_label, "确定");
+    lv_label_set_long_mode(ui->LanguageSet_ok_btn_label, LV_LABEL_LONG_WRAP);
+    lv_obj_align(ui->LanguageSet_ok_btn_label, LV_ALIGN_CENTER, 0, 0);
+    lv_obj_set_style_pad_all(ui->LanguageSet_ok_btn, 0, LV_STATE_DEFAULT);
+    lv_obj_set_width(ui->LanguageSet_ok_btn_label, LV_PCT(100));
+    lv_obj_set_pos(ui->LanguageSet_ok_btn, 455, 168);
+    lv_obj_set_size(ui->LanguageSet_ok_btn, 100, 50);
+
+    //Write style for LanguageSet_ok_btn, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_bg_opa(ui->LanguageSet_ok_btn, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->LanguageSet_ok_btn, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_grad_dir(ui->LanguageSet_ok_btn, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->LanguageSet_ok_btn, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->LanguageSet_ok_btn, 5, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->LanguageSet_ok_btn, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->LanguageSet_ok_btn, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->LanguageSet_ok_btn, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->LanguageSet_ok_btn, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->LanguageSet_ok_btn, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of LanguageSet.
 
