@@ -394,10 +394,7 @@ void setup_scr_DryRack(lv_ui *ui)
 
     //Write style for DryRack_dry_rack_pull, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
     lv_obj_set_style_bg_opa(ui->DryRack_dry_rack_pull, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_width(ui->DryRack_dry_rack_pull, 3, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_opa(ui->DryRack_dry_rack_pull, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_color(ui->DryRack_dry_rack_pull, lv_color_hex(0x2195f6), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_border_side(ui->DryRack_dry_rack_pull, LV_BORDER_SIDE_FULL, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_width(ui->DryRack_dry_rack_pull, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_radius(ui->DryRack_dry_rack_pull, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_width(ui->DryRack_dry_rack_pull, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_color(ui->DryRack_dry_rack_pull, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);

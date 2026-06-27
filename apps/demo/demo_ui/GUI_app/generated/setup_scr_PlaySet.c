@@ -86,6 +86,252 @@ void setup_scr_PlaySet(lv_ui *ui)
     lv_obj_t * PlaySet_tabview_1_tab_1_label = lv_label_create(ui->PlaySet_tabview_1_tab_1);
     lv_label_set_text(PlaySet_tabview_1_tab_1_label, "");
 
+    //Write codes PlaySet_cont_1
+    ui->PlaySet_cont_1 = lv_obj_create(ui->PlaySet_tabview_1_tab_1);
+    lv_obj_set_pos(ui->PlaySet_cont_1, 15, -15);
+    lv_obj_set_size(ui->PlaySet_cont_1, 659, 90);
+    lv_obj_set_scrollbar_mode(ui->PlaySet_cont_1, LV_SCROLLBAR_MODE_OFF);
+
+    //Write style for PlaySet_cont_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->PlaySet_cont_1, 3, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_opa(ui->PlaySet_cont_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_color(ui->PlaySet_cont_1, lv_color_hex(0x151313), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_side(ui->PlaySet_cont_1, LV_BORDER_SIDE_BOTTOM, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->PlaySet_cont_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->PlaySet_cont_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->PlaySet_cont_1, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_grad_dir(ui->PlaySet_cont_1, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->PlaySet_cont_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->PlaySet_cont_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->PlaySet_cont_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->PlaySet_cont_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->PlaySet_cont_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes PlaySet_label_26
+    ui->PlaySet_label_26 = lv_label_create(ui->PlaySet_cont_1);
+    lv_label_set_text(ui->PlaySet_label_26, "延时进入待机时间");
+    lv_label_set_long_mode(ui->PlaySet_label_26, LV_LABEL_LONG_WRAP);
+    lv_obj_set_pos(ui->PlaySet_label_26, 2, 30);
+    lv_obj_set_size(ui->PlaySet_label_26, 257, 32);
+
+    //Write style for PlaySet_label_26, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->PlaySet_label_26, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->PlaySet_label_26, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->PlaySet_label_26, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->PlaySet_label_26, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->PlaySet_label_26, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui->PlaySet_label_26, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui->PlaySet_label_26, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->PlaySet_label_26, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->PlaySet_label_26, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->PlaySet_label_26, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->PlaySet_label_26, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->PlaySet_label_26, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->PlaySet_label_26, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->PlaySet_label_26, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes PlaySet_img_5
+    ui->PlaySet_img_5 = lv_img_create(ui->PlaySet_cont_1);
+    lv_obj_add_flag(ui->PlaySet_img_5, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->PlaySet_img_5, &_spageback_alpha_14x24);
+    lv_img_set_pivot(ui->PlaySet_img_5, 0,0);
+    lv_img_set_angle(ui->PlaySet_img_5, 1800);
+    lv_obj_set_pos(ui->PlaySet_img_5, 625, 59);
+    lv_obj_set_size(ui->PlaySet_img_5, 14, 24);
+
+    //Write style for PlaySet_img_5, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->PlaySet_img_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->PlaySet_img_5, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->PlaySet_img_5, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->PlaySet_img_5, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes PlaySet_label_1
+    ui->PlaySet_label_1 = lv_label_create(ui->PlaySet_cont_1);
+    lv_label_set_text(ui->PlaySet_label_1, "30秒");
+    lv_label_set_long_mode(ui->PlaySet_label_1, LV_LABEL_LONG_WRAP);
+    lv_obj_set_pos(ui->PlaySet_label_1, 520, 33);
+    lv_obj_set_size(ui->PlaySet_label_1, 82, 32);
+
+    //Write style for PlaySet_label_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->PlaySet_label_1, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->PlaySet_label_1, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->PlaySet_label_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->PlaySet_label_1, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes PlaySet_cont_2
+    ui->PlaySet_cont_2 = lv_obj_create(ui->PlaySet_tabview_1_tab_1);
+    lv_obj_set_pos(ui->PlaySet_cont_2, 15, 75);
+    lv_obj_set_size(ui->PlaySet_cont_2, 650, 90);
+    lv_obj_set_scrollbar_mode(ui->PlaySet_cont_2, LV_SCROLLBAR_MODE_OFF);
+
+    //Write style for PlaySet_cont_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->PlaySet_cont_2, 3, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_opa(ui->PlaySet_cont_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_color(ui->PlaySet_cont_2, lv_color_hex(0x151313), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_side(ui->PlaySet_cont_2, LV_BORDER_SIDE_BOTTOM, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->PlaySet_cont_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->PlaySet_cont_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->PlaySet_cont_2, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_grad_dir(ui->PlaySet_cont_2, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->PlaySet_cont_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->PlaySet_cont_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->PlaySet_cont_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->PlaySet_cont_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->PlaySet_cont_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes PlaySet_label_27
+    ui->PlaySet_label_27 = lv_label_create(ui->PlaySet_cont_2);
+    lv_label_set_text(ui->PlaySet_label_27, "待机显示");
+    lv_label_set_long_mode(ui->PlaySet_label_27, LV_LABEL_LONG_WRAP);
+    lv_obj_set_pos(ui->PlaySet_label_27, 2, 30);
+    lv_obj_set_size(ui->PlaySet_label_27, 148, 32);
+
+    //Write style for PlaySet_label_27, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->PlaySet_label_27, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->PlaySet_label_27, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->PlaySet_label_27, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->PlaySet_label_27, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->PlaySet_label_27, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui->PlaySet_label_27, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui->PlaySet_label_27, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->PlaySet_label_27, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->PlaySet_label_27, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->PlaySet_label_27, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->PlaySet_label_27, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->PlaySet_label_27, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->PlaySet_label_27, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->PlaySet_label_27, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes PlaySet_img_7
+    ui->PlaySet_img_7 = lv_img_create(ui->PlaySet_cont_2);
+    lv_obj_add_flag(ui->PlaySet_img_7, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->PlaySet_img_7, &_spageback_alpha_14x24);
+    lv_img_set_pivot(ui->PlaySet_img_7, 0,0);
+    lv_img_set_angle(ui->PlaySet_img_7, 1800);
+    lv_obj_set_pos(ui->PlaySet_img_7, 625, 59);
+    lv_obj_set_size(ui->PlaySet_img_7, 14, 24);
+
+    //Write style for PlaySet_img_7, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->PlaySet_img_7, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->PlaySet_img_7, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->PlaySet_img_7, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->PlaySet_img_7, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes PlaySet_label_2
+    ui->PlaySet_label_2 = lv_label_create(ui->PlaySet_cont_2);
+    lv_label_set_text(ui->PlaySet_label_2, "熄屏");
+    lv_label_set_long_mode(ui->PlaySet_label_2, LV_LABEL_LONG_WRAP);
+    lv_obj_set_pos(ui->PlaySet_label_2, 520, 33);
+    lv_obj_set_size(ui->PlaySet_label_2, 84, 32);
+
+    //Write style for PlaySet_label_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->PlaySet_label_2, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->PlaySet_label_2, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->PlaySet_label_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->PlaySet_label_2, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes PlaySet_cont_3
+    ui->PlaySet_cont_3 = lv_obj_create(ui->PlaySet_tabview_1_tab_1);
+    lv_obj_set_pos(ui->PlaySet_cont_3, 15, 165);
+    lv_obj_set_size(ui->PlaySet_cont_3, 650, 90);
+    lv_obj_set_scrollbar_mode(ui->PlaySet_cont_3, LV_SCROLLBAR_MODE_OFF);
+
+    //Write style for PlaySet_cont_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->PlaySet_cont_3, 3, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_opa(ui->PlaySet_cont_3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_color(ui->PlaySet_cont_3, lv_color_hex(0x151313), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_border_side(ui->PlaySet_cont_3, LV_BORDER_SIDE_BOTTOM, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->PlaySet_cont_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->PlaySet_cont_3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_color(ui->PlaySet_cont_3, lv_color_hex(0x000000), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_grad_dir(ui->PlaySet_cont_3, LV_GRAD_DIR_NONE, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->PlaySet_cont_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->PlaySet_cont_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->PlaySet_cont_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->PlaySet_cont_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->PlaySet_cont_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes PlaySet_label_28
+    ui->PlaySet_label_28 = lv_label_create(ui->PlaySet_cont_3);
+    lv_label_set_text(ui->PlaySet_label_28, "接近亮屏");
+    lv_label_set_long_mode(ui->PlaySet_label_28, LV_LABEL_LONG_WRAP);
+    lv_obj_set_pos(ui->PlaySet_label_28, 2, 30);
+    lv_obj_set_size(ui->PlaySet_label_28, 148, 32);
+
+    //Write style for PlaySet_label_28, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->PlaySet_label_28, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->PlaySet_label_28, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->PlaySet_label_28, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->PlaySet_label_28, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->PlaySet_label_28, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui->PlaySet_label_28, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui->PlaySet_label_28, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->PlaySet_label_28, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->PlaySet_label_28, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->PlaySet_label_28, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->PlaySet_label_28, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->PlaySet_label_28, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->PlaySet_label_28, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->PlaySet_label_28, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes PlaySet_img_9
+    ui->PlaySet_img_9 = lv_img_create(ui->PlaySet_cont_3);
+    lv_obj_add_flag(ui->PlaySet_img_9, LV_OBJ_FLAG_CLICKABLE);
+    lv_img_set_src(ui->PlaySet_img_9, &_spageback_alpha_14x24);
+    lv_img_set_pivot(ui->PlaySet_img_9, 0,0);
+    lv_img_set_angle(ui->PlaySet_img_9, 1800);
+    lv_obj_set_pos(ui->PlaySet_img_9, 625, 59);
+    lv_obj_set_size(ui->PlaySet_img_9, 14, 24);
+
+    //Write style for PlaySet_img_9, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_img_recolor_opa(ui->PlaySet_img_9, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_img_opa(ui->PlaySet_img_9, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->PlaySet_img_9, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_clip_corner(ui->PlaySet_img_9, true, LV_PART_MAIN|LV_STATE_DEFAULT);
+
+    //Write codes PlaySet_label_3
+    ui->PlaySet_label_3 = lv_label_create(ui->PlaySet_cont_3);
+    lv_label_set_text(ui->PlaySet_label_3, "关闭");
+    lv_label_set_long_mode(ui->PlaySet_label_3, LV_LABEL_LONG_WRAP);
+    lv_obj_set_pos(ui->PlaySet_label_3, 520, 33);
+    lv_obj_set_size(ui->PlaySet_label_3, 89, 32);
+
+    //Write style for PlaySet_label_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
+    lv_obj_set_style_border_width(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_radius(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_color(ui->PlaySet_label_3, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_font(ui->PlaySet_label_3, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_opa(ui->PlaySet_label_3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_letter_space(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_line_space(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_text_align(ui->PlaySet_label_3, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_bg_opa(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_top(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_right(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_bottom(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_pad_left(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+    lv_obj_set_style_shadow_width(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
+
     //Write codes PlaySet_btn_1
     ui->PlaySet_btn_1 = lv_btn_create(ui->PlaySet);
     ui->PlaySet_btn_1_label = lv_label_create(ui->PlaySet_btn_1);
@@ -106,85 +352,6 @@ void setup_scr_PlaySet(lv_ui *ui)
     lv_obj_set_style_text_font(ui->PlaySet_btn_1, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->PlaySet_btn_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->PlaySet_btn_1, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes PlaySet_List
-    ui->PlaySet_List = lv_list_create(ui->PlaySet);
-    ui->PlaySet_List_item0 =lv_list_add_text(ui->PlaySet_List, "延时进入待机时间");
-    ui->PlaySet_List_item1 =lv_list_add_text(ui->PlaySet_List, "待机显示");
-    ui->PlaySet_List_item2 =lv_list_add_text(ui->PlaySet_List, "接近亮屏");
-    lv_obj_set_pos(ui->PlaySet_List, 21, 91);
-    lv_obj_set_size(ui->PlaySet_List, 665, 585);
-    lv_obj_set_scrollbar_mode(ui->PlaySet_List, LV_SCROLLBAR_MODE_OFF);
-
-    //Write style state: LV_STATE_DEFAULT for &style_PlaySet_List_main_main_default
-    static lv_style_t style_PlaySet_List_main_main_default;
-    ui_init_style(&style_PlaySet_List_main_main_default);
-
-    lv_style_set_pad_top(&style_PlaySet_List_main_main_default, 0);
-    lv_style_set_pad_left(&style_PlaySet_List_main_main_default, 5);
-    lv_style_set_pad_right(&style_PlaySet_List_main_main_default, 0);
-    lv_style_set_pad_bottom(&style_PlaySet_List_main_main_default, 0);
-    lv_style_set_bg_opa(&style_PlaySet_List_main_main_default, 255);
-    lv_style_set_bg_color(&style_PlaySet_List_main_main_default, lv_color_hex(0x000000));
-    lv_style_set_bg_grad_dir(&style_PlaySet_List_main_main_default, LV_GRAD_DIR_NONE);
-    lv_style_set_border_width(&style_PlaySet_List_main_main_default, 0);
-    lv_style_set_radius(&style_PlaySet_List_main_main_default, 3);
-    lv_style_set_shadow_width(&style_PlaySet_List_main_main_default, 0);
-    lv_obj_add_style(ui->PlaySet_List, &style_PlaySet_List_main_main_default, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write style state: LV_STATE_DEFAULT for &style_PlaySet_List_main_scrollbar_default
-    static lv_style_t style_PlaySet_List_main_scrollbar_default;
-    ui_init_style(&style_PlaySet_List_main_scrollbar_default);
-
-    lv_style_set_radius(&style_PlaySet_List_main_scrollbar_default, 3);
-    lv_style_set_bg_opa(&style_PlaySet_List_main_scrollbar_default, 255);
-    lv_style_set_bg_color(&style_PlaySet_List_main_scrollbar_default, lv_color_hex(0x000000));
-    lv_style_set_bg_grad_dir(&style_PlaySet_List_main_scrollbar_default, LV_GRAD_DIR_NONE);
-    lv_obj_add_style(ui->PlaySet_List, &style_PlaySet_List_main_scrollbar_default, LV_PART_SCROLLBAR|LV_STATE_DEFAULT);
-
-    //Write style state: LV_STATE_DEFAULT for &style_PlaySet_List_extra_btns_main_default
-    static lv_style_t style_PlaySet_List_extra_btns_main_default;
-    ui_init_style(&style_PlaySet_List_extra_btns_main_default);
-
-    lv_style_set_pad_top(&style_PlaySet_List_extra_btns_main_default, 5);
-    lv_style_set_pad_left(&style_PlaySet_List_extra_btns_main_default, 5);
-    lv_style_set_pad_right(&style_PlaySet_List_extra_btns_main_default, 5);
-    lv_style_set_pad_bottom(&style_PlaySet_List_extra_btns_main_default, 5);
-    lv_style_set_border_width(&style_PlaySet_List_extra_btns_main_default, 2);
-    lv_style_set_border_opa(&style_PlaySet_List_extra_btns_main_default, 255);
-    lv_style_set_border_color(&style_PlaySet_List_extra_btns_main_default, lv_color_hex(0xe1e6ee));
-    lv_style_set_border_side(&style_PlaySet_List_extra_btns_main_default, LV_BORDER_SIDE_BOTTOM);
-    lv_style_set_text_color(&style_PlaySet_List_extra_btns_main_default, lv_color_hex(0xffffff));
-    lv_style_set_text_font(&style_PlaySet_List_extra_btns_main_default, &lv_font_MiSansNormal_30);
-    lv_style_set_text_opa(&style_PlaySet_List_extra_btns_main_default, 255);
-    lv_style_set_radius(&style_PlaySet_List_extra_btns_main_default, 3);
-    lv_style_set_bg_opa(&style_PlaySet_List_extra_btns_main_default, 255);
-    lv_style_set_bg_color(&style_PlaySet_List_extra_btns_main_default, lv_color_hex(0x000000));
-    lv_style_set_bg_grad_dir(&style_PlaySet_List_extra_btns_main_default, LV_GRAD_DIR_NONE);
-
-    //Write style state: LV_STATE_DEFAULT for &style_PlaySet_List_extra_texts_main_default
-    static lv_style_t style_PlaySet_List_extra_texts_main_default;
-    ui_init_style(&style_PlaySet_List_extra_texts_main_default);
-
-    lv_style_set_pad_top(&style_PlaySet_List_extra_texts_main_default, 20);
-    lv_style_set_pad_left(&style_PlaySet_List_extra_texts_main_default, 10);
-    lv_style_set_pad_right(&style_PlaySet_List_extra_texts_main_default, 0);
-    lv_style_set_pad_bottom(&style_PlaySet_List_extra_texts_main_default, 24);
-    lv_style_set_border_width(&style_PlaySet_List_extra_texts_main_default, 3);
-    lv_style_set_border_opa(&style_PlaySet_List_extra_texts_main_default, 255);
-    lv_style_set_border_color(&style_PlaySet_List_extra_texts_main_default, lv_color_hex(0x151313));
-    lv_style_set_border_side(&style_PlaySet_List_extra_texts_main_default, LV_BORDER_SIDE_BOTTOM);
-    lv_style_set_text_color(&style_PlaySet_List_extra_texts_main_default, lv_color_hex(0xffffff));
-    lv_style_set_text_font(&style_PlaySet_List_extra_texts_main_default, &lv_font_MiSansNormal_30);
-    lv_style_set_text_opa(&style_PlaySet_List_extra_texts_main_default, 255);
-    lv_style_set_radius(&style_PlaySet_List_extra_texts_main_default, 0);
-    lv_style_set_transform_width(&style_PlaySet_List_extra_texts_main_default, 0);
-    lv_style_set_bg_opa(&style_PlaySet_List_extra_texts_main_default, 255);
-    lv_style_set_bg_color(&style_PlaySet_List_extra_texts_main_default, lv_color_hex(0x000000));
-    lv_style_set_bg_grad_dir(&style_PlaySet_List_extra_texts_main_default, LV_GRAD_DIR_NONE);
-    lv_obj_add_style(ui->PlaySet_List_item2, &style_PlaySet_List_extra_texts_main_default, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_add_style(ui->PlaySet_List_item1, &style_PlaySet_List_extra_texts_main_default, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_add_style(ui->PlaySet_List_item0, &style_PlaySet_List_extra_texts_main_default, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //Write codes PlaySet_img_1
     ui->PlaySet_img_1 = lv_img_create(ui->PlaySet);
@@ -221,51 +388,6 @@ void setup_scr_PlaySet(lv_ui *ui)
     lv_obj_set_style_text_font(ui->PlaySet_btn_2, &lv_font_montserratMedium_16, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_opa(ui->PlaySet_btn_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_text_align(ui->PlaySet_btn_2, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes PlaySet_img_2
-    ui->PlaySet_img_2 = lv_img_create(ui->PlaySet);
-    lv_obj_add_flag(ui->PlaySet_img_2, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->PlaySet_img_2, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->PlaySet_img_2, 0,0);
-    lv_img_set_angle(ui->PlaySet_img_2, 1800);
-    lv_obj_set_pos(ui->PlaySet_img_2, 667, 142);
-    lv_obj_set_size(ui->PlaySet_img_2, 14, 24);
-
-    //Write style for PlaySet_img_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->PlaySet_img_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->PlaySet_img_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->PlaySet_img_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->PlaySet_img_2, true, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes PlaySet_img_3
-    ui->PlaySet_img_3 = lv_img_create(ui->PlaySet);
-    lv_obj_add_flag(ui->PlaySet_img_3, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->PlaySet_img_3, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->PlaySet_img_3, 0,0);
-    lv_img_set_angle(ui->PlaySet_img_3, 1800);
-    lv_obj_set_pos(ui->PlaySet_img_3, 670, 322);
-    lv_obj_set_size(ui->PlaySet_img_3, 14, 24);
-
-    //Write style for PlaySet_img_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->PlaySet_img_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->PlaySet_img_3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->PlaySet_img_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->PlaySet_img_3, true, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes PlaySet_img_4
-    ui->PlaySet_img_4 = lv_img_create(ui->PlaySet);
-    lv_obj_add_flag(ui->PlaySet_img_4, LV_OBJ_FLAG_CLICKABLE);
-    lv_img_set_src(ui->PlaySet_img_4, &_spageback_alpha_14x24);
-    lv_img_set_pivot(ui->PlaySet_img_4, 0,0);
-    lv_img_set_angle(ui->PlaySet_img_4, 1800);
-    lv_obj_set_pos(ui->PlaySet_img_4, 667, 232);
-    lv_obj_set_size(ui->PlaySet_img_4, 14, 24);
-
-    //Write style for PlaySet_img_4, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_img_recolor_opa(ui->PlaySet_img_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_img_opa(ui->PlaySet_img_4, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->PlaySet_img_4, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_clip_corner(ui->PlaySet_img_4, true, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //Write codes PlaySet_tileview_1
     ui->PlaySet_tileview_1 = lv_tileview_create(ui->PlaySet);
@@ -1412,75 +1534,6 @@ void setup_scr_PlaySet(lv_ui *ui)
     lv_obj_set_style_pad_bottom(ui->PlaySet_label_22, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_pad_left(ui->PlaySet_label_22, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
     lv_obj_set_style_shadow_width(ui->PlaySet_label_22, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes PlaySet_label_1
-    ui->PlaySet_label_1 = lv_label_create(ui->PlaySet);
-    lv_label_set_text(ui->PlaySet_label_1, "30秒");
-    lv_label_set_long_mode(ui->PlaySet_label_1, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->PlaySet_label_1, 533, 114);
-    lv_obj_set_size(ui->PlaySet_label_1, 100, 32);
-
-    //Write style for PlaySet_label_1, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_border_width(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(ui->PlaySet_label_1, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->PlaySet_label_1, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui->PlaySet_label_1, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_letter_space(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_line_space(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_align(ui->PlaySet_label_1, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_top(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_right(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_bottom(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_left(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_width(ui->PlaySet_label_1, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes PlaySet_label_2
-    ui->PlaySet_label_2 = lv_label_create(ui->PlaySet);
-    lv_label_set_text(ui->PlaySet_label_2, "熄屏");
-    lv_label_set_long_mode(ui->PlaySet_label_2, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->PlaySet_label_2, 533, 203);
-    lv_obj_set_size(ui->PlaySet_label_2, 100, 32);
-
-    //Write style for PlaySet_label_2, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_border_width(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(ui->PlaySet_label_2, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->PlaySet_label_2, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui->PlaySet_label_2, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_letter_space(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_line_space(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_align(ui->PlaySet_label_2, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_top(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_right(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_bottom(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_left(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_width(ui->PlaySet_label_2, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-
-    //Write codes PlaySet_label_3
-    ui->PlaySet_label_3 = lv_label_create(ui->PlaySet);
-    lv_label_set_text(ui->PlaySet_label_3, "关闭");
-    lv_label_set_long_mode(ui->PlaySet_label_3, LV_LABEL_LONG_WRAP);
-    lv_obj_set_pos(ui->PlaySet_label_3, 533, 292);
-    lv_obj_set_size(ui->PlaySet_label_3, 100, 32);
-
-    //Write style for PlaySet_label_3, Part: LV_PART_MAIN, State: LV_STATE_DEFAULT.
-    lv_obj_set_style_border_width(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_radius(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_color(ui->PlaySet_label_3, lv_color_hex(0xffffff), LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_font(ui->PlaySet_label_3, &lv_font_MiSansNormal_30, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_opa(ui->PlaySet_label_3, 255, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_letter_space(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_line_space(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_text_align(ui->PlaySet_label_3, LV_TEXT_ALIGN_LEFT, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_bg_opa(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_top(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_right(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_bottom(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_pad_left(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
-    lv_obj_set_style_shadow_width(ui->PlaySet_label_3, 0, LV_PART_MAIN|LV_STATE_DEFAULT);
 
     //The custom code of PlaySet.
 

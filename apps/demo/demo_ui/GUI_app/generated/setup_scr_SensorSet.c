@@ -88,7 +88,7 @@ void setup_scr_SensorSet(lv_ui *ui)
 
     //Write codes SensorSet_cont_2
     ui->SensorSet_cont_2 = lv_obj_create(ui->SensorSet);
-    lv_obj_set_pos(ui->SensorSet_cont_2, 11, 97);
+    lv_obj_set_pos(ui->SensorSet_cont_2, 0, 97);
     lv_obj_set_size(ui->SensorSet_cont_2, 720, 141);
     lv_obj_set_scrollbar_mode(ui->SensorSet_cont_2, LV_SCROLLBAR_MODE_OFF);
 
@@ -219,7 +219,7 @@ void setup_scr_SensorSet(lv_ui *ui)
 
     //Write codes SensorSet_cont_4
     ui->SensorSet_cont_4 = lv_obj_create(ui->SensorSet);
-    lv_obj_set_pos(ui->SensorSet_cont_4, 11, 249);
+    lv_obj_set_pos(ui->SensorSet_cont_4, 0, 249);
     lv_obj_set_size(ui->SensorSet_cont_4, 720, 141);
     lv_obj_set_scrollbar_mode(ui->SensorSet_cont_4, LV_SCROLLBAR_MODE_OFF);
 
