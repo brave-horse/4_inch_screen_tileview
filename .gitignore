@@ -69,3 +69,7 @@ __pycache__/
 # ====================================================
 .git_old_backup/
 .claude/
+
+# GUI-Guider 符号链接目录(指向D盘工程),不进SDK的git版本控制
+/apps/demo/demo_ui/GUI_app/custom
+/apps/demo/demo_ui/GUI_app/generated
