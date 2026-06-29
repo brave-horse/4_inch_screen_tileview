@@ -72,3 +72,6 @@ __pycache__/
 
 # generated 是 GUI-Guider 自动生成(符号链接→D盘),不进git(能重新生成)
 /apps/demo/demo_ui/GUI_app/generated
+
+# 废弃的旧 i18n 目录(现用 Transmit), IDE 偶尔重建, 忽略
+/apps/demo/demo_ui/GUI_app/custom/i18n
