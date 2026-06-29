@@ -115,7 +115,14 @@ void mag_light_on_bri_slider_change(void)
 
 void mag_light_on_ct_slider_change(void)
 {
-    HWInterface.LightCT.SetColorTemp((uint16_t)lv_slider_get_value(guider_ui.MagLight_slider_2));
+    lv_obj_t *s = guider_ui.MagLight_slider_2;
+    int32_t raw = lv_slider_get_value(s);
+    int32_t v = ((raw + 25) / 50) * 50;
+    if (v < LIGHTCT_COLOR_TEMP_MIN) v = LIGHTCT_COLOR_TEMP_MIN;
+    if (v > LIGHTCT_COLOR_TEMP_MAX) v = LIGHTCT_COLOR_TEMP_MAX;
+    if (v != raw) lv_slider_set_value(s, v, LV_ANIM_OFF);
+
+    HWInterface.LightCT.SetColorTemp((uint16_t)v);
     mag_light_apply_light();
     if (lv_tick_elaps(s_ct_tick) >= APPLY_MIN_MS) {
         s_ct_tick = lv_tick_get();

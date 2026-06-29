@@ -74,6 +74,7 @@ static void light_ct_refresh(bool btn_status)
 void light_ct_on_screen_load(void)
 {
     bool btn_status = HWInterface.LightCT.switch_status;
+
     lv_slider_set_range(guider_ui.light_CT_screen_slider_1, 1, LIGHTCT_BRIGHTNESS_MAX);
     lv_slider_set_value(guider_ui.light_CT_screen_slider_1, HWInterface.LightCT.brightness, LV_ANIM_OFF);
     lv_slider_set_value(guider_ui.light_CT_screen_slider_2, HWInterface.LightCT.color_temp, LV_ANIM_OFF);
@@ -120,7 +121,14 @@ void light_ct_on_bri_slider_change(void)
 
 void light_ct_on_ct_slider_change(void)
 {
-    HWInterface.LightCT.SetColorTemp((uint16_t)lv_slider_get_value(guider_ui.light_CT_screen_slider_2));
+    lv_obj_t *s = guider_ui.light_CT_screen_slider_2;
+    int32_t raw = lv_slider_get_value(s);
+    int32_t v = ((raw + 25) / 50) * 50;                     /* 对齐 50 步进 */
+    if (v < LIGHTCT_COLOR_TEMP_MIN) v = LIGHTCT_COLOR_TEMP_MIN;
+    if (v > LIGHTCT_COLOR_TEMP_MAX) v = LIGHTCT_COLOR_TEMP_MAX;
+    if (v != raw) lv_slider_set_value(s, v, LV_ANIM_OFF);
+
+    HWInterface.LightCT.SetColorTemp((uint16_t)v);
     if (lv_tick_elaps(s_ct_tick) >= APPLY_MIN_MS) {
         s_ct_tick = lv_tick_get();
         hw_cloud_post(&(HW_Msg){

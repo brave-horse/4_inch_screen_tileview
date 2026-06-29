@@ -358,8 +358,18 @@ void home_on_screen_load(void)
         }
     }
 
-    /* ── 设备页: 绑定控件 + 刷状态 ── */
+    /* ── 设备页: flex 布局卡片 ── */
     lv_obj_add_event_cb(guider_ui.ui_home_screen, home_screen_delete, LV_EVENT_DELETE, NULL);
+
+    {
+        lv_obj_t *bc = guider_ui.ui_home_screen_tabview_3_tab_1;   /* body_context */
+        lv_obj_set_flex_flow(bc, LV_FLEX_FLOW_ROW_WRAP);
+        lv_obj_set_flex_align(bc, LV_FLEX_ALIGN_START, LV_FLEX_ALIGN_CENTER, LV_FLEX_ALIGN_START);
+        lv_obj_set_style_pad_top(bc, 20, LV_PART_MAIN);
+        lv_obj_set_style_pad_hor(bc, 15, LV_PART_MAIN);
+        lv_obj_set_style_pad_gap(bc, 15, LV_PART_MAIN);
+        lv_obj_add_flag(bc, LV_OBJ_FLAG_SCROLL_ONE);
+    }
 
     /* 灯槽位绑定: sw=imgbtn, on/off=状态图(需要你在 GUI-Guider 里确认控件名后更新) */
     slot_bind(&g_slots[DEV_SLOT_CT_LIGHT],

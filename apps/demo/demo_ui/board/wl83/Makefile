@@ -137,6 +137,7 @@ INCLUDES := \
 	-I../../../../../apps/demo/demo_ui/GUI_app/generated/images \
 	-I../../../../../apps/demo/demo_ui/GUI_app/custom \
 	-I../../../../../apps/demo/demo_ui/GUI_app/custom/include \
+	-I../../../../../apps/demo/demo_ui/GUI_app/custom/Transmit \
 	-I../../../../../include_lib/c++ \
 	-I../../../../../include_lib/c++/include \
 	-I../../../../../include_lib/newlib/include \
@@ -806,7 +807,8 @@ DEMO_UI_AUTO_SRCS := \
 	$(wildcard $(GUI_APP_DIR)/custom/rule/*.c) \
 	$(wildcard $(GUI_APP_DIR)/custom/screen/*.c) \
 	$(wildcard $(GUI_APP_DIR)/custom/widget/*.c) \
-	$(wildcard $(GUI_APP_DIR)/custom/event/*.c)
+	$(wildcard $(GUI_APP_DIR)/custom/event/*.c) \
+	$(wildcard $(GUI_APP_DIR)/custom/Transmit/*.c)
 
 c_SRC_FILES += $(DEMO_UI_AUTO_SRCS)
 
