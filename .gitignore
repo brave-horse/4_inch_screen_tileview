@@ -70,6 +70,5 @@ __pycache__/
 .git_old_backup/
 .claude/
 
-# GUI-Guider 符号链接目录(指向D盘工程),不进SDK的git版本控制
-/apps/demo/demo_ui/GUI_app/custom
+# generated 是 GUI-Guider 自动生成(符号链接→D盘),不进git(能重新生成)
 /apps/demo/demo_ui/GUI_app/generated
