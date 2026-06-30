@@ -283,6 +283,7 @@ static void light_btn_event_cb(lv_event_t *e)
 /* tile5 灯光总控前向声明(定义在文件尾部) */
 static void lights_all_on(lv_event_t *e);
 static void lights_all_off(lv_event_t *e);
+void dev_mgmt_ac_power_toggle(lv_event_t *e);   /* 空调电源(定义在尾部) */
 
 /* ═══════════ 首页 + 设备页合并加载 ═══════════ */
 void home_on_screen_load(void)
@@ -460,6 +461,40 @@ void home_on_screen_load(void)
     /* 浴霸 */
     heater_apply();
 
+    /* 空调: 开关绑定 + 标签同步(中间层) */
+    if (lv_obj_is_valid(guider_ui.ui_home_screen_imgbtn_5)) {
+        while (lv_obj_remove_event_cb(guider_ui.ui_home_screen_imgbtn_5, NULL)); /* 清 GUI-Guider 旧绑定 */
+        lv_obj_add_event_cb(guider_ui.ui_home_screen_imgbtn_5, dev_mgmt_ac_power_toggle, LV_EVENT_VALUE_CHANGED, NULL);
+        if (HWInterface.AirCondition.power)
+            lv_obj_add_state(guider_ui.ui_home_screen_imgbtn_5, LV_STATE_CHECKED);
+        else
+            lv_obj_clear_state(guider_ui.ui_home_screen_imgbtn_5, LV_STATE_CHECKED);
+    }
+    {
+        bool  on   = HWInterface.AirCondition.power;
+        uint8_t m  = HWInterface.AirCondition.mode;
+        uint8_t tp = HWInterface.AirCondition.temperature;
+        if (tp < 16) tp = 16;
+        if (lv_obj_is_valid(guider_ui.ui_home_screen_label_27))
+            lv_label_set_text_fmt(guider_ui.ui_home_screen_label_27, "%d℃", (int)tp);
+
+        /* ml 按 mode: 0制冷→24 1制热→23 2除湿→22 3送风→25, [4]=关 */
+        lv_obj_t *ml[5] = { guider_ui.ui_home_screen_label_24, guider_ui.ui_home_screen_label_23,
+                            guider_ui.ui_home_screen_label_22, guider_ui.ui_home_screen_label_25,
+                            guider_ui.ui_home_screen_label_26 };
+        if (!on) {
+            for (uint8_t i = 0; i < 4; i++) if (lv_obj_is_valid(ml[i])) lv_obj_add_flag(ml[i], LV_OBJ_FLAG_HIDDEN);
+            if (lv_obj_is_valid(ml[4])) lv_obj_clear_flag(ml[4], LV_OBJ_FLAG_HIDDEN);
+        } else {
+            if (lv_obj_is_valid(ml[4])) lv_obj_add_flag(ml[4], LV_OBJ_FLAG_HIDDEN);
+            for (uint8_t i = 0; i < 4; i++) {
+                if (!lv_obj_is_valid(ml[i])) continue;
+                if (i == m) lv_obj_clear_flag(ml[i], LV_OBJ_FLAG_HIDDEN);
+                else        lv_obj_add_flag(ml[i], LV_OBJ_FLAG_HIDDEN);
+            }
+        }
+    }
+
     /* tile5 灯光总控: cont_3=全开, cont_4=全关; 清内部子 CLICKABLE 让按压落容器 */
     if (lv_obj_is_valid(guider_ui.ui_home_screen_cont_3)) {
         uint32_t cc = lv_obj_get_child_cnt(guider_ui.ui_home_screen_cont_3);
@@ -628,6 +663,33 @@ void dev_mgmt_heater_idle(void)
 {
     HWInterface.Heater.mode = (HWInterface.Heater.mode == 5) ? -1 : 5;
     heater_apply();
+}
+
+/* 设备页空调开关: imgbtn_5 CHECKABLE 翻转 power + 同步标签 */
+void dev_mgmt_ac_power_toggle(lv_event_t *e)
+{
+    HWInterface.AirCondition.power = lv_obj_has_state(lv_event_get_target(e), LV_STATE_CHECKED);
+    /* 刷本容器内标签(同 home_on_screen_load 里的空调段) */
+    bool  on   = HWInterface.AirCondition.power;
+    uint8_t m  = HWInterface.AirCondition.mode;
+    uint8_t tp = HWInterface.AirCondition.temperature;
+    if (tp < 16) tp = 16;
+    if (lv_obj_is_valid(guider_ui.ui_home_screen_label_27))
+        lv_label_set_text_fmt(guider_ui.ui_home_screen_label_27, "%d℃", (int)tp);
+    lv_obj_t *ml[5] = { guider_ui.ui_home_screen_label_24, guider_ui.ui_home_screen_label_23,
+                        guider_ui.ui_home_screen_label_22, guider_ui.ui_home_screen_label_25,
+                        guider_ui.ui_home_screen_label_26 };
+    if (!on) {
+        for (uint8_t i = 0; i < 4; i++) if (lv_obj_is_valid(ml[i])) lv_obj_add_flag(ml[i], LV_OBJ_FLAG_HIDDEN);
+        if (lv_obj_is_valid(ml[4])) lv_obj_clear_flag(ml[4], LV_OBJ_FLAG_HIDDEN);
+    } else {
+        if (lv_obj_is_valid(ml[4])) lv_obj_add_flag(ml[4], LV_OBJ_FLAG_HIDDEN);
+        for (uint8_t i = 0; i < 4; i++) {
+            if (!lv_obj_is_valid(ml[i])) continue;
+            if (i == m) lv_obj_clear_flag(ml[i], LV_OBJ_FLAG_HIDDEN);
+            else        lv_obj_add_flag(ml[i], LV_OBJ_FLAG_HIDDEN);
+        }
+    }
 }
 
 /* 下拉面板空桩 */

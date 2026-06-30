@@ -18,13 +18,13 @@ static void obj_show(lv_obj_t *obj, bool show)
 
 static void netset_apply_state(NetState st)
 {
-    obj_show(guider_ui.NetSetting_label_3, st == NET_UNBOUND);
-    obj_show(guider_ui.NetSetting_btn_3,   st == NET_UNBOUND);
-    obj_show(guider_ui.NetSetting_img_3,   st == NET_UNBOUND);
-    obj_show(guider_ui.NetSetting_label_4, st == NET_BINDING);
-    obj_show(guider_ui.NetSetting_img_4,   st == NET_BINDING);
-    obj_show(guider_ui.NetSetting_btn_5,   st == NET_BOUND);
-    obj_show(guider_ui.NetSetting_img_5,   st == NET_BOUND);
+    obj_show(guider_ui.MISetting_label_3, st == NET_UNBOUND);
+    obj_show(guider_ui.MISetting_btn_3,   st == NET_UNBOUND);
+    obj_show(guider_ui.MISetting_img_3,   st == NET_UNBOUND);
+    obj_show(guider_ui.MISetting_label_4, st == NET_BINDING);
+    obj_show(guider_ui.MISetting_img_4,   st == NET_BINDING);
+    obj_show(guider_ui.MISetting_btn_5,   st == NET_BOUND);
+    obj_show(guider_ui.MISetting_img_5,   st == NET_BOUND);
 }
 
 /* 点"开始绑定" → 进绑定中 */
@@ -46,10 +46,10 @@ static void btn_unbind_cb(lv_event_t *event)
 /* ── 屏幕加载(events_init 在 SCREEN_LOADED 调) ── */
 void netsetting_on_screen_load(void)
 {
-    if (lv_obj_is_valid(guider_ui.NetSetting_btn_3))
-        lv_obj_add_event_cb(guider_ui.NetSetting_btn_3, btn_start_bind_cb, LV_EVENT_CLICKED, NULL);
-    if (lv_obj_is_valid(guider_ui.NetSetting_btn_5))
-        lv_obj_add_event_cb(guider_ui.NetSetting_btn_5, btn_unbind_cb, LV_EVENT_CLICKED, NULL);
+    if (lv_obj_is_valid(guider_ui.MISetting_btn_3))
+        lv_obj_add_event_cb(guider_ui.MISetting_btn_3, btn_start_bind_cb, LV_EVENT_CLICKED, NULL);
+    if (lv_obj_is_valid(guider_ui.MISetting_btn_5))
+        lv_obj_add_event_cb(guider_ui.MISetting_btn_5, btn_unbind_cb, LV_EVENT_CLICKED, NULL);
     netset_apply_state(NET_UNBOUND);   /* 进屏: 未绑定 */
 }
 

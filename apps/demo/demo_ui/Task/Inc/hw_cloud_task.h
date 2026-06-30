@@ -22,8 +22,9 @@ enum {
     HW_MSG_CURTAIN_POS,       /* uint8_t idx, uint16_t pos */
     HW_MSG_CURTAIN_ANGLE,     /* uint16_t val — 梦幻帘旋转角(度) */
     HW_MSG_AIRCON_SWITCH,     /* bool on      — 空调电源 */
-    HW_MSG_AIRCON_MODE,       /* uint16_t val — 空调模式 0制冷/1制热/2送风/3除湿 */
+    HW_MSG_AIRCON_MODE,       /* uint16_t val — 空调模式 0制冷/1制热/2除湿/3送风 */
     HW_MSG_AIRCON_SPEED,      /* uint16_t val — 空调风速 0/1/2档, 3=自动 */
+    HW_MSG_AIRCON_TEMP,       /* uint16_t val — 空调温度 16~32℃ */
     HW_MSG_DRYRACK_POS,       /* uint16_t val — 晾衣机位置 0~100% */
     HW_MSG_DRYRACK_LIGHT,     /* bool on      — 晾衣机照明 */
     HW_MSG_FANLIGHT_POWER,    /* bool on      — 风扇灯电源 */

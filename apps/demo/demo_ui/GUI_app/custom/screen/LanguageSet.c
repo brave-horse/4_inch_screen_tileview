@@ -94,7 +94,7 @@ void languageset_on_screen_load(void)
 	popup_hide();   /* 弹窗默认隐藏 */
 
 	s_rows[0].cont = guider_ui.LanguageSet_cont_3;
-	s_rows[1].cont = guider_ui.LanguageSet_cont_4;
+	s_rows[1].cont = guider_ui.LanguageSet_cont_6;
 
 	for (uint8_t i = 0; i < 2; i++) {
 		lv_obj_t *cont = s_rows[i].cont;

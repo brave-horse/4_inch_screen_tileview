@@ -192,6 +192,11 @@ HW_InterfaceTypeDef HWInterface = {
         .SetLight  = impl_FanAndLight_SetLight,
         .Apply     = impl_FanAndLight_Apply,
     },
+    .AirCondition = {
+        .power       = false,  /* 默认关 */
+        .mode        = 0,     /* 0制冷 */
+        .temperature = 25,    /* 默认 25℃ */
+    },
     .Heater = {
         .light = false,
         .mode  = -1,   /* 默认无模式 */
