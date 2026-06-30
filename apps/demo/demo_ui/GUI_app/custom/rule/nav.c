@@ -33,7 +33,7 @@ static const ScreenDef s_screens[SCR_COUNT] = {
     [SCR_FANANDLIGHT]     = SD(FanAndLight),
     [SCR_HEATER]          = SD(Heater),
     [SCR_SETTING]         = SD(setting_screen),
-    [SCR_NETSETTING]      = SD(NetSetting),
+    [SCR_NETSETTING]      = SD(MISetting),
     [SCR_PLAYSET]         = SD(PlaySet),
     [SCR_SWITCHSET]       = SD(SwitchSet),
     [SCR_SENSORSET]       = SD(SensorSet),
@@ -44,7 +44,7 @@ static const ScreenDef s_screens[SCR_COUNT] = {
 };
 
 /*===== 栈 =====*/
-#define NAV_STACK_MAX  8
+#define NAV_STACK_MAX  40
 typedef struct { ScreenId scr; uint8_t home_tile; lv_coord_t home_scroll; } NavEntry;
 static NavEntry   s_stack[NAV_STACK_MAX];
 static uint8_t    s_top = 0;

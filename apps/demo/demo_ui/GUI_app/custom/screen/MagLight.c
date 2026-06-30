@@ -14,6 +14,10 @@
 static uint32_t s_bri_tick;
 static uint32_t s_ct_tick;
 static ScenePanel s_panel;   /* cont_2 情景面板 */
+/* 硬件下发限频(ms)。UI 每次都刷跟手, 硬件下发限频防 IIC/PWM 过密。
+ * ⚠️ 隐患: 拖动松手时最后一帧若落在限频窗口内会被跳过, 硬件停在松手前 50ms 的中间值,
+ *    与 UI 显示的最终值不一致 → 下次调节硬件会从那个中间值"咔嚓"跳到目标(亮度/色温突变)。
+ *    接硬件时务必在松手(RELEASED)绕过限频强制补发一次最终值, UI 与硬件才同步。 */
 #define APPLY_MIN_MS  50
 #define MAGLIGHT_OPA_MIN  (LV_OPA_COVER * 20 / 100)  /* 亮度下限: 拖到1%也按20%出光, 防止灯图消失 */
 
@@ -64,11 +68,16 @@ static void mag_light_refresh(bool btn_status)
     }
 }
 
+/* 松手补值: 快速甩到边缘时 VALUE_CHANGED 可能没到极值, RELEASED 再对齐一次 */
+static void ct_released_cb(lv_event_t *e) { LV_UNUSED(e); mag_light_on_ct_slider_change(); }
+
 /* ══════ 4 个事件接口(供 GUI-Guider 事件一行调用) ══════ */
 
 void mag_light_on_screen_load(void)
 {
     bool btn_status = HWInterface.MagLight.switch_status;
+    lv_obj_set_style_pad_hor(guider_ui.MagLight_slider_2, 30, LV_PART_MAIN);
+    lv_obj_add_event_cb(guider_ui.MagLight_slider_2, ct_released_cb, LV_EVENT_RELEASED, NULL);
     lv_slider_set_range(guider_ui.MagLight_slider_1, 1, LIGHTCT_BRIGHTNESS_MAX);
     lv_slider_set_value(guider_ui.MagLight_slider_1, HWInterface.LightCT.brightness, LV_ANIM_OFF);
     lv_slider_set_value(guider_ui.MagLight_slider_2, HWInterface.LightCT.color_temp, LV_ANIM_OFF);
@@ -115,7 +124,14 @@ void mag_light_on_bri_slider_change(void)
 
 void mag_light_on_ct_slider_change(void)
 {
-    HWInterface.LightCT.SetColorTemp((uint16_t)lv_slider_get_value(guider_ui.MagLight_slider_2));
+    lv_obj_t *s = guider_ui.MagLight_slider_2;
+    int32_t raw = lv_slider_get_value(s);
+    int32_t v = ((raw + 25) / 50) * 50;
+    if (v < LIGHTCT_COLOR_TEMP_MIN) v = LIGHTCT_COLOR_TEMP_MIN;
+    if (v > LIGHTCT_COLOR_TEMP_MAX) v = LIGHTCT_COLOR_TEMP_MAX;
+    if (v != raw) lv_slider_set_value(s, v, LV_ANIM_OFF);
+
+    HWInterface.LightCT.SetColorTemp((uint16_t)v);
     mag_light_apply_light();
     if (lv_tick_elaps(s_ct_tick) >= APPLY_MIN_MS) {
         s_ct_tick = lv_tick_get();

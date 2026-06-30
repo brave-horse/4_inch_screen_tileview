@@ -1,6 +1,7 @@
 #include "lvgl.h"
 #include "gui_guider.h"
 #include "LanguageSet.h"
+#include "i18n.h"
 
 #define LS_PRESS_BG  0x151414   /* 语言栏按下底色 */
 #define POPUP_X      96         /* 确认弹窗显示位置(528 宽居中) */
@@ -84,7 +85,7 @@ static void on_ok(lv_event_t *e)
 {
 	LV_UNUSED(e);
 	s_current = s_pending;
-	/* TODO 全局切换中英文: 需 i18n 机制(每界面 label 配中英两套文字), 单独实现 */
+	i18n_set_lang(s_pending == 0 ? I18N_ZH : I18N_EN);
 	popup_hide();
 }
 
@@ -93,7 +94,7 @@ void languageset_on_screen_load(void)
 	popup_hide();   /* 弹窗默认隐藏 */
 
 	s_rows[0].cont = guider_ui.LanguageSet_cont_3;
-	s_rows[1].cont = guider_ui.LanguageSet_cont_4;
+	s_rows[1].cont = guider_ui.LanguageSet_cont_6;
 
 	for (uint8_t i = 0; i < 2; i++) {
 		lv_obj_t *cont = s_rows[i].cont;

@@ -17,12 +17,14 @@ static void clear_children_clickable(lv_obj_t *obj)
 void setting_on_screen_load(void)
 {
 	lv_obj_set_scroll_dir(guider_ui.setting_screen_tabview_1, LV_DIR_VER);
+	lv_obj_set_scroll_dir(guider_ui.setting_screen_tabview_1_tab_1, LV_DIR_VER);	/* 禁 tab 内容横滚 */
 
 	lv_obj_t *conts[] = {
-		guider_ui.setting_screen_cont_3, guider_ui.setting_screen_cont_4,
-		guider_ui.setting_screen_cont_5, guider_ui.setting_screen_cont_6,
-		guider_ui.setting_screen_cont_7, guider_ui.setting_screen_cont_8,
-		guider_ui.setting_screen_cont_9, guider_ui.setting_screen_cont_10,
+		guider_ui.setting_screen_cont_3,  guider_ui.setting_screen_cont_4,
+		guider_ui.setting_screen_cont_5,  guider_ui.setting_screen_cont_6,
+		guider_ui.setting_screen_cont_7,  guider_ui.setting_screen_cont_8,
+		guider_ui.setting_screen_cont_9,  guider_ui.setting_screen_cont_10,
+		guider_ui.setting_screen_cont_14, guider_ui.setting_screen_cont_15,
 	};
 	const uint8_t n = sizeof(conts) / sizeof(conts[0]);
 	for (uint8_t i = 0; i < n; i++) {

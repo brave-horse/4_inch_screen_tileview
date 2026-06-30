@@ -9,6 +9,10 @@ static uint32_t s_bri_tick;
 static uint32_t s_color_tick;
 static uint16_t s_color_pos;            /* 颜色滑条位置, 切屏后回填 */
 static ScenePanel s_panel;              /* cont_2 情景面板 */
+/* 硬件下发限频(ms)。UI 每次都刷跟手, 硬件下发限频防 IIC/PWM 过密。
+ * ⚠️ 隐患: 拖动松手时最后一帧若落在限频窗口内会被跳过, 硬件停在松手前 50ms 的中间值,
+ *    与 UI 显示的最终值不一致 → 下次调节硬件会从那个中间值"咔嚓"跳到目标(亮度/颜色突变)。
+ *    接硬件时务必在松手(RELEASED)绕过限频强制补发一次最终值, UI 与硬件才同步。 */
 #define APPLY_MIN_MS  50
 #define RGB_SEG_LEN   100
 #define RGB_ANCHORS   7
@@ -91,6 +95,7 @@ static void rgb_light_refresh(bool btn_status)
 
 void rgb_light_on_screen_load(void)
 {
+    lv_obj_set_style_pad_hor(guider_ui.RGBLight_slider_2, 30, LV_PART_MAIN);
     lv_slider_set_range(guider_ui.RGBLight_slider_1, 1, LIGHTCT_BRIGHTNESS_MAX);
     lv_slider_set_range(guider_ui.RGBLight_slider_2, 0, RGB_POS_MAX);
     lv_slider_set_value(guider_ui.RGBLight_slider_1, HWInterface.LightCT.brightness, LV_ANIM_OFF);

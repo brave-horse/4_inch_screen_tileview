@@ -105,8 +105,9 @@ typedef struct
 
 typedef struct
 {
-    bool    power;  /* 空调电源 */
-    uint8_t mode;   /* 0制冷 1制热 2送风 3除湿 */
+    bool    power;       /* 空调电源 */
+    uint8_t mode;        /* 0制冷 1制热 2送风 3除湿 */
+    uint8_t temperature; /* 温度 16~32℃ */
 } HW_AirCondition_InterfaceTypeDef;
 
 typedef struct

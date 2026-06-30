@@ -2,7 +2,7 @@
 
 /* 4 个灯屏 cont_2 是同模板: 524x392, 开在 (92,227), 收起藏到屏外上方 */
 #define SP_OPEN_X     92
-#define SP_OPEN_Y     200
+#define SP_OPEN_Y     180
 #define SP_HIDDEN_Y   (-392)    /* = -面板高度, 完全藏到屏幕上方 */
 #define SP_OPEN_MS    700       /* 展开时长 */
 #define SP_CLOSE_MS   300       /* 收回更快 */
